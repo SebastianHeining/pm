@@ -1,0 +1,275 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import { Container } from "@/components/ui/Container";
+import {
+  Section,
+  SectionEyebrow,
+  SectionHeading,
+  SectionLead,
+} from "@/components/ui/Section";
+import { Card, CardBody, CardTitle } from "@/components/ui/Card";
+import { LinkButton } from "@/components/ui/Button";
+import { PageHero } from "@/components/sections/PageHero";
+import { JsonLd } from "@/components/JsonLd";
+import { breadcrumbJsonLd, personJsonLd } from "@/lib/seo";
+import { loadTeam, type TeamMember } from "@/lib/content";
+
+export const metadata: Metadata = {
+  title: "Unser Team",
+  description:
+    "Erfahrene Physiotherapeut:innen, freundliche Anmeldekräfte und spezialisierte Fachkräfte — lernen Sie unser Team kennen.",
+};
+
+function MemberPortrait({ member, size = 96 }: { member: TeamMember; size?: number }) {
+  if (member.bild) {
+    return (
+      <div
+        className="relative shrink-0 overflow-hidden rounded-2xl bg-surface-mute"
+        style={{ width: size, height: size }}
+      >
+        <Image
+          src={member.bild}
+          alt={`Foto von ${member.name === "Name?" ? "Teammitglied" : member.name}`}
+          fill
+          sizes={`${size}px`}
+          className="object-cover"
+        />
+      </div>
+    );
+  }
+  const initials = member.name === "Name?" ? "?" : member.name
+    .split(/\s+/)
+    .map((p) => p[0])
+    .filter(Boolean)
+    .slice(0, 2)
+    .join("");
+  return (
+    <div
+      className="flex shrink-0 items-center justify-center rounded-2xl bg-brand-navy text-2xl font-semibold uppercase text-white"
+      style={{ width: size, height: size }}
+      aria-hidden
+    >
+      {initials}
+    </div>
+  );
+}
+
+function MemberTile({ member, featured }: { member: TeamMember; featured?: boolean }) {
+  const isPlaceholder = member.name === "Name?";
+  return (
+    <article
+      className={
+        featured
+          ? "grid gap-8 rounded-3xl border border-border-soft bg-white p-8 sm:grid-cols-[260px_1fr] sm:p-10"
+          : "rounded-2xl border border-border-soft bg-white p-7"
+      }
+    >
+      <div className={featured ? "" : "flex items-start gap-5"}>
+        <MemberPortrait
+          member={member}
+          size={featured ? 260 : 96}
+        />
+        {!featured && (
+          <div className="flex-1">
+            <h3 className="text-lg font-semibold leading-snug tracking-tight text-brand-navy">
+              {member.name}
+            </h3>
+            <p className="mt-1 text-sm text-graphite-soft">{member.rolle}</p>
+            {member.seitJahr && member.seitJahr > 1900 && (
+              <p className="mt-1 text-xs uppercase tracking-[0.18em] text-brand-red">
+                seit {member.seitJahr}
+              </p>
+            )}
+          </div>
+        )}
+      </div>
+      {featured && (
+        <div>
+          <h3 className="text-2xl font-semibold leading-snug tracking-tight text-brand-navy">
+            {member.name}
+          </h3>
+          <p className="mt-2 text-base font-medium text-graphite">{member.rolle}</p>
+          {member.seitJahr && member.seitJahr > 1900 && (
+            <p className="mt-1 text-xs uppercase tracking-[0.18em] text-brand-red">
+              seit {member.seitJahr}
+            </p>
+          )}
+          {member.bio && (
+            <p className="mt-5 text-base leading-relaxed text-graphite">{member.bio}</p>
+          )}
+          {member.qualifikationen.length > 0 && (
+            <div className="mt-6">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-graphite-soft">
+                Qualifikationen
+              </p>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {member.qualifikationen.map((q) => (
+                  <li
+                    key={q}
+                    className="rounded-full bg-surface-warm px-3 py-1 text-sm font-medium text-brand-navy ring-1 ring-border-soft"
+                  >
+                    {q}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+      )}
+      {!featured && member.spezialisierung && (
+        <p className="mt-5 text-sm leading-relaxed text-graphite">
+          <span className="font-semibold text-brand-navy">Schwerpunkt: </span>
+          {member.spezialisierung}
+        </p>
+      )}
+      {!featured && member.qualifikationen.length > 0 && (
+        <ul className="mt-4 flex flex-wrap gap-2">
+          {member.qualifikationen.slice(0, 4).map((q) => (
+            <li
+              key={q}
+              className="rounded-full bg-surface-warm px-2.5 py-0.5 text-xs font-medium text-brand-navy ring-1 ring-border-soft"
+            >
+              {q}
+            </li>
+          ))}
+          {member.qualifikationen.length > 4 && (
+            <li className="rounded-full bg-surface-warm px-2.5 py-0.5 text-xs font-medium text-graphite-soft ring-1 ring-border-soft">
+              +{member.qualifikationen.length - 4}
+            </li>
+          )}
+        </ul>
+      )}
+      {isPlaceholder && (
+        <p className="mt-4 rounded-lg bg-brand-red-soft px-3 py-2 text-xs text-brand-red-hover">
+          Foto vorhanden — Namen folgt nach Abstimmung mit der Praxis.
+        </p>
+      )}
+    </article>
+  );
+}
+
+export default async function TeamPage() {
+  const team = await loadTeam();
+  const inhaberin = team.find((m) => m.reihenfolge === 1);
+  const therapie = team.filter((m) => m.abteilung === "therapie" && m.reihenfolge !== 1);
+  const empfang = team.filter((m) => m.abteilung === "empfang");
+
+  return (
+    <>
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "Start", href: "/" },
+            { name: "Praxis", href: "/praxis" },
+            { name: "Team", href: "/praxis/team" },
+          ]),
+          ...team
+            .filter((m) => m.name !== "Name?")
+            .map((m) =>
+              personJsonLd({
+                name: m.name,
+                jobTitle: m.rolle,
+                imagePath: m.bild || undefined,
+                qualifications: m.qualifikationen,
+              }),
+            ),
+        ]}
+      />
+
+      <PageHero
+        eyebrow="Unser Team"
+        title={
+          <>
+            Kompetent, zugewandt,
+            <span className="block text-brand-red">motiviert.</span>
+          </>
+        }
+        lead="Unsere Praxis lebt von den Menschen, die hier arbeiten. Ein engagiertes Team aus erfahrenen Physiotherapeut:innen, freundlichen Anmeldekräften und spezialisierten Kolleg:innen sorgt dafür, dass Sie sich jederzeit gut aufgehoben fühlen."
+      />
+
+      {inhaberin && (
+        <Section spacing="default">
+          <Container>
+            <SectionEyebrow>Praxisinhaberin</SectionEyebrow>
+            <SectionHeading>Astrid Mally — die Praxis trägt ihren Namen.</SectionHeading>
+            <div className="mt-12">
+              <MemberTile member={inhaberin} featured />
+            </div>
+          </Container>
+        </Section>
+      )}
+
+      <Section tone="warm" spacing="default">
+        <Container>
+          <SectionEyebrow>Therapie-Team</SectionEyebrow>
+          <SectionHeading>Wer Sie sonst noch behandelt.</SectionHeading>
+          <SectionLead>
+            Unser gesamtes Team bildet sich regelmäßig fort, um Ihnen die
+            bestmögliche Therapie nach aktuellen wissenschaftlichen
+            Erkenntnissen bieten zu können.
+          </SectionLead>
+          <ul className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            {therapie.map((m) => (
+              <li key={m.slug}>
+                <MemberTile member={m} />
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </Section>
+
+      {empfang.length > 0 && (
+        <Section spacing="default">
+          <Container>
+            <SectionEyebrow>Anmeldung & Organisation</SectionEyebrow>
+            <SectionHeading>Ihre Stimmen am Telefon.</SectionHeading>
+            <SectionLead>
+              Freundlich, organisiert und immer für Sie da: unser Empfangs- und
+              Organisationsteam koordiniert Termine und beantwortet Ihre
+              Fragen zu Rezepten, Kostenübernahme und allem rundum die Praxis.
+            </SectionLead>
+            <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {empfang.map((m) => (
+                <li key={m.slug}>
+                  <MemberTile member={m} />
+                </li>
+              ))}
+            </ul>
+          </Container>
+        </Section>
+      )}
+
+      <Section tone="navy" spacing="default">
+        <Container>
+          <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+            <div>
+              <SectionEyebrow>
+                <span className="text-brand-red-soft">Karriere</span>
+              </SectionEyebrow>
+              <SectionHeading className="text-white">
+                Lust, Teil unseres Teams zu werden?
+              </SectionHeading>
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/85">
+                Wir suchen Therapeut:innen, die mit Herz und Verstand bei der
+                Sache sind. Wertschätzung, fachliche Weiterentwicklung und
+                planbare Arbeitszeiten sind bei uns gelebter Alltag.
+              </p>
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <LinkButton href="/karriere" variant="onNavy" size="lg">
+                  Karriere bei Mally
+                </LinkButton>
+              </div>
+            </div>
+            <Card tone="navy" className="bg-white/5 ring-1 ring-white/10">
+              <CardTitle className="text-white">Wir suchen Verstärkung</CardTitle>
+              <CardBody className="text-white/85">
+                Aktuell suchen wir eine:n Physiotherapeut:in (m/w/d) in Voll-
+                oder Teilzeit für unser Team in Hamm-Bockum-Hövel.
+              </CardBody>
+            </Card>
+          </div>
+        </Container>
+      </Section>
+    </>
+  );
+}

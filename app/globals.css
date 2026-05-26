@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand color tokens — derived from PowerPoint design system */
+  --color-brand-navy: #152d47;
+  --color-brand-navy-soft: #233f5e;
+  --color-brand-navy-deep: #0d1d31;
+  --color-brand-red: #c8202a;
+  --color-brand-red-hover: #a51820;
+  --color-brand-red-soft: #f1d4d6;
+  --color-graphite: #4c4c4d;
+  --color-graphite-soft: #747474;
+  --color-graphite-mute: #9aa0a6;
+
+  --color-surface: #ffffff;
+  --color-surface-warm: #f7f5f2;
+  --color-surface-mute: #efebe5;
+  --color-border-soft: #e5e2dd;
+  --color-border-strong: #c8c4bd;
+
+  /* Body uses graphite, headings use navy */
+  --color-background: var(--color-surface);
+  --color-foreground: var(--color-graphite);
+
+  /* Typography */
+  --font-sans: var(--font-dm-sans), system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Container width */
+  --container-page: 80rem; /* 1280px */
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--color-surface);
+    color: var(--color-graphite);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-brand-navy);
+    font-family: var(--font-sans);
+    letter-spacing: -0.015em;
+    font-weight: 600;
+  }
+
+  ::selection {
+    background: var(--color-brand-red);
+    color: white;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-red);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .prose-mally {
+    color: var(--color-graphite);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    max-width: 65ch;
+  }
+  .prose-mally > * + * { margin-top: 1.2em; }
+  .prose-mally h2 {
+    color: var(--color-brand-navy);
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-top: 2.5em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+  .prose-mally h3 {
+    color: var(--color-brand-navy);
+    font-size: 1.35rem;
+    line-height: 1.25;
+    margin-top: 2em;
+    margin-bottom: 0.4em;
+    font-weight: 600;
+  }
+  .prose-mally h4 {
+    color: var(--color-brand-navy);
+    font-size: 1.125rem;
+    margin-top: 1.5em;
+    font-weight: 600;
+  }
+  .prose-mally a {
+    color: var(--color-brand-red);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .prose-mally a:hover { color: var(--color-brand-navy); }
+  .prose-mally strong { color: var(--color-brand-navy); font-weight: 600; }
+  .prose-mally ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .prose-mally ul > li {
+    position: relative;
+    padding-left: 1.6em;
+  }
+  .prose-mally ul > li::before {
+    content: "";
+    position: absolute;
+    left: 0.3em;
+    top: 0.7em;
+    width: 0.45em;
+    height: 0.45em;
+    border-radius: 9999px;
+    background: var(--color-brand-red);
+  }
+  .prose-mally ol {
+    counter-reset: ol-counter;
+    list-style: none;
+    padding-left: 0;
+  }
+  .prose-mally ol > li {
+    counter-increment: ol-counter;
+    position: relative;
+    padding-left: 2em;
+  }
+  .prose-mally ol > li::before {
+    content: counter(ol-counter);
+    position: absolute;
+    left: 0;
+    top: 0.05em;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 9999px;
+    background: var(--color-brand-red);
+    color: white;
+    font-size: 0.85em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .prose-mally blockquote {
+    border-left: 3px solid var(--color-brand-red);
+    padding: 0.25em 0 0.25em 1.25em;
+    color: var(--color-brand-navy);
+    font-weight: 500;
+    font-style: normal;
+  }
+  .prose-mally code {
+    background: var(--color-surface-warm);
+    padding: 0.15em 0.4em;
+    border-radius: 0.25em;
+    font-size: 0.92em;
+  }
+  .prose-mally p:first-child {
+    font-size: 1.25rem;
+    line-height: 1.55;
+    color: var(--color-graphite);
+  }
+}

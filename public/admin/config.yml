@@ -1,0 +1,167 @@
+# Decap CMS — Konfiguration für die Inhaltsredaktion
+# Doku: https://decapcms.org/docs/
+
+# Im Production-Betrieb wird "backend" durch GitHub oder git-gateway ersetzt.
+# Für lokale Pflege:  npx decap-server  in einem zweiten Terminal starten,
+# dann /admin im Browser öffnen — die "Login"-Schaltfläche meldet automatisch an.
+backend:
+  name: git-gateway
+  branch: main
+
+# Aktiviert lokalen Server-Modus (npx decap-server) für Dev/Test ohne Auth.
+local_backend: true
+
+media_folder: "public/team"
+public_folder: "/team"
+
+locale: "de"
+
+site_url: "https://physiotherapie-mally.de"
+display_url: "https://physiotherapie-mally.de"
+logo_url: "/assets/logo/logo-am.png"
+
+collections:
+  - name: "team"
+    label: "Team"
+    label_singular: "Teammitglied"
+    folder: "content/team"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{reihenfolge}} — {{name}} ({{rolle}})"
+    sortable_fields: ["reihenfolge", "name"]
+    identifier_field: "name"
+    fields:
+      - { name: "name", label: "Name", widget: "string" }
+      - { name: "rolle", label: "Rolle / Position", widget: "string" }
+      - {
+          name: "bild",
+          label: "Foto",
+          widget: "image",
+          required: false,
+          allow_multiple: false,
+          media_folder: "/public/team",
+          public_folder: "/team",
+        }
+      - {
+          name: "abteilung",
+          label: "Abteilung",
+          widget: "select",
+          options:
+            [
+              { label: "Therapie", value: "therapie" },
+              { label: "Empfang & Organisation", value: "empfang" },
+            ],
+          default: "therapie",
+        }
+      - {
+          name: "reihenfolge",
+          label: "Reihenfolge (kleinere Zahl = weiter oben)",
+          widget: "number",
+          value_type: "int",
+          min: 1,
+          max: 99,
+        }
+      - {
+          name: "seitJahr",
+          label: "Seit Jahr (in der Praxis bzw. im Beruf)",
+          widget: "number",
+          required: false,
+          value_type: "int",
+          min: 1970,
+          max: 2100,
+        }
+      - {
+          name: "spezialisierung",
+          label: "Schwerpunkt (kurze Zeile, z. B. „CMD · Manuelle Therapie")",
+          widget: "string",
+          required: false,
+        }
+      - {
+          name: "qualifikationen",
+          label: "Qualifikationen / Zertifikate",
+          widget: "list",
+          field: { name: "value", label: "Qualifikation", widget: "string" },
+          required: false,
+        }
+      - {
+          name: "notiz",
+          label: "Interne Notiz (nicht öffentlich)",
+          widget: "text",
+          required: false,
+          hint: "Nur zur internen Verwendung — wird nicht auf der Webseite angezeigt.",
+        }
+      - {
+          name: "body",
+          label: "Kurze Vorstellung (öffentlich, optional)",
+          widget: "markdown",
+          required: false,
+          buttons: ["bold", "italic", "link", "heading-three", "quote", "bulleted-list"],
+        }
+
+  - name: "blog"
+    label: "Ratgeber & Tipps"
+    label_singular: "Artikel"
+    folder: "content/blog"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{datum}} — {{titel}}"
+    sortable_fields: ["datum", "titel"]
+    identifier_field: "titel"
+    fields:
+      - { name: "titel", label: "Titel", widget: "string" }
+      - {
+          name: "datum",
+          label: "Veröffentlichungs-Datum",
+          widget: "datetime",
+          format: "YYYY-MM-DD",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+        }
+      - {
+          name: "autor",
+          label: "Autor:in",
+          widget: "string",
+          default: "Praxis Mally",
+        }
+      - {
+          name: "kategorie",
+          label: "Kategorie",
+          widget: "select",
+          options:
+            [
+              "Praxis",
+              "Rücken & Wirbelsäule",
+              "CMD & Kiefer",
+              "Lymphsystem",
+              "Bewegung & Sport",
+              "Ernährung & Lifestyle",
+              "Schmerz verstehen",
+            ],
+        }
+      - {
+          name: "coverBild",
+          label: "Titelbild",
+          widget: "image",
+          required: false,
+          media_folder: "/public/ratgeber",
+          public_folder: "/ratgeber",
+        }
+      - {
+          name: "kurzbeschreibung",
+          label: "Kurzbeschreibung (Teaser, 1–2 Sätze)",
+          widget: "text",
+        }
+      - {
+          name: "veroeffentlicht",
+          label: "Veröffentlicht?",
+          widget: "boolean",
+          default: false,
+          hint: "Erst aktivieren, wenn der Artikel live gehen soll.",
+        }
+      - {
+          name: "body",
+          label: "Inhalt",
+          widget: "markdown",
+        }
