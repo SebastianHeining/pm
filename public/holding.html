@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Praxis für Physiotherapie Astrid Mally · Hamm-Bockum-Hövel</title>
+  <meta name="description" content="Praxis für Physiotherapie Astrid Mally in Hamm-Bockum-Hövel. Telefon 02381 / 5444 - 533. Unsere Webseite wird derzeit überarbeitet." />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#152D47" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23C8202A'/%3E%3Ctext x='50' y='62' text-anchor='middle' font-family='system-ui,sans-serif' font-weight='700' font-size='44' fill='white'%3Eam%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root {
+      --navy: #152D47;
+      --navy-soft: #233F5E;
+      --red: #C8202A;
+      --red-hover: #A51820;
+      --red-soft: #F1D4D6;
+      --graphite: #4C4C4D;
+      --graphite-soft: #747474;
+      --surface: #FFFFFF;
+      --surface-warm: #F7F5F2;
+      --border: #E5E2DD;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--graphite);
+      background: var(--surface-warm);
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 {
+      color: var(--navy);
+      letter-spacing: -0.015em;
+      margin: 0;
+    }
+    a { color: var(--navy); }
+    a:hover { color: var(--red); }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    /* Header / Brand */
+    .brand-bar {
+      background: var(--navy);
+      color: white;
+      padding: 1.25rem 0;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .brand-mark {
+      width: 56px;
+      height: 56px;
+      border-radius: 9999px;
+      background: var(--red);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.15);
+    }
+    .brand-text-eyebrow {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.7);
+    }
+    .brand-text-name {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    /* Hero */
+    .hero {
+      padding: 4rem 0 3rem;
+      text-align: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--red);
+      margin: 0 0 1.5rem;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 2rem;
+      height: 1px;
+      background: var(--red);
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw + 1rem, 3.2rem);
+      line-height: 1.1;
+      font-weight: 600;
+      max-width: 22ch;
+      margin: 0 auto;
+    }
+    .hero h1 .accent { color: var(--red); display: block; }
+    .hero .lead {
+      max-width: 38ch;
+      margin: 1.5rem auto 0;
+      font-size: 1.1rem;
+      color: var(--graphite);
+    }
+    /* Card grid */
+    .grid {
+      display: grid;
+      gap: 1rem;
+      padding: 2rem 0;
+    }
+    @media (min-width: 600px) {
+      .grid-cols-2 { grid-template-columns: 1fr 1fr; }
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.75rem;
+    }
+    .card h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .label {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--red);
+      margin-bottom: 0.25rem;
+    }
+    /* Phone CTA */
+    .phone-cta {
+      display: block;
+      background: var(--navy);
+      color: white;
+      padding: 2rem 1.5rem;
+      border-radius: 1rem;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .phone-cta:hover { background: var(--red); color: white; }
+    .phone-cta .label { color: var(--red-soft); }
+    .phone-cta .number {
+      display: block;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-top: 0.25rem;
+    }
+    /* Hours table */
+    .hours { list-style: none; padding: 0; margin: 0; }
+    .hours li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      gap: 1rem;
+    }
+    .hours li:last-child { border-bottom: 0; }
+    .hours .days { font-weight: 600; color: var(--navy); }
+    .hours .time { color: var(--graphite); white-space: nowrap; }
+    /* Generic spacing */
+    section + section { padding-top: 0; }
+    .note {
+      font-size: 0.9rem;
+      color: var(--graphite-soft);
+      margin-top: 1rem;
+    }
+    /* Address & links */
+    address {
+      font-style: normal;
+      margin: 0.25rem 0 0;
+      color: var(--navy);
+      font-weight: 500;
+    }
+    .link-list { display: grid; gap: 0.75rem; margin: 0; padding: 0; }
+    .link-list a {
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--navy);
+    }
+    .link-list a:hover { color: var(--red); }
+    /* Impressum */
+    .impressum {
+      background: var(--navy);
+      color: rgba(255,255,255,0.9);
+      padding: 3rem 0 2.5rem;
+      margin-top: 3rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+    .impressum h2 {
+      color: white;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .impressum h3 {
+      color: white;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-weight: 600;
+      margin: 1.5rem 0 0.3rem;
+    }
+    .impressum a {
+      color: var(--red-soft);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .impressum a:hover { color: white; }
+    .impressum-grid {
+      display: grid;
+      gap: 2rem;
+    }
+    @media (min-width: 600px) {
+      .impressum-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1.5rem;
+      margin-top: 2.5rem;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+    }
+    /* Focus */
+    a:focus-visible, .phone-cta:focus-visible {
+      outline: 2px solid var(--red);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header class="brand-bar">
+    <div class="container brand">
+      <span class="brand-mark" aria-hidden="true">am</span>
+      <span>
+        <span class="brand-text-eyebrow">Praxis für Physiotherapie</span>
+        <span class="brand-text-name">Astrid Mally</span>
+      </span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Hamm-Bockum-Hövel · seit 1998</p>
+        <h1>
+          Unsere neue Webseite ist in Arbeit.
+          <span class="accent">Wir sind weiterhin für Sie da.</span>
+        </h1>
+        <p class="lead">
+          Schauen Sie bald wieder vorbei. In der Zwischenzeit erreichen Sie uns
+          ganz einfach telefonisch oder per E-Mail.
+        </p>
+      </div>
+    </section>
+
+    <section class="container">
+      <a class="phone-cta" href="tel:+4923815444533" aria-label="Jetzt anrufen unter 02381 5444 533">
+        <span class="label">Termin & Beratung</span>
+        <span class="number">02381 / 5444 - 533</span>
+      </a>
+    </section>
+
+    <section class="container">
+      <div class="grid grid-cols-2">
+        <article class="card">
+          <h2>Öffnungszeiten</h2>
+          <ul class="hours">
+            <li><span class="days">Mo, Mi</span><span class="time">07:30 – 19:00 Uhr</span></li>
+            <li><span class="days">Di, Fr</span><span class="time">07:30 – 16:00 Uhr</span></li>
+            <li><span class="days">Do</span><span class="time">07:30 – 17:00 Uhr</span></li>
+          </ul>
+          <p class="note">
+            Außerhalb dieser Zeiten erreichen Sie unseren Anrufbeantworter —
+            wir rufen schnellstmöglich zurück.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Kontakt & Adresse</h2>
+          <div class="link-list">
+            <div>
+              <span class="label">Telefon</span>
+              <a href="tel:+4923815444533">02381 / 5444 - 533</a>
+            </div>
+            <div>
+              <span class="label">E-Mail</span>
+              <a href="mailto:info@physiotherapie-mally.de">info@physiotherapie-mally.de</a>
+            </div>
+            <div>
+              <span class="label">Adresse</span>
+              <address>
+                Hammer Str. 90a<br>
+                59075 Hamm-Bockum-Hövel
+              </address>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container">
+      <article class="card">
+        <h2>Anfahrt & Parken</h2>
+        <p>
+          Direkte Zufahrt über die Hammer Straße. Parkplätze finden Sie direkt
+          vor dem Gebäude und auf dem großen Kundenparkplatz am Ärztehaus.
+        </p>
+        <p>
+          <strong style="color: var(--navy);">Parkscheibe nicht vergessen:</strong>
+          2 Stunden kostenlos parken auf dem Kundenparkplatz — bitte legen Sie
+          Ihre Parkscheibe gut sichtbar aus.
+        </p>
+        <p>
+          Mit dem Bus erreichen Sie uns über die Haltestelle „Lücke / JuSt".
+          Unsere Praxis ist barrierefrei zugänglich.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="impressum">
+    <div class="container">
+      <h2>Impressum</h2>
+
+      <div class="impressum-grid">
+        <div>
+          <h3>Diensteanbieter</h3>
+          <p>
+            Praxis für Physiotherapie Astrid Mally<br>
+            Inhaberin: Astrid Mally<br>
+            Hammer Str. 90a<br>
+            59075 Hamm-Bockum-Hövel
+          </p>
+
+          <h3>Kontakt</h3>
+          <p>
+            Telefon: <a href="tel:+4923815444533">02381 / 5444 - 533</a><br>
+            Telefax: 02381 / 5444 - 534<br>
+            E-Mail: <a href="mailto:info@physiotherapie-mally.de">info@physiotherapie-mally.de</a>
+          </p>
+        </div>
+        <div>
+          <h3>Berufsbezeichnung</h3>
+          <p>
+            Physiotherapeutin (verliehen in Deutschland).<br>
+            Es gelten das Masseur- und Physiotherapeutengesetz (MPhG) sowie
+            die Heilmittel-Richtlinien des G-BA.
+          </p>
+
+          <h3>Aufsichtsbehörde</h3>
+          <p>
+            Gesundheitsamt des Kreises Hamm<br>
+            Gustav-Heinemann-Straße 10<br>
+            59065 Hamm
+          </p>
+
+          <h3>Verantwortlich nach § 18 Abs. 2 MStV</h3>
+          <p>Astrid Mally · Anschrift wie oben</p>
+        </div>
+      </div>
+
+      <p class="copyright">
+        © <span id="year">2026</span> Praxis für Physiotherapie Astrid Mally ·
+        Zugelassen für alle gesetzlichen und privaten Krankenkassen.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
