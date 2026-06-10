@@ -54,6 +54,46 @@ function MemberPortrait({ member, size = 96 }: { member: TeamMember; size?: numb
   );
 }
 
+// Erklärungen für Qualifikationen, die beim Anklicken aufklappen
+// (Kunden-Wunsch: WABASKA-Text nur zeigen, wenn man draufklickt)
+const qualiDetails: Record<string, string> = {
+  "Beckenbodentraining nach WABASKA":
+    "Das WABASKA-Konzept (Wahrnehmung & Aktivierung des Beckenbodens, Stabilisation, Koordination, Atmung) ist ein ganzheitlicher Trainingsansatz — etwa bei Inkontinenz, in der Rückbildung oder nach gynäkologischen Eingriffen. Die Behandlung ist Teil der Krankengymnastik und damit ganz normal verordnungsfähig. Sprechen Sie uns an.",
+};
+
+function QualiTag({ q, compact }: { q: string; compact?: boolean }) {
+  const detail = qualiDetails[q];
+  const base = compact
+    ? "rounded-full bg-surface-warm px-2.5 py-0.5 text-xs font-medium text-brand-navy ring-1 ring-border-soft"
+    : "rounded-full bg-surface-warm px-3 py-1 text-sm font-medium text-brand-navy ring-1 ring-border-soft";
+
+  if (!detail) {
+    return <li className={base}>{q}</li>;
+  }
+  return (
+    <li className="max-w-md">
+      <details className="group">
+        <summary
+          className={`${base} flex cursor-pointer list-none items-center gap-1.5 transition-colors hover:ring-brand-red/40 [&::-webkit-details-marker]:hidden`}
+        >
+          {q}
+          <span
+            aria-hidden
+            className="text-brand-red transition-transform group-open:rotate-45"
+          >
+            +
+          </span>
+        </summary>
+        <p
+          className={`mt-2 rounded-xl bg-surface-warm p-3 leading-relaxed text-graphite ring-1 ring-border-soft ${compact ? "text-xs" : "text-sm"}`}
+        >
+          {detail}
+        </p>
+      </details>
+    </li>
+  );
+}
+
 function MemberTile({ member, featured }: { member: TeamMember; featured?: boolean }) {
   const isPlaceholder = member.name === "Name?";
   return (
@@ -104,12 +144,7 @@ function MemberTile({ member, featured }: { member: TeamMember; featured?: boole
               </p>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {member.qualifikationen.map((q) => (
-                  <li
-                    key={q}
-                    className="rounded-full bg-surface-warm px-3 py-1 text-sm font-medium text-brand-navy ring-1 ring-border-soft"
-                  >
-                    {q}
-                  </li>
+                  <QualiTag key={q} q={q} />
                 ))}
               </ul>
             </div>
@@ -125,12 +160,7 @@ function MemberTile({ member, featured }: { member: TeamMember; featured?: boole
       {!featured && member.qualifikationen.length > 0 && (
         <ul className="mt-4 flex flex-wrap gap-2">
           {member.qualifikationen.slice(0, 4).map((q) => (
-            <li
-              key={q}
-              className="rounded-full bg-surface-warm px-2.5 py-0.5 text-xs font-medium text-brand-navy ring-1 ring-border-soft"
-            >
-              {q}
-            </li>
+            <QualiTag key={q} q={q} compact />
           ))}
           {member.qualifikationen.length > 4 && (
             <li className="rounded-full bg-surface-warm px-2.5 py-0.5 text-xs font-medium text-graphite-soft ring-1 ring-border-soft">

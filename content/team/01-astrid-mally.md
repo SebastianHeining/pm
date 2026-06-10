@@ -8,7 +8,7 @@ seitJahr: 2000
 spezialisierung: MT · Schmerzphysiotherapie · CMD
 qualifikationen:
   - Staatlich anerkannte Physiotherapeutin
-  - Manuelle Therapie (OMT)
+  - MT (OMT)
   - Manuelle Lymphdrainage
   - CMD-Spezialistin (Craniomandibuläre Dysfunktion)
   - Zertifizierte Skoliosetherapeutin nach Schroth

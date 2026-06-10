@@ -211,30 +211,6 @@ export const leistungen: Leistung[] = [
     relatedSlugs: ["manuelle-therapie", "schlingentisch"],
   },
   {
-    slug: "pilates",
-    titel: "Pilates",
-    kategorie: "selbstzahler",
-    icon: "pilates",
-    kurzbeschreibung:
-      "Kontrollierte Ganzkörperarbeit für Stabilität, Beweglichkeit und Körperwahrnehmung.",
-    heroEyebrow: "Körper bewusst bewegen",
-    heroLead:
-      "Pilates verbindet Kraft, Beweglichkeit und Atmung in präzise geführten Bewegungen. Astrid Mally integriert die Methode gezielt in die Therapie oder bietet sie als reines Trainingsangebot an.",
-    wannHilft: [
-      "Rücken- und Nackenbeschwerden",
-      "Nachhaltige Stärkung der Rumpfmuskulatur",
-      "Verbesserung von Haltung und Körpergefühl",
-      "Stressreduktion und mehr Beweglichkeit",
-    ],
-    ablauf: [
-      "Einführung in die Pilates-Prinzipien (Atmung, Zentrierung, Präzision)",
-      "Individuelle Übungsfolgen passend zu Ihrem Niveau",
-      "Aufbauend und langsam steigerbar",
-    ],
-    kostenuebernahme: "Selbstzahlerleistung.",
-    relatedSlugs: ["krankengymnastik", "massage-und-waerme"],
-  },
-  {
     slug: "kinesio-taping",
     titel: "Kinesiologisches Taping",
     kategorie: "selbstzahler",
