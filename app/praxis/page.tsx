@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const werte = [
   {
     title: "Spezialisierung & Qualität",
-    body: "Expertise in CMD-Therapie, Manueller Therapie, Skoliosetherapie nach Schroth und spezialisierter Schmerzphysiotherapie — gestützt durch kontinuierliche Fortbildung.",
+    body: "Expertise in CMD-Therapie, Manueller Therapie und spezialisierter Schmerzphysiotherapie — gestützt durch kontinuierliche Fortbildung.",
   },
   {
     title: "Familiäre Atmosphäre",
@@ -61,7 +61,7 @@ export default function PraxisPage() {
                 </span>
               </SectionHeading>
               <SectionLead>
-                Mit über zwei Jahrzehnten Erfahrung bieten wir hochqualitative
+                Mit über zwei Jahrzehnten Erfahrung bieten wir professionelle
                 Physiotherapie in einer angenehmen, familiären Atmosphäre.
                 Unsere Praxis ist barrierefrei zugänglich – wir freuen uns auf
                 Ihren Besuch.

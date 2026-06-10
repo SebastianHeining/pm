@@ -17,7 +17,6 @@ import {
   getLeistung,
   getRelated,
   leistungen,
-  kategorieLabel,
 } from "@/content/leistungen";
 import { siteConfig } from "@/lib/site-config";
 
@@ -90,12 +89,6 @@ export default async function LeistungDetail({
             </div>
             <div className="rounded-2xl bg-white p-7 ring-1 ring-border-soft lg:max-w-sm lg:justify-self-end">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-red">
-                Kategorie
-              </p>
-              <p className="mt-2 text-base font-semibold text-brand-navy">
-                {kategorieLabel[leistung.kategorie]}
-              </p>
-              <p className="mt-5 text-xs font-semibold uppercase tracking-[0.18em] text-brand-red">
                 Kostenübernahme
               </p>
               <p className="mt-2 text-base leading-relaxed text-graphite">

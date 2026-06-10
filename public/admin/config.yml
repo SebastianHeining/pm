@@ -99,6 +99,54 @@ collections:
           buttons: ["bold", "italic", "link", "heading-three", "quote", "bulleted-list"],
         }
 
+  - name: "bewertungen"
+    label: "Bewertungen"
+    label_singular: "Bewertung"
+    folder: "content/bewertungen"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    summary: "{{datum}} — {{name}} ({{sterne}}/5)"
+    sortable_fields: ["datum", "sterne"]
+    identifier_field: "name"
+    fields:
+      - {
+          name: "name",
+          label: "Name (wie veröffentlicht, z. B. „Maria K.“)",
+          widget: "string",
+        }
+      - { name: "ort", label: "Ort", widget: "string", required: false }
+      - {
+          name: "sterne",
+          label: "Sterne (1–5)",
+          widget: "number",
+          value_type: "int",
+          min: 1,
+          max: 5,
+          default: 5,
+        }
+      - {
+          name: "datum",
+          label: "Datum",
+          widget: "datetime",
+          format: "YYYY-MM-DD",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+        }
+      - {
+          name: "veroeffentlicht",
+          label: "Veröffentlicht?",
+          widget: "boolean",
+          default: false,
+          hint: "Nur aktivieren, wenn die Einwilligung der Patient:in vorliegt.",
+        }
+      - {
+          name: "body",
+          label: "Bewertungstext",
+          widget: "text",
+          hint: "Ggf. kürzen — Tippfehler dürfen korrigiert werden, Sinn nicht verändern.",
+        }
+
   - name: "blog"
     label: "Ratgeber & Tipps"
     label_singular: "Artikel"

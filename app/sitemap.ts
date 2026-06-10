@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
+import { leistungen } from "@/content/leistungen";
+import { loadBlogSlugs } from "@/lib/content";
 
 const staticRoutes = [
   { path: "/", priority: 1.0, changeFrequency: "monthly" as const },
@@ -15,12 +17,28 @@ const staticRoutes = [
   { path: "/datenschutz", priority: 0.1, changeFrequency: "yearly" as const },
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
-  return staticRoutes.map((r) => ({
-    url: `${siteConfig.url}${r.path}`,
-    lastModified,
-    changeFrequency: r.changeFrequency,
-    priority: r.priority,
-  }));
+  const blogSlugs = await loadBlogSlugs();
+
+  return [
+    ...staticRoutes.map((r) => ({
+      url: `${siteConfig.url}${r.path}`,
+      lastModified,
+      changeFrequency: r.changeFrequency,
+      priority: r.priority,
+    })),
+    ...leistungen.map((l) => ({
+      url: `${siteConfig.url}/leistungen/${l.slug}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: l.kategorie === "spezial" ? 0.8 : 0.7,
+    })),
+    ...blogSlugs.map((slug) => ({
+      url: `${siteConfig.url}/ratgeber/${slug}`,
+      lastModified,
+      changeFrequency: "yearly" as const,
+      priority: 0.5,
+    })),
+  ];
 }

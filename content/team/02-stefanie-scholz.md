@@ -8,7 +8,7 @@ seitJahr: 2013
 spezialisierung: CMD · Beckenboden WABASKA · Neuropathischer Schmerz
 qualifikationen:
   - Staatlich anerkannte Physiotherapeutin
-  - Manuelle Therapie
+  - MT (Manuelle Therapie)
   - CMD (Craniomandibuläre Dysfunktion)
   - Beckenbodentraining nach WABASKA
   - Kinesio-Taping

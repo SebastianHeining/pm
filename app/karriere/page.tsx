@@ -6,7 +6,7 @@ import {
   SectionHeading,
   SectionLead,
 } from "@/components/ui/Section";
-import { Card, CardBody, CardTitle } from "@/components/ui/Card";
+import { Card, CardTitle } from "@/components/ui/Card";
 import { LinkButton } from "@/components/ui/Button";
 import { Quote } from "@/components/ui/Quote";
 import { PageHero } from "@/components/sections/PageHero";
@@ -20,31 +20,34 @@ export const metadata: Metadata = {
     "Physiotherapeut:in (m/w/d) in Voll- oder Teilzeit gesucht. Eine Praxis mit Herz, fairer Bezahlung und planbaren Arbeitszeiten in Hamm-Bockum-Hövel.",
 };
 
-const werte = [
+// Die 12 Punkte aus der offiziellen Stellenausschreibung der Praxis
+const benefits = [
+  { title: "Flexible Arbeitszeit", detail: "" },
   {
-    title: "Wertschätzung & Teamkultur",
-    body: "Bei uns wirst du als Mensch und Fachkraft geschätzt. Wir pflegen einen respektvollen Umgang auf Augenhöhe und unterstützen uns gegenseitig — regelmäßige Teamevents stärken den Zusammenhalt.",
+    title: "Keine Rezeptionsarbeit",
+    detail:
+      "Die Anmeldung ist besetzt — unsere Therapeut:innen leisten keine Arbeit an der Rezeption.",
   },
+  { title: "Zuschuss / Übernahme von Fortbildungen", detail: "" },
+  { title: "Betriebliche Altersvorsorge", detail: "" },
+  { title: "Monatlicher Tankgutschein", detail: "" },
+  { title: "Regelmäßige Teamsitzungen", detail: "" },
+  { title: "Geburtstagsgeschenk", detail: "" },
+  { title: "Urlaubspauschale", detail: "" },
+  { title: "Teamshirts", detail: "" },
+  { title: "Interne Fortbildungen", detail: "" },
   {
-    title: "Fortbildungen & Entwicklung",
-    body: "Deine fachliche Weiterentwicklung liegt uns am Herzen. Wir unterstützen dich bei Fortbildungen und geben dir Raum, Spezialisierungen aufzubauen — damit du wachsen kannst und unsere Patient:innen profitieren.",
+    title: "Keine angeordneten Überstunden",
+    detail: "Mehrarbeit nur auf freiwilliger Basis.",
   },
-  {
-    title: "Planbare Arbeitszeiten",
-    body: "Work-Life-Balance ist uns wichtig. Faire Dienstpläne, verlässliche Zeiten, Teilzeitmodelle möglich. Sprich uns an — wir finden einen Rahmen, der zu deinem Leben passt.",
-  },
-  {
-    title: "Moderne Praxisräume",
-    body: "Helle, freundliche Räume und moderne Ausstattung. Kurze Wege, durchdachte Abläufe — damit du dich auf die Therapie konzentrieren kannst.",
-  },
-  {
-    title: "Eigenverantwortung & Unterstützung",
-    body: "Wir vertrauen auf deine fachliche Kompetenz und geben dir Raum für eigenverantwortliches Arbeiten. Gleichzeitig stehen wir dir mit Rat und Tat zur Seite.",
-  },
-  {
-    title: "Spezialisierung möglich",
-    body: "Lust auf CMD, Skoliose-Therapie nach Schroth, Lymphdrainage oder Beckenboden-Schwerpunkt? Wir fördern Spezialisierungen, die zu dir und zu unserem Patient:innen-Mix passen.",
-  },
+  { title: "Ein wertschätzendes Miteinander", detail: "" },
+];
+
+const wennDu = [
+  "Du Deinen Arbeitsplatz mitgestalten möchtest,",
+  "Du gerne mit Menschen arbeitest und Dein Beruf Deine Leidenschaft ist,",
+  "Du aufgeschlossen, fachlich qualifiziert und menschlich engagiert bist,",
+  "Du gerne in einem kompetenten Team und in einer angenehmen Atmosphäre arbeitest, in der Patient:innen Kund:innen und Partner:innen sind —",
 ];
 
 export default function Karriere() {
@@ -110,15 +113,9 @@ export default function Karriere() {
             </div>
 
             <Card tone="warm">
-              <CardTitle as="h3">Was wir uns von dir wünschen</CardTitle>
+              <CardTitle as="h3">Wenn …</CardTitle>
               <ul className="mt-5 space-y-3 text-base leading-relaxed text-graphite">
-                {[
-                  "Staatlich anerkannte Ausbildung als Physiotherapeut:in",
-                  "Lust auf langfristige Patient:innen-Beziehungen",
-                  "Offenheit für Teamarbeit und kollegialen Austausch",
-                  "Bereitschaft, dich kontinuierlich fortzubilden",
-                  "Idealerweise Zusatzqualifikationen wie Manuelle Therapie, CMD, Lymphdrainage o. Ä. — oder das Interesse, sie sich anzueignen",
-                ].map((p) => (
+                {wennDu.map((p) => (
                   <li key={p} className="flex items-start gap-3">
                     <span
                       aria-hidden
@@ -128,6 +125,10 @@ export default function Karriere() {
                   </li>
                 ))}
               </ul>
+              <p className="mt-5 text-base font-semibold text-brand-navy">
+                … dann bist Du bei uns genau richtig. Jede Bewerbung ist
+                willkommen!
+              </p>
             </Card>
           </div>
         </Container>
@@ -136,15 +137,29 @@ export default function Karriere() {
       <Section tone="warm" spacing="default">
         <Container>
           <SectionEyebrow>Was du bei uns findest</SectionEyebrow>
-          <SectionHeading>Sechs gute Gründe für Praxis Mally.</SectionHeading>
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {werte.map((w) => (
-              <Card key={w.title} tone="white">
-                <CardTitle>{w.title}</CardTitle>
-                <CardBody>{w.body}</CardBody>
-              </Card>
+          <SectionHeading>Diese 12 Punkte sprechen für uns.</SectionHeading>
+          <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {benefits.map((b, idx) => (
+              <li
+                key={b.title}
+                className="flex items-start gap-4 rounded-2xl bg-white p-6 ring-1 ring-border-soft"
+              >
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-red text-sm font-semibold text-white">
+                  {idx + 1}
+                </span>
+                <div>
+                  <p className="font-semibold leading-snug text-brand-navy">
+                    {b.title}
+                  </p>
+                  {b.detail && (
+                    <p className="mt-1.5 text-sm leading-relaxed text-graphite">
+                      {b.detail}
+                    </p>
+                  )}
+                </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </Container>
       </Section>
 

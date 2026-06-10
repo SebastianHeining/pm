@@ -16,7 +16,7 @@ import { breadcrumbJsonLd, personJsonLd } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Astrid Mally – Physiotherapeutin aus Leidenschaft",
   description:
-    "Seit 1998 begleitet Astrid Mally Menschen in Hamm-Bockum-Hövel auf ihrem Weg zu mehr Beweglichkeit. Über ihren Therapie-Ansatz, ihre Qualifikationen und Werte.",
+    "Seit 2000 begleitet Astrid Mally Menschen in Hamm-Bockum-Hövel auf ihrem Weg zu mehr Beweglichkeit. Über ihren Therapie-Ansatz, ihre Qualifikationen und Werte.",
 };
 
 const ansatz = [
@@ -45,7 +45,10 @@ const qualifikationen = [
   "CMD-Spezialistin (Craniomandibuläre Dysfunktion)",
   "Zertifizierte Skoliosetherapeutin nach Schroth",
   "Sportphysiotherapie",
-  "Pilates-Trainerin",
+  "Schmerzphysiotherapie (Florian Hockenholz Akademie)",
+  "Medizinische Trainingstherapie / KG am Gerät",
+  "Orthopädischer Rückenschulleiter nach Dr. Brügger",
+  "Pilates, Faszienyoga und Nordic-Walking",
   "Dorn-Breuss-Therapeutin",
   "Kinesiologisches Taping",
 ];
@@ -78,7 +81,7 @@ export default function UeberAstrid() {
                 <span className="block text-brand-red">Physiotherapeutin aus Leidenschaft.</span>
               </SectionHeading>
               <SectionLead>
-                Seit 1998 begleite ich Menschen in Hamm-Bockum-Hövel auf ihrem
+                Seit 2000 begleite ich Menschen in Hamm-Bockum-Hövel auf ihrem
                 Weg zu mehr Beweglichkeit und weniger Schmerzen. Als Gründerin
                 der Praxis liegt mir die individuelle Betreuung jeder einzelnen
                 Patient:in besonders am Herzen.

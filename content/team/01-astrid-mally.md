@@ -4,8 +4,8 @@ rolle: Praxisinhaberin & Physiotherapeutin
 bild: /team/astrid-mally.jpg
 abteilung: therapie
 reihenfolge: 1
-seitJahr: 1998
-spezialisierung: CMD · Skoliose Schroth · Manuelle Therapie
+seitJahr: 2000
+spezialisierung: MT · Schmerzphysiotherapie · CMD
 qualifikationen:
   - Staatlich anerkannte Physiotherapeutin
   - Manuelle Therapie (OMT)
@@ -13,9 +13,12 @@ qualifikationen:
   - CMD-Spezialistin (Craniomandibuläre Dysfunktion)
   - Zertifizierte Skoliosetherapeutin nach Schroth
   - Sportphysiotherapie
-  - Pilates-Trainerin
+  - Schmerzphysiotherapie (Florian Hockenholz Akademie)
+  - Medizinische Trainingstherapie / KG am Gerät
+  - Orthopädischer Rückenschulleiter nach Dr. Brügger
+  - Pilates, Faszienyoga und Nordic-Walking
   - Dorn-Breuss-Therapeutin
   - Kinesiologisches Taping
 ---
 
-Gründerin der Praxis. Seit 1998 begleitet Astrid Menschen in Hamm-Bockum-Hövel auf ihrem Weg zu mehr Beweglichkeit. Ihr Schwerpunkt liegt auf CMD- und Skoliose-Therapie sowie Manueller Therapie. Wer sie kennt, schätzt ihre ruhige, klare Art und das wache Auge für Zusammenhänge im ganzen Körper.
+Gründerin der Praxis. Seit 2000 begleitet Astrid Menschen in Hamm-Bockum-Hövel auf ihrem Weg zu mehr Beweglichkeit und Selbstfürsorge. Ihr Schwerpunkt liegt in der Manuellen Therapie, Schmerzphysiotherapie und der CMD-Behandlung. Wer sie kennt, schätzt ihre ruhige, klare Art und das wache Auge für Zusammenhänge im ganzen Körper.

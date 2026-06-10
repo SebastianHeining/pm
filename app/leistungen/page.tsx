@@ -20,7 +20,7 @@ import {
 export const metadata: Metadata = {
   title: "Unsere Leistungen",
   description:
-    "Krankengymnastik, Manuelle Therapie, CMD, Skoliose nach Schroth, Lymphdrainage, Massage und mehr — alle Behandlungen der Praxis Mally im Überblick.",
+    "Krankengymnastik, Manuelle Therapie, CMD, Lymphdrainage, Massage und mehr — alle Behandlungen der Praxis Mally im Überblick.",
 };
 
 const ORDER: Kategorie[] = ["spezial", "kasse", "selbstzahler"];
@@ -47,7 +47,7 @@ export default function LeistungenIndex() {
             <span className="block text-brand-red">in Ihrem Körper wieder zuhause fühlen.</span>
           </>
         }
-        lead="Wir kombinieren bewährte Verfahren mit spezialisierter Expertise — von Krankengymnastik bis zur Schroth-Therapie. Jede Behandlung wird individuell auf Ihre Bedürfnisse zugeschnitten."
+        lead="Wir kombinieren bewährte Verfahren mit spezialisierter Expertise — von Krankengymnastik bis zur Manuellen Therapie. Jede Behandlung wird individuell auf Ihre Bedürfnisse zugeschnitten."
       />
 
       {grouped.map(({ kat, items }) => (
@@ -67,8 +67,8 @@ export default function LeistungenIndex() {
             </SectionHeading>
             {kat === "spezial" && (
               <SectionLead>
-                Drei Bereiche, in denen unsere Praxis besonders qualifiziert ist
-                — mit Zusatz­ausbildungen, kontinuierlicher Fortbildung und
+                Bereiche, in denen unsere Praxis besonders qualifiziert ist —
+                mit Zusatz­ausbildungen, kontinuierlicher Fortbildung und
                 jahrzehntelanger Erfahrung.
               </SectionLead>
             )}

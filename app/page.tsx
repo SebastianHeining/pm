@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import {
   Section,
@@ -10,6 +11,7 @@ import { Card, CardBody, CardTitle } from "@/components/ui/Card";
 import { LinkButton } from "@/components/ui/Button";
 import { Quote } from "@/components/ui/Quote";
 import { JsonLd } from "@/components/JsonLd";
+import { ReviewsSection } from "@/components/sections/ReviewsSection";
 import { medicalBusinessJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
 
@@ -23,7 +25,7 @@ const usps = [
     body: "Eine persönliche und wertschätzende Umgebung. Wir nehmen uns Zeit für Ihre Anliegen und schaffen einen Raum, in dem Sie sich rundum wohlfühlen.",
   },
   {
-    title: "Seit 1998 in Hamm-Bockum-Hövel",
+    title: "Seit 2000 in Hamm-Bockum-Hövel",
     body: "Als etablierte Praxis sind wir tief in der lokalen Gemeinschaft verwurzelt – ein vertrauensvoller Partner für Ihre Gesundheit.",
   },
 ];
@@ -32,6 +34,23 @@ export default function Home() {
   return (
     <>
       <JsonLd data={medicalBusinessJsonLd()} />
+      <Link
+        href="/karriere"
+        className="group block bg-brand-red px-4 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-brand-navy sm:text-base"
+      >
+        <span className="font-semibold uppercase tracking-[0.08em]">
+          Motivierte Teamplayer gesucht!
+        </span>{" "}
+        <span className="text-white/90">
+          Physiotherapeut:in (m/w/d) in Voll- oder Teilzeit
+        </span>
+        <span
+          aria-hidden
+          className="ml-2 inline-block transition-transform group-hover:translate-x-1"
+        >
+          →
+        </span>
+      </Link>
       <Section tone="warm" spacing="loose" className="relative overflow-hidden">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-center">
@@ -78,7 +97,7 @@ export default function Home() {
           <SectionHeading>Therapie auf Augenhöhe — mit über zwei Jahrzehnten Erfahrung.</SectionHeading>
           <SectionLead>
             Wir fokussieren uns auf das, was wir gut können:
-            hochqualitative Physiotherapie in einer Atmosphäre, in der sich Patient:innen ernst genommen fühlen.
+            professionelle Physiotherapie in einer Atmosphäre, in der sich Patient:innen ernst genommen fühlen.
           </SectionLead>
           <div className="mt-16 grid gap-6 md:grid-cols-3">
             {usps.map((u) => (
@@ -98,6 +117,8 @@ export default function Home() {
           </Quote>
         </Container>
       </Section>
+
+      <ReviewsSection />
 
       <Section tone="navy" spacing="default">
         <Container>

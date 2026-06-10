@@ -15,12 +15,13 @@ const footerNav = {
     { label: "Manuelle Therapie", href: "/leistungen/manuelle-therapie" },
     { label: "CMD / Kiefergelenk", href: "/leistungen/cmd-kiefergelenk" },
     { label: "Lymphdrainage", href: "/leistungen/manuelle-lymphdrainage" },
-    { label: "Skoliose nach Schroth", href: "/leistungen/skoliosetherapie-schroth" },
+    { label: "Massage, Fango & Wärme", href: "/leistungen/massage-und-waerme" },
   ],
   Service: [
     { label: "Kontakt & Anfahrt", href: "/kontakt" },
     { label: "Ratgeber", href: "/ratgeber" },
     { label: "FAQ", href: "/faq" },
+    { label: "Bewertung abgeben", href: "/bewertung" },
   ],
   Rechtliches: [
     { label: "Impressum", href: "/impressum" },

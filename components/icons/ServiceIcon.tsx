@@ -11,6 +11,7 @@ export type IconName =
   | "heilpraktiker"
   | "waerme"
   | "elektro"
+  | "schlingentisch"
   | "tape"
   | "reflex"
   | "hausbesuch";
@@ -76,6 +77,14 @@ const paths: Record<IconName, React.ReactNode> = {
   elektro: (
     <>
       <path d="M13 3 4 14h7l-1 7 9-11h-7l1-7Z" />
+    </>
+  ),
+  schlingentisch: (
+    <>
+      <path d="M4 4h16" />
+      <path d="M7 4v5M17 4v5" />
+      <path d="M7 9c0 4 2.2 6.5 5 6.5S17 13 17 9" />
+      <path d="M12 15.5V20" />
     </>
   ),
   tape: (

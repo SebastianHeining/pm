@@ -15,27 +15,42 @@ const inputBase =
 
 const labelBase = "block text-sm font-semibold text-brand-navy";
 
-export function ContactForm() {
+const sterneLabels = [
+  "",
+  "Nicht zufrieden",
+  "Eher unzufrieden",
+  "In Ordnung",
+  "Zufrieden",
+  "Sehr zufrieden",
+];
+
+export function ReviewForm() {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
+  const [sterne, setSterne] = useState(0);
+  const [hover, setHover] = useState(0);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (status.kind === "submitting") return;
+
+    if (sterne < 1) {
+      setStatus({ kind: "error", message: "Bitte wählen Sie eine Sterne-Bewertung." });
+      return;
+    }
     setStatus({ kind: "submitting" });
 
     const formData = new FormData(event.currentTarget);
     const payload = {
       name: String(formData.get("name") ?? ""),
-      email: String(formData.get("email") ?? ""),
-      phone: String(formData.get("phone") ?? ""),
-      topic: String(formData.get("topic") ?? ""),
-      message: String(formData.get("message") ?? ""),
+      ort: String(formData.get("ort") ?? ""),
+      sterne,
+      text: String(formData.get("text") ?? ""),
       consent: formData.get("consent") === "on",
       website: String(formData.get("website") ?? ""),
     };
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/api/review", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(payload),
@@ -45,7 +60,6 @@ export function ContactForm() {
         throw new Error(data.error ?? "Versand fehlgeschlagen.");
       }
       setStatus({ kind: "success" });
-      (event.target as HTMLFormElement).reset();
     } catch (err) {
       setStatus({
         kind: "error",
@@ -62,101 +76,106 @@ export function ContactForm() {
         className="rounded-2xl bg-surface-warm p-10 ring-1 ring-border-soft"
       >
         <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-red">
-          Vielen Dank
+          Herzlichen Dank!
         </p>
         <p className="mt-3 text-2xl font-semibold text-brand-navy">
-          Ihre Nachricht ist bei uns angekommen.
+          Ihre Bewertung ist bei uns angekommen.
         </p>
         <p className="mt-4 text-base leading-relaxed text-graphite">
-          Wir melden uns zeitnah telefonisch oder per E-Mail bei Ihnen zurück.
-          In dringenden Fällen erreichen Sie uns auch direkt während der
-          Öffnungszeiten.
+          Wir freuen uns sehr über Ihr Feedback. Nach einer kurzen Prüfung
+          erscheint Ihre Bewertung auf unserer Webseite — vielen Dank, dass Sie
+          sich die Zeit genommen haben.
         </p>
       </div>
     );
   }
 
+  const activeSterne = hover || sterne;
+
   return (
     <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+      <fieldset>
+        <legend className={labelBase}>
+          Wie zufrieden waren Sie? <span className="text-brand-red">*</span>
+        </legend>
+        <div className="mt-3 flex items-center gap-2">
+          <div className="flex gap-1" role="radiogroup" aria-label="Sterne-Bewertung">
+            {[1, 2, 3, 4, 5].map((n) => (
+              <button
+                key={n}
+                type="button"
+                role="radio"
+                aria-checked={sterne === n}
+                aria-label={`${n} von 5 Sternen — ${sterneLabels[n]}`}
+                onClick={() => setSterne(n)}
+                onMouseEnter={() => setHover(n)}
+                onMouseLeave={() => setHover(0)}
+                className={cn(
+                  "text-4xl leading-none transition-transform hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red rounded",
+                  activeSterne >= n ? "text-brand-red" : "text-border-strong",
+                )}
+              >
+                ★
+              </button>
+            ))}
+          </div>
+          {activeSterne > 0 && (
+            <span className="ml-2 text-sm font-medium text-graphite">
+              {sterneLabels[activeSterne]}
+            </span>
+          )}
+        </div>
+      </fieldset>
+
+      <div>
+        <label htmlFor="text" className={labelBase}>
+          Ihre Erfahrung <span className="text-brand-red">*</span>
+        </label>
+        <textarea
+          id="text"
+          name="text"
+          required
+          rows={5}
+          minLength={10}
+          maxLength={2000}
+          placeholder="Was hat Ihnen gefallen? Wie haben Sie die Behandlung erlebt?"
+          className={cn(inputBase, "mt-2 resize-y")}
+        />
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className={labelBase}>
-            Name <span className="text-brand-red">*</span>
+            Name <span className="text-graphite-soft">(optional)</span>
           </label>
           <input
             id="name"
             name="name"
             type="text"
-            required
             autoComplete="name"
+            placeholder="z. B. Maria K."
             className={cn(inputBase, "mt-2")}
           />
+          <p className="mt-1.5 text-xs text-graphite-soft">
+            Gerne nur Vorname oder Initialen — so erscheint es später auf der
+            Webseite.
+          </p>
         </div>
         <div>
-          <label htmlFor="email" className={labelBase}>
-            E-Mail <span className="text-brand-red">*</span>
+          <label htmlFor="ort" className={labelBase}>
+            Ort <span className="text-graphite-soft">(optional)</span>
           </label>
           <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            autoComplete="email"
+            id="ort"
+            name="ort"
+            type="text"
+            placeholder="z. B. Hamm"
             className={cn(inputBase, "mt-2")}
           />
         </div>
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
-        <div>
-          <label htmlFor="phone" className={labelBase}>
-            Telefon <span className="text-graphite-soft">(optional)</span>
-          </label>
-          <input
-            id="phone"
-            name="phone"
-            type="tel"
-            autoComplete="tel"
-            className={cn(inputBase, "mt-2")}
-          />
-        </div>
-        <div>
-          <label htmlFor="topic" className={labelBase}>
-            Anliegen
-          </label>
-          <select
-            id="topic"
-            name="topic"
-            defaultValue="Allgemeine Anfrage"
-            className={cn(inputBase, "mt-2")}
-          >
-            <option>Allgemeine Anfrage</option>
-            <option>Erstbehandlung mit Rezept</option>
-            <option>Selbstzahler-Termin</option>
-            <option>Hausbesuch</option>
-            <option>CMD / Kiefergelenk</option>
-            <option>Rückruf erbeten</option>
-          </select>
-        </div>
-      </div>
-
-      <div>
-        <label htmlFor="message" className={labelBase}>
-          Ihre Nachricht <span className="text-brand-red">*</span>
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          required
-          rows={6}
-          minLength={10}
-          maxLength={4000}
-          placeholder="Worum geht es? Wann passt es Ihnen zeitlich am besten?"
-          className={cn(inputBase, "mt-2 resize-y")}
-        />
-      </div>
-
-      {/* Honeypot — visually hidden, no autofill, no a11y exposure */}
+      {/* Honeypot */}
       <div aria-hidden className="hidden">
         <label htmlFor="website">Website (bitte leer lassen)</label>
         <input
@@ -177,15 +196,16 @@ export function ContactForm() {
           className="mt-1 h-5 w-5 shrink-0 rounded border-border-strong text-brand-red focus:ring-brand-red"
         />
         <label htmlFor="consent" className="text-sm leading-relaxed text-graphite">
-          Ich habe die{" "}
+          Ich bin einverstanden, dass meine Bewertung (ggf. gekürzt) mit dem
+          angegebenen Namen auf der Webseite der Praxis veröffentlicht wird,
+          und habe die{" "}
           <a
             href="/datenschutz"
             className="font-medium text-brand-navy underline underline-offset-2 hover:text-brand-red"
           >
             Datenschutzerklärung
           </a>{" "}
-          gelesen und stimme der Verarbeitung meiner Angaben zur Bearbeitung
-          meiner Anfrage zu.
+          gelesen. Die Einwilligung kann ich jederzeit widerrufen.
         </label>
       </div>
 
@@ -198,17 +218,10 @@ export function ContactForm() {
         </p>
       )}
 
-      <div className="flex flex-wrap items-center gap-4 pt-2">
-        <Button
-          type="submit"
-          size="lg"
-          disabled={status.kind === "submitting"}
-        >
-          {status.kind === "submitting" ? "Wird gesendet …" : "Anfrage senden"}
+      <div className="pt-2">
+        <Button type="submit" size="lg" disabled={status.kind === "submitting"}>
+          {status.kind === "submitting" ? "Wird gesendet …" : "Bewertung absenden"}
         </Button>
-        <p className="text-sm text-graphite-soft">
-          Wir antworten innerhalb von 1–2 Werktagen.
-        </p>
       </div>
     </form>
   );

@@ -182,11 +182,6 @@ export default function Kontakt() {
                 telefonisch oder per E-Mail zurück, um einen passenden Termin
                 zu finden.
               </SectionLead>
-              <p className="mt-6 text-sm leading-relaxed text-graphite-soft">
-                Hinweis: Für die erste Behandlung benötigen Sie in der Regel
-                eine ärztliche Verordnung. Als Privatpatient oder Selbstzahler
-                ist dies nicht erforderlich.
-              </p>
             </div>
             <Card tone="white" className="p-8 sm:p-10">
               <CardTitle as="h2">Ihr Kontakt zu uns</CardTitle>

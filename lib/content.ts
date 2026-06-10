@@ -6,6 +6,7 @@ import remarkHtml from "remark-html";
 
 const TEAM_DIR = path.join(process.cwd(), "content/team");
 const BLOG_DIR = path.join(process.cwd(), "content/blog");
+const BEWERTUNGEN_DIR = path.join(process.cwd(), "content/bewertungen");
 
 export type Abteilung = "therapie" | "empfang";
 
@@ -143,6 +144,40 @@ export async function loadBlogPost(slug: string): Promise<BlogPost | null> {
     readingTimeMinutes: estimateReadingTime(content),
     htmlContent,
   };
+}
+
+export type Bewertung = {
+  slug: string;
+  name: string;
+  ort?: string;
+  sterne: number;
+  datum: string;
+  text: string;
+};
+
+export async function loadBewertungen(): Promise<Bewertung[]> {
+  const files = (await readDir(BEWERTUNGEN_DIR)).filter((f) =>
+    f.endsWith(".md"),
+  );
+  const items: Bewertung[] = [];
+
+  for (const file of files) {
+    const raw = await fs.readFile(path.join(BEWERTUNGEN_DIR, file), "utf8");
+    const { data, content } = matter(raw);
+    if (data.veroeffentlicht !== true) continue;
+
+    items.push({
+      slug: file.replace(/\.md$/, ""),
+      name: String(data.name ?? "Patient:in"),
+      ort: data.ort ? String(data.ort) : undefined,
+      sterne: Math.min(5, Math.max(1, Number(data.sterne ?? 5))),
+      datum: String(data.datum ?? ""),
+      text: content.trim(),
+    });
+  }
+
+  items.sort((a, b) => (a.datum < b.datum ? 1 : -1));
+  return items;
 }
 
 export async function loadBlogSlugs(): Promise<string[]> {

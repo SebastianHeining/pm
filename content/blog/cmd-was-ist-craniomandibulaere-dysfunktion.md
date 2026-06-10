@@ -66,7 +66,7 @@ In unserer Praxis ist CMD ein **Schwerpunkt**: Astrid Mally und mehrere Teammitg
 
 Sie sollten hellhörig werden, wenn Sie über mehrere Wochen Symptome aus der Liste oben bemerken — und keine andere Erklärung dafür haben. Auch wenn Sie viele Arzttermine hinter sich haben, ohne dass jemand den Kiefer angeschaut hat, lohnt sich ein Gespräch bei uns.
 
-Als sektorale Heilpraktikerin können wir Sie übrigens auch **ohne ärztliche Verordnung** im Selbstzahler-Modus behandeln — der direkte Weg zur Therapie. Mit einer Verordnung Ihrer Hausärztin oder Ihres Zahnarztes übernimmt die gesetzliche Krankenkasse den Großteil der Kosten.
+Mit einer Verordnung Ihrer Hausärztin oder Ihres Zahnarztes übernimmt die gesetzliche Krankenkasse den Großteil der Kosten. Als Selbstzahler:in können Sie auch ohne Verordnung zu uns kommen.
 
 ## Was Sie selbst tun können — heute schon
 

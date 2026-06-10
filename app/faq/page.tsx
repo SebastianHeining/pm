@@ -23,14 +23,13 @@ const faqs: Array<AccordionItem & { plain: string }> = [
   {
     question: "Wie bekomme ich einen Termin für Physiotherapie?",
     plain:
-      "Für eine physiotherapeutische Behandlung benötigen Sie in der Regel eine ärztliche Verordnung von Ihrem Haus- oder Facharzt. Mit dieser können Sie telefonisch einen Termin bei uns vereinbaren. Als Privatpatient oder Selbstzahler können Sie auch ohne Verordnung einen Termin bei uns buchen.",
+      "Für eine physiotherapeutische Behandlung benötigen Sie in der Regel eine ärztliche Verordnung von Ihrem Haus- oder Facharzt. Mit dieser können Sie telefonisch einen Termin bei uns vereinbaren. Als Selbstzahler können Sie auch ohne Verordnung einen Termin bei uns buchen.",
     answer: (
       <p>
         Für eine physiotherapeutische Behandlung benötigen Sie in der Regel eine
         ärztliche Verordnung von Ihrem Haus- oder Facharzt. Mit dieser können
-        Sie telefonisch einen Termin bei uns vereinbaren. Als Privatpatient
-        oder Selbstzahler können Sie auch ohne Verordnung einen Termin bei uns
-        buchen.
+        Sie telefonisch einen Termin bei uns vereinbaren. Als Selbstzahler
+        können Sie auch ohne Verordnung einen Termin bei uns buchen.
       </p>
     ),
   },
@@ -51,29 +50,26 @@ const faqs: Array<AccordionItem & { plain: string }> = [
   {
     question: "Was sollte ich zur ersten Behandlung mitbringen?",
     plain:
-      "Bitte bringen Sie zu Ihrem ersten Termin Ihre ärztliche Verordnung, Ihre Versichertenkarte und bequeme Kleidung mit. Bei Rückenbeschwerden sind kurze Hosen und T-Shirt ideal, bei Knieproblemen eine kurze Hose. Wir stellen Ihnen bei Bedarf auch Behandlungskleidung zur Verfügung.",
+      "Bitte bringen Sie zu Ihrem ersten Termin Ihre ärztliche Verordnung, Ihre Versichertenkarte und bequeme Kleidung mit. Bei Rückenbeschwerden sind kurze Hosen und T-Shirt ideal, bei Knieproblemen eine kurze Hose.",
     answer: (
       <p>
         Bitte bringen Sie zu Ihrem ersten Termin Ihre{" "}
         <strong>ärztliche Verordnung</strong>, Ihre{" "}
         <strong>Versichertenkarte</strong> und bequeme Kleidung mit. Bei
         Rückenbeschwerden sind kurze Hosen und T-Shirt ideal, bei Knieproblemen
-        eine kurze Hose. Wir stellen Ihnen bei Bedarf auch Behandlungskleidung
-        zur Verfügung.
+        eine kurze Hose.
       </p>
     ),
   },
   {
     question: "Wie lange dauert eine Behandlung?",
     plain:
-      "Die Dauer einer Behandlung richtet sich nach der verordneten Therapieform und Ihren individuellen Bedürfnissen. In der Regel dauert eine Einzelbehandlung zwischen 20 und 30 Minuten. Für Ihre erste Behandlung planen wir zusätzliche Zeit für ein ausführliches Anamnesegespräch ein.",
+      "Die Dauer einer Behandlung richtet sich nach der verordneten Therapieform und Ihren individuellen Bedürfnissen. In der Regel dauert eine Einzelbehandlung zwischen 15 und 20 Minuten.",
     answer: (
       <p>
         Die Dauer einer Behandlung richtet sich nach der verordneten
         Therapieform und Ihren individuellen Bedürfnissen. In der Regel dauert
-        eine Einzelbehandlung zwischen 20 und 30 Minuten. Für Ihre erste
-        Behandlung planen wir zusätzliche Zeit für ein ausführliches
-        Anamnesegespräch ein.
+        eine Einzelbehandlung zwischen 15 und 20 Minuten.
       </p>
     ),
   },
@@ -87,22 +83,6 @@ const faqs: Array<AccordionItem & { plain: string }> = [
         begründeten Fällen bieten wir physiotherapeutische Behandlungen bei
         Ihnen zu Hause an. Dies ist besonders für Patient:innen mit
         eingeschränkter Mobilität eine wertvolle Option.
-      </p>
-    ),
-  },
-  {
-    question: "Wie spezialisiert ist Ihre Praxis auf CMD und Skoliose?",
-    plain:
-      "Unsere Praxis in Hamm-Bockum-Hövel hat einen besonderen Schwerpunkt auf die Behandlung von CMD und Skoliose gelegt. Praxisinhaberin Astrid Mally und mehrere Teammitglieder verfügen über umfassende Zusatzqualifikationen in diesen Bereichen. Wir arbeiten nach den neuesten wissenschaftlichen Erkenntnissen und aktualisieren unser Wissen durch regelmäßige Fortbildungen.",
-    answer: (
-      <p>
-        Unsere Praxis in Hamm-Bockum-Hövel hat einen besonderen Schwerpunkt auf
-        die Behandlung von <strong>CMD</strong> (Craniomandibuläre Dysfunktion)
-        und <strong>Skoliose nach Schroth</strong> gelegt. Praxisinhaberin
-        Astrid Mally und mehrere Teammitglieder verfügen über umfassende
-        Zusatzqualifikationen in diesen Bereichen. Wir arbeiten nach den
-        neuesten wissenschaftlichen Erkenntnissen und aktualisieren unser
-        Wissen durch regelmäßige Fortbildungen.
       </p>
     ),
   },

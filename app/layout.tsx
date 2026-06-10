@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: "%s | Physiotherapie Mally",
   },
   description:
-    "Seit 1998 für Ihre Gesundheit und Beweglichkeit in Hamm-Bockum-Hövel. Spezialisierte Physiotherapie – individuell, empathisch, wirkungsvoll.",
+    "Seit 2000 für Ihre Gesundheit und Beweglichkeit in Hamm-Bockum-Hövel. Spezialisierte Physiotherapie – individuell, empathisch, wirkungsvoll.",
   applicationName: "Physiotherapie Astrid Mally",
   authors: [{ name: "Astrid Mally" }],
   generator: "Next.js",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "Physiotherapie Bockum-Hövel",
     "CMD Hamm",
     "Manuelle Therapie Hamm",
-    "Skoliosetherapie Schroth",
+    "Schmerzphysiotherapie Hamm",
     "Lymphdrainage Hamm",
     "Astrid Mally",
   ],
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     siteName: "Physiotherapie Astrid Mally",
     title: "Physiotherapie Astrid Mally – Hamm-Bockum-Hövel",
     description:
-      "Individuell, empathisch, wirkungsvoll. Spezialisierte Physiotherapie seit 1998.",
+      "Individuell, empathisch, wirkungsvoll. Spezialisierte Physiotherapie seit 2000.",
   },
   robots: { index: true, follow: true },
 };
