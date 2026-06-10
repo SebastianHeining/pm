@@ -1,7 +1,7 @@
 ---
 name: Andrea Dörholt
 rolle: Anmeldung und Abrechnung
-bild: /team/team-06.jpg
+bild: /team/andrea-doerholt.jpg
 abteilung: empfang
 reihenfolge: 20
 seitJahr: 0

@@ -4,8 +4,9 @@
 
 ## Inhalte / Klärung mit der Kundin
 
-- [ ] **Foto-Zuordnung Team**: Sicher zugeordnet: Astrid (`astrid-mally.jpg`), Andrea Dörholt (`team-06.jpg`, aus Feedback-Dokument abgeleitet — bitte bestätigen), Zoe Spalek (`zoe-spalek.jpg`, aus Feedback-Dokument). Offen: Stefanie Scholz, Celina Töpfer, Marion Wenzel, Markus Wenzel sowie die restlichen `team-XX.jpg`-Fotos (rote Brille, dunkelhaarig, Piercing, gelbes Shirt, blaue Brille, türkises Shirt).
-- [ ] **Zoe Spalek**: Foto in höherer Auflösung anfragen (aktuelles stammt aus dem Word-Dokument, nur ~240 px) + Qualifikationen nach Ausbildungsabschluss ergänzen.
+- [x] **Foto-Zuordnung Team**: KOMPLETT gelöst über die Bilder im Feedback-Dokument. Alle 10 Personen haben ihr Foto: Astrid, Stefanie, Celina, Marion, Markus, Zoe (Therapie) + Andrea, Sabine U., Sabine M., Jasmin (Empfang). Das übrige Studio-Foto (ältere Dame, rote Brille, pinkes Shirt — vermutlich ehemalige Mitarbeiterin) wurde entfernt.
+- [ ] **Bessere Fotos anfragen**: Zoe Spalek (~240 px), Stefanie Scholz (Word-Rasterpunkte sichtbar) und Marion Wenzel (Handy-Foto, warmstichig) stammen aus dem Word-Dokument in niedriger Qualität. Im nächsten Foto-Termin durch Studio-Aufnahmen ersetzen.
+- [ ] **Zoe Spalek**: Qualifikationen nach Ausbildungsabschluss ergänzen.
 - [ ] **Marion Wenzel**: Weitere Qualifikationen über „Physiotherapeutin" hinaus? Aktuell bewusst schlicht gehalten.
 - [ ] **Eintrittsjahre Empfangs-Team** (Andrea, Sabine U., Sabine M., Jasmin) — falls gewünscht.
 - [ ] **„Wann diese Behandlung sinnvoll ist"**: Indikationslisten auf allen Leistungsseiten von Astrid fachlich freigeben lassen (Feedback bat um Prüfung).

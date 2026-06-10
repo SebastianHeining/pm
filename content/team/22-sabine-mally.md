@@ -1,12 +1,12 @@
 ---
 name: Sabine Mally
 rolle: Praxismanagement und Anmeldung
-bild: ""
+bild: /team/sabine-mally.jpg
 abteilung: empfang
 reihenfolge: 22
 seitJahr: 0
 qualifikationen: []
-notiz: "TODO: Foto und Eintrittsjahr ergänzen."
+notiz: "Foto-Zuordnung über Feedback-Dokument (Screenshot der Karte neben ihrem Namen). Eintrittsjahr offen."
 ---
 
 Sabine kümmert sich um die organisatorischen und administrativen Belange der Praxis — vom Terminmanagement bis zur Koordination im Team.
