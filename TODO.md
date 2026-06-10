@@ -10,10 +10,10 @@
 - [ ] **Marion Wenzel**: Weitere Qualifikationen über „Physiotherapeutin" hinaus? Aktuell bewusst schlicht gehalten.
 - [ ] **Eintrittsjahre Empfangs-Team** (Andrea, Sabine U., Sabine M., Jasmin) — falls gewünscht.
 - [ ] **„Wann diese Behandlung sinnvoll ist"**: Indikationslisten auf allen Leistungsseiten von Astrid fachlich freigeben lassen (Feedback bat um Prüfung).
-- [ ] **Fotos bei Leistungen**: Im Feedback angefragt („Fotos bei Leistungen hinzu?") — Praxisraum-/Behandlungsfotos nötig. Shooting oder Bildauswahl mit Astrid klären.
-- [ ] **Praxisraum-Fotos** allgemein: `public/praxis/` weiterhin leer.
+- [ ] **Fotos bei Leistungen**: Entscheidung Sebastian (Juni 2026): eigenes Shooting in der Praxis. Termin mit Astrid vereinbaren — dabei auch Ersatz-Fotos für Stefanie/Marion/Zoe machen. Option als Zwischenlösung: Standbilder aus dem Matterport-Rundgang für raumbezogene Seiten (Schlingentisch, Praxis).
+- [ ] **Praxisraum-Fotos** allgemein: `public/praxis/` weiterhin leer — wird mit dem Shooting gelöst.
 - [ ] **Podcast-Links**: „Neuro 360" und „Momentmal (Franziska Behlert)" haben noch keinen verifizierten Link — aktuell nur Suchhinweis. Links von Astrid besorgen, dann QR-Codes automatisch.
-- [ ] **Kategorie/Kostenübernahme bei Leistungen**: Kategorie-Anzeige wurde entfernt (CMD/MT wirkten fälschlich wie Nicht-Kassenleistungen). Kostenübernahme-Box ist geblieben und jetzt überall eindeutig formuliert („Kassenleistung — …"). Falls Astrid sie ganz raus will: kurzer Edit in `app/leistungen/[slug]/page.tsx`.
+- [x] **Kategorie/Kostenübernahme bei Leistungen**: Kategorie entfernt, Kostenübernahme-Box bleibt (Entscheidung Sebastian, Juni 2026) — Texte vereinheitlicht („Kassenleistung — …").
 - [ ] **WABASKA**: Als eigene Leistungsseite entfernt (gehört zur normalen KG). Quali-Tag bei Stefanie Scholz vorhanden. Gewünschtes „Aufklapp-Detail beim Klick auf die Qualifikation" auf der Team-Seite wäre als Erweiterung möglich — bei Bedarf melden.
 - [ ] **Logo als SVG**: weiterhin offen (aktuell PNG/JPG; EPS liegt im Repo).
 
