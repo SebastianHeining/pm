@@ -30,6 +30,17 @@
   --container-page: 80rem; /* 1280px */
 }
 
+/*
+ * Design-Variante "Rot/Weiß/Grau" — ohne Blau, passend zum neuen Logo.
+ * Aktivierung über /variante-rot (localStorage), Rückschalter /variante-standard.
+ * Überschreibt nur die Blau-Töne; Rot, Grau und Flächen bleiben identisch.
+ */
+html.theme-rot {
+  --color-brand-navy: #3b3b3d;
+  --color-brand-navy-soft: #515154;
+  --color-brand-navy-deep: #29292b;
+}
+
 @layer base {
   html {
     -webkit-font-smoothing: antialiased;
