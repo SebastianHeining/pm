@@ -86,6 +86,7 @@ export async function sendContactMail(
 export type ReviewPayload = {
   name?: string;
   ort?: string;
+  wannBesuch?: string;
   sterne: number;
   text: string;
 };
@@ -100,6 +101,7 @@ export async function sendReviewMail(
     `Bewertung: ${stars} (${payload.sterne}/5)`,
     `Name:      ${payload.name || "(nicht angegeben)"}`,
     payload.ort ? `Ort:       ${payload.ort}` : null,
+    payload.wannBesuch ? `Besuch:    ${payload.wannBesuch}` : null,
     ``,
     `Text:`,
     payload.text,

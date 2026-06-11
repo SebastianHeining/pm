@@ -43,6 +43,7 @@ export function ReviewForm() {
     const payload = {
       name: String(formData.get("name") ?? ""),
       ort: String(formData.get("ort") ?? ""),
+      wannBesuch: String(formData.get("wannBesuch") ?? ""),
       sterne,
       text: String(formData.get("text") ?? ""),
       consent: formData.get("consent") === "on",
@@ -173,6 +174,24 @@ export function ReviewForm() {
             className={cn(inputBase, "mt-2")}
           />
         </div>
+      </div>
+
+      <div>
+        <label htmlFor="wannBesuch" className={labelBase}>
+          Wann waren Sie bei uns?{" "}
+          <span className="text-graphite-soft">(optional)</span>
+        </label>
+        <input
+          id="wannBesuch"
+          name="wannBesuch"
+          type="text"
+          maxLength={60}
+          placeholder="z. B. Juni 2026 oder „vor zwei Wochen“"
+          className={cn(inputBase, "mt-2")}
+        />
+        <p className="mt-1.5 text-xs text-graphite-soft">
+          Hilft uns, Ihr Feedback einzuordnen — wird nicht veröffentlicht.
+        </p>
       </div>
 
       {/* Honeypot */}

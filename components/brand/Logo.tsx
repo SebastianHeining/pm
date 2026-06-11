@@ -7,20 +7,22 @@ export function Logo({
   className,
   asLink = true,
   invert = false,
+  sizeClassName = "h-12 w-auto sm:h-14",
 }: {
   variant?: "wordmark" | "mark";
   className?: string;
   asLink?: boolean;
   invert?: boolean;
+  sizeClassName?: string;
 }) {
   const src =
     variant === "mark"
       ? "/assets/logo/logo-am.png"
-      : "/assets/logo/logo-am-wortmarke.jpg";
+      : "/assets/logo/logo-am-wortmarke.png";
 
-  // Aspect ratios from source files: mark is square (913x913), wordmark ≈ 1069x562
-  const width = variant === "mark" ? 56 : 180;
-  const height = variant === "mark" ? 56 : 96;
+  // Source sizes: mark 913x913, wordmark (transparent PNG, getrimmt) 918x415
+  const width = variant === "mark" ? 56 : 240;
+  const height = variant === "mark" ? 56 : 108;
 
   const img = (
     <Image
@@ -30,7 +32,7 @@ export function Logo({
       alt="Praxis für Physiotherapie Astrid Mally"
       priority
       className={cn(
-        "h-12 w-auto sm:h-14",
+        sizeClassName,
         variant === "mark" && "rounded-full",
         invert && "brightness-0 invert",
         className,

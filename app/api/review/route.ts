@@ -24,6 +24,7 @@ export async function POST(request: Request) {
   let body: {
     name?: string;
     ort?: string;
+    wannBesuch?: string;
     sterne?: number;
     text?: string;
     consent?: boolean;
@@ -44,6 +45,7 @@ export async function POST(request: Request) {
   const text = (body.text ?? "").trim();
   const name = (body.name ?? "").trim().slice(0, 80);
   const ort = (body.ort ?? "").trim().slice(0, 80);
+  const wannBesuch = (body.wannBesuch ?? "").trim().slice(0, 60);
 
   if (!Number.isInteger(sterne) || sterne < 1 || sterne > 5) {
     return NextResponse.json(
@@ -75,7 +77,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const result = await sendReviewMail({ name, ort, sterne, text });
+  const result = await sendReviewMail({ name, ort, wannBesuch, sterne, text });
   if (!result.ok) {
     return NextResponse.json(result, { status: 500 });
   }

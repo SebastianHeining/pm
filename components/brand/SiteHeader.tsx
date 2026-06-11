@@ -15,7 +15,10 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border-soft bg-surface/95 backdrop-blur supports-[backdrop-filter]:bg-surface/80">
       <Container>
         <div className="flex h-20 items-center justify-between gap-6 lg:h-24">
-          <Logo />
+          {/* Großes Logo, das unten über den Header-Rahmen hinausragt */}
+          <div className="relative z-10 -mb-6 self-end sm:-mb-7 lg:-mb-9">
+            <Logo sizeClassName="h-20 w-auto drop-shadow-sm sm:h-24 lg:h-32" />
+          </div>
           <nav aria-label="Hauptnavigation" className="hidden lg:flex">
             <ul className="flex items-center gap-1">
               {navigation.map((item) => (

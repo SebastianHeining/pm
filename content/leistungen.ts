@@ -177,6 +177,8 @@ export const leistungen: Leistung[] = [
     heroEyebrow: "Wärmen & Kühlen",
     heroLead:
       "Wohltuende Wärme aus Naturmoor lockert die Muskulatur, fördert die Durchblutung und bereitet den Körper optimal auf weitere Behandlungen vor. Die Heiße Rolle kombiniert intensive, punktuelle Wärme mit Massagegriffen. Gezielte Kälteanwendungen lindern Schmerzen, hemmen Entzündungen und reduzieren Schwellungen.",
+    bild: "/leistungen/waerme-kaelte.jpg",
+    bildAlt: "Behandlung am Rücken — Vorbereitung mit Wärme",
     wannHilft: [
       "Muskuläre Verspannungen (Wärme)",
       "Vorbereitung auf Krankengymnastik oder Massage",
