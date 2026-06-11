@@ -113,8 +113,8 @@ export default function PraxisPage() {
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { src: "/praxis/empfang.jpg", alt: "Empfangsbereich mit Tresen und Blick zum Wartebereich", caption: "Empfang" },
-              { src: "/praxis/wartebereich.jpg", alt: "Wartebereich mit Stühlen und Wandbild", caption: "Wartebereich" },
-              { src: "/praxis/behandlungsraum.jpg", alt: "Behandlungsraum mit Liege und anatomischen Postern", caption: "Behandlungsraum" },
+              { src: "/praxis/behandlungsraum.jpg", alt: "Behandlungsraum mit Liege und Schlingentisch", caption: "Behandlungsraum" },
+              { src: "/praxis/therapieraum.jpg", alt: "Therapieraum mit Liege, Sprossenwand und Übungsgeräten", caption: "Therapieraum mit Sprossenwand" },
             ].map((img) => (
               <figure key={img.src} className="overflow-hidden rounded-2xl border border-border-soft bg-white">
                 <div className="relative aspect-[16/10]">
