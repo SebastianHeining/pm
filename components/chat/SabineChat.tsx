@@ -19,6 +19,96 @@ const QUICK_QUESTIONS = [
   "Ich möchte einen Termin verschieben.",
 ];
 
+const PHONE_DISPLAY = "02381 / 5444 - 533";
+const PHONE_HREF = "tel:+4923815444533";
+
+/** **fett** → <strong>, Praxisnummer → klickbarer tel-Link */
+function renderInline(text: string) {
+  return text.split(/(\*\*[^*]+\*\*|02381\s*\/\s*5444\s*-\s*533)/g).map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    if (part.replace(/\s/g, "") === PHONE_DISPLAY.replace(/\s/g, "")) {
+      return (
+        <a key={i} href={PHONE_HREF} className="font-semibold underline underline-offset-2">
+          {part}
+        </a>
+      );
+    }
+    return part;
+  });
+}
+
+/**
+ * Strukturiert Sabines Antworten: Zeilen mit "- "/"• " werden Listenpunkte,
+ * "1." / "2." nummerierte Schritte, der Rest Absätze — falls das Modell doch
+ * mal Markdown schreibt, sieht es trotzdem ordentlich aus.
+ */
+function FormattedMessage({ text }: { text: string }) {
+  type Block =
+    | { kind: "p"; lines: string[] }
+    | { kind: "ul"; items: string[] }
+    | { kind: "ol"; items: string[] };
+
+  const blocks: Block[] = [];
+  for (const raw of text.split("\n")) {
+    const line = raw.trim();
+    if (!line) continue;
+    const ul = line.match(/^[-•–]\s+(.*)$/);
+    const ol = line.match(/^\d+[.)]\s+(.*)$/);
+    const last = blocks[blocks.length - 1];
+    if (ul) {
+      if (last?.kind === "ul") last.items.push(ul[1]);
+      else blocks.push({ kind: "ul", items: [ul[1]] });
+    } else if (ol) {
+      if (last?.kind === "ol") last.items.push(ol[1]);
+      else blocks.push({ kind: "ol", items: [ol[1]] });
+    } else {
+      if (last?.kind === "p") last.lines.push(line);
+      else blocks.push({ kind: "p", lines: [line] });
+    }
+  }
+
+  return (
+    <div className="space-y-2">
+      {blocks.map((b, i) => {
+        if (b.kind === "ul") {
+          return (
+            <ul key={i} className="space-y-1.5">
+              {b.items.map((item, j) => (
+                <li key={j} className="flex gap-2">
+                  <span aria-hidden className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-brand-red" />
+                  <span>{renderInline(item)}</span>
+                </li>
+              ))}
+            </ul>
+          );
+        }
+        if (b.kind === "ol") {
+          return (
+            <ol key={i} className="space-y-1.5">
+              {b.items.map((item, j) => (
+                <li key={j} className="flex gap-2">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-red text-[11px] font-semibold leading-none text-white">
+                    {j + 1}
+                  </span>
+                  <span>{renderInline(item)}</span>
+                </li>
+              ))}
+            </ol>
+          );
+        }
+        return <p key={i}>{b.lines.map((l, j) => (
+          <span key={j}>
+            {j > 0 && <br />}
+            {renderInline(l)}
+          </span>
+        ))}</p>;
+      })}
+    </div>
+  );
+}
+
 export function SabineChat() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([GREETING]);
@@ -134,6 +224,24 @@ export function SabineChat() {
               Digitale Praxis-Assistentin (KI)
             </p>
           </div>
+          {messages.length > 1 && !loading && (
+            <button
+              type="button"
+              onClick={() => {
+                setMessages([GREETING]);
+                setInput("");
+                inputRef.current?.focus();
+              }}
+              aria-label="Chat neu starten"
+              title="Chat neu starten"
+              className="flex h-9 w-9 items-center justify-center rounded-full text-graphite-soft transition-colors hover:bg-white hover:text-brand-red"
+            >
+              <svg aria-hidden viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 12a9 9 0 1 0 3-6.7" />
+                <path d="M3 4v5h5" />
+              </svg>
+            </button>
+          )}
           <button
             type="button"
             onClick={() => setOpen(false)}
@@ -156,13 +264,17 @@ export function SabineChat() {
             <div
               key={i}
               className={cn(
-                "max-w-[85%] whitespace-pre-wrap rounded-2xl px-4 py-2.5 text-sm leading-relaxed",
+                "max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed",
                 m.role === "assistant"
                   ? "rounded-bl-md bg-surface-warm text-graphite"
-                  : "ml-auto rounded-br-md bg-brand-red text-white",
+                  : "ml-auto whitespace-pre-wrap rounded-br-md bg-brand-red text-white",
               )}
             >
-              {m.content}
+              {m.role === "assistant" ? (
+                <FormattedMessage text={m.content} />
+              ) : (
+                m.content
+              )}
             </div>
           ))}
           {loading && (
