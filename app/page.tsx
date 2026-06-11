@@ -36,11 +36,11 @@ export default function Home() {
       <JsonLd data={medicalBusinessJsonLd()} />
       {/* Diagonale Job-Banderole unten rechts — der Clip-Container schneidet
           die Bandenden sauber ab, der Text sitzt mittig auf dem Band */}
-      <div className="pointer-events-none fixed bottom-0 right-0 z-40 h-40 w-40 overflow-hidden">
+      <div className="pointer-events-none fixed bottom-0 right-0 z-40 h-44 w-44 overflow-hidden">
         <Link
           href="/karriere"
           aria-label="Mitarbeiter gesucht — zur Karriere-Seite"
-          className="pointer-events-auto absolute bottom-[34px] right-[-42px] block w-[210px] rotate-[-45deg] bg-brand-red py-2 text-center text-sm font-semibold uppercase tracking-[0.08em] text-white shadow-lg ring-1 ring-white/30 transition-colors hover:bg-brand-navy"
+          className="pointer-events-auto absolute bottom-[50px] right-[-51px] block w-[230px] rotate-[-45deg] bg-brand-red py-1.5 text-center text-xs font-semibold uppercase tracking-[0.04em] text-white shadow-lg ring-1 ring-white/30 transition-colors hover:bg-brand-navy"
         >
           Mitarbeiter gesucht!
         </Link>
