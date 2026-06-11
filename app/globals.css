@@ -1,16 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand color tokens — derived from PowerPoint design system */
-  --color-brand-navy: #152d47;
-  --color-brand-navy-soft: #233f5e;
-  --color-brand-navy-deep: #0d1d31;
+  /*
+   * Brand color tokens — Rot/Weiß/Grau passend zum Logo (Kunden-Entscheidung
+   * Feedbackrunde 2). Warme Stone-Grautöne, Ton-in-Ton; alle Kombinationen AA.
+   * Token-Name "navy" ist historisch und meint die dunkle Primärfarbe.
+   *
+   * ARCHIV — frühere Blau-Variante (alte Webseite / PPTX-Entwurf):
+   *   --color-brand-navy: #152d47;
+   *   --color-brand-navy-soft: #233f5e;
+   *   --color-brand-navy-deep: #0d1d31;
+   *   --color-graphite: #4c4c4d;
+   *   --color-graphite-soft: #6a6a6b;
+   */
+  --color-brand-navy: #544f4a;
+  --color-brand-navy-soft: #6b6660;
+  --color-brand-navy-deep: #423e39;
   --color-brand-red: #c8202a;
   --color-brand-red-hover: #a51820;
   --color-brand-red-soft: #f1d4d6;
-  --color-graphite: #4c4c4d;
+  --color-graphite: #5c5751;
   /* 4.5:1+ auch auf surface-warm (#F7F5F2) — WCAG AA */
-  --color-graphite-soft: #6a6a6b;
+  --color-graphite-soft: #6e6964;
   --color-graphite-mute: #9aa0a6;
 
   --color-surface: #ffffff;
@@ -28,20 +39,6 @@
 
   /* Container width */
   --container-page: 80rem; /* 1280px */
-}
-
-/*
- * Design-Variante "Rot/Weiß/Grau" — ohne Blau, passend zum neuen Logo.
- * Aktivierung über /variante-rot (localStorage), Rückschalter /variante-standard.
- * Warme Stone-Grautöne (Ton-in-Ton, angelehnt an die Print-Anzeige);
- * alle Kombinationen erfüllen WCAG AA.
- */
-html.theme-rot {
-  --color-brand-navy: #544f4a;
-  --color-brand-navy-soft: #6b6660;
-  --color-brand-navy-deep: #423e39;
-  --color-graphite: #5c5751;
-  --color-graphite-soft: #6e6964;
 }
 
 @layer base {

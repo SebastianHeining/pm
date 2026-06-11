@@ -114,7 +114,7 @@ export default function PraxisPage() {
             {[
               { src: "/praxis/empfang.jpg", alt: "Empfangsbereich mit Tresen und Blick zum Wartebereich", caption: "Empfang" },
               { src: "/praxis/wartebereich.jpg", alt: "Wartebereich mit Stühlen und Wandbild", caption: "Wartebereich" },
-              { src: "/praxis/trainingsraum.jpg", alt: "Trainingsraum mit Sprossenwand, Liege und Übungsgeräten", caption: "Trainingsraum" },
+              { src: "/praxis/behandlungsraum.jpg", alt: "Behandlungsraum mit Liege und anatomischen Postern", caption: "Behandlungsraum" },
             ].map((img) => (
               <figure key={img.src} className="overflow-hidden rounded-2xl border border-border-soft bg-white">
                 <div className="relative aspect-[16/10]">

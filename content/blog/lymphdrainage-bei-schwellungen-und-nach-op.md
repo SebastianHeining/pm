@@ -26,7 +26,7 @@ Typische Indikationen für eine ärztlich verordnete Lymphdrainage:
 - **Primäres Lymphödem** (angeborene Schwäche des Lymphsystems)
 - **Lipödem** (krankhafte Fettverteilungsstörung mit Wassereinlagerungen)
 - **Schwellungen nach Operationen** an Hüfte, Knie, Sprunggelenk
-- **Chronisch venöse Insuffizienz** („schwere Beine", offene Beine)
+- **Chronisch venöse Insuffizienz** („schwere Beine“, offene Beine)
 - **Schwangerschaftsödeme**
 
 Auch bei **akuten Verletzungen** (Sportverletzung, Zerrung, Distorsion) kann Lymphdrainage die Heilung beschleunigen, weil sie Entzündungsprodukte abtransportiert.

@@ -17,13 +17,16 @@ export const siteConfig = {
     phone: "+49 2381 5444533",
     phoneDisplay: "02381 / 5444 - 533",
     fax: "+49 2381 5444534",
-    email: "info@physiotherapie-mally.de",
+    // FB2: info@physiotherapie-mally.de existiert (noch) nicht —
+    // aktives Postfach der Praxis ist die t-online-Adresse.
+    email: "praxis-astrid-mally@t-online.de",
   },
   // Öffnungszeiten (Therapie- und Anmeldezeiten kombiniert)
+  //   (geschütztes Leerzeichen) verhindert den Umbruch „19:00 / Uhr“ auf Mobile
   hours: [
-    { days: "Mo, Mi", time: "07:30 – 19:00 Uhr" },
-    { days: "Di, Do", time: "07:30 – 16:30 Uhr" },
-    { days: "Fr", time: "07:30 – 15:00 Uhr" },
+    { days: "Mo, Mi", time: "07:30 – 19:00 Uhr" },
+    { days: "Di, Do", time: "07:30 – 16:30 Uhr" },
+    { days: "Fr", time: "07:30 – 15:00 Uhr" },
   ],
   matterportEmbed: "https://my.matterport.com/show/?m=QbLa5s7ChXh",
   social: {} as Record<string, string>,
@@ -40,5 +43,6 @@ export const navigation = [
   { label: "Team", href: "/praxis/team" },
   { label: "Ratgeber", href: "/ratgeber" },
   { label: "Karriere", href: "/karriere" },
+  { label: "Bewertung", href: "/bewertung" },
   { label: "Kontakt", href: "/kontakt" },
 ] as const;

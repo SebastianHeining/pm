@@ -15,7 +15,7 @@ export default async function BewertungAushang() {
     type: "svg",
     margin: 0,
     width: 280,
-    color: { dark: "#152D47", light: "#FFFFFF" },
+    color: { dark: "#544F4A", light: "#FFFFFF" },
   });
 
   return (

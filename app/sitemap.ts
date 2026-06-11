@@ -32,7 +32,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${siteConfig.url}/leistungen/${l.slug}`,
       lastModified,
       changeFrequency: "monthly" as const,
-      priority: l.kategorie === "spezial" ? 0.8 : 0.7,
+      // CMD und MT sind die fachlichen Schwerpunkte der Praxis
+      priority: ["cmd-kiefergelenk", "manuelle-therapie"].includes(l.slug)
+        ? 0.8
+        : 0.7,
     })),
     ...blogSlugs.map((slug) => ({
       url: `${siteConfig.url}/ratgeber/${slug}`,

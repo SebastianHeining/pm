@@ -4,14 +4,13 @@ rolle: Praxisinhaberin & Physiotherapeutin
 bild: /team/astrid-mally.jpg
 abteilung: therapie
 reihenfolge: 1
-seitJahr: 2000
-spezialisierung: MT · Schmerzphysiotherapie · CMD
+seitJahr: 1998
+spezialisierung: ""
 qualifikationen:
   - Staatlich anerkannte Physiotherapeutin
-  - MT (OMT)
+  - Manuelle Therapie
   - Manuelle Lymphdrainage
-  - CMD-Spezialistin (Craniomandibuläre Dysfunktion)
-  - Zertifizierte Skoliosetherapeutin nach Schroth
+  - CMD-Therapeutin
   - Sportphysiotherapie
   - Schmerzphysiotherapie (Florian Hockenholz Akademie)
   - Medizinische Trainingstherapie / KG am Gerät

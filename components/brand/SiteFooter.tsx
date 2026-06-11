@@ -15,7 +15,7 @@ const footerNav = {
     { label: "Manuelle Therapie", href: "/leistungen/manuelle-therapie" },
     { label: "CMD / Kiefergelenk", href: "/leistungen/cmd-kiefergelenk" },
     { label: "Lymphdrainage", href: "/leistungen/manuelle-lymphdrainage" },
-    { label: "Massage, Fango & Wärme", href: "/leistungen/massage-und-waerme" },
+    { label: "Massage & Bindegewebsmassage", href: "/leistungen/massage-bgm" },
   ],
   Service: [
     { label: "Kontakt & Anfahrt", href: "/kontakt" },
@@ -88,7 +88,7 @@ export function SiteFooter() {
                 Öffnungszeiten
               </p>
               {siteConfig.hours.map((h) => (
-                <p key={h.days}>
+                <p key={h.days} className="whitespace-nowrap">
                   <span className="inline-block w-20 text-white/70">{h.days}</span>
                   {h.time}
                 </p>

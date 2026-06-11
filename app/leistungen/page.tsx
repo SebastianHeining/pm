@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "Krankengymnastik, Manuelle Therapie, CMD, Lymphdrainage, Massage und mehr — alle Behandlungen der Praxis Mally im Überblick.",
 };
 
-const ORDER: Kategorie[] = ["spezial", "kasse", "selbstzahler"];
+const ORDER: Kategorie[] = ["kasse", "selbstzahler"];
 
 export default function LeistungenIndex() {
   const grouped = ORDER.map((kat) => ({
@@ -53,23 +53,21 @@ export default function LeistungenIndex() {
       {grouped.map(({ kat, items }) => (
         <Section
           key={kat}
-          tone={kat === "spezial" ? "white" : kat === "kasse" ? "warm" : "white"}
+          tone={kat === "kasse" ? "white" : "warm"}
           spacing="default"
         >
           <Container>
             <SectionEyebrow>{kategorieLabel[kat]}</SectionEyebrow>
             <SectionHeading>
-              {kat === "spezial"
-                ? "Unsere Schwerpunkte."
-                : kat === "kasse"
-                  ? "Klassische Heilmittel."
-                  : "Prävention, Selbstzahler & Wellness."}
+              {kat === "kasse"
+                ? "Klassische Heilmittel."
+                : "Prävention, Selbstzahler & Wellness."}
             </SectionHeading>
-            {kat === "spezial" && (
+            {kat === "kasse" && (
               <SectionLead>
-                Bereiche, in denen unsere Praxis besonders qualifiziert ist —
-                mit Zusatz­ausbildungen, kontinuierlicher Fortbildung und
-                jahrzehntelanger Erfahrung.
+                Verordnungsfähige Behandlungen — von Krankengymnastik über
+                Manuelle Therapie bis zur CMD-Behandlung. Jede Therapie wird
+                individuell auf Sie zugeschnitten.
               </SectionLead>
             )}
 

@@ -84,7 +84,7 @@ export default function Datenschutz() {
                 Inc. (USA) geladen wird. Dabei werden technische Daten
                 (insbesondere Ihre IP-Adresse) an Matterport übertragen. Der
                 Rundgang lädt erst nach einem ausdrücklichen Klick auf
-                „Rundgang laden". Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO
+                „Rundgang laden“. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO
                 (Einwilligung). Sie können Ihre Einwilligung jederzeit
                 widerrufen.
               </p>
@@ -95,7 +95,7 @@ export default function Datenschutz() {
                 5. Schriftarten (DM Sans)
               </h2>
               <p className="mt-3">
-                Diese Seite verwendet die Schriftart „DM Sans". Sie wird beim
+                Diese Seite verwendet die Schriftart „DM Sans“. Sie wird beim
                 Build der Seite einmalig vom Anbieter bezogen und anschließend{" "}
                 <strong>lokal auf unserem Server</strong> ausgeliefert. Es findet
                 also keine Verbindung Ihres Browsers zu externen
@@ -120,7 +120,7 @@ export default function Datenschutz() {
                 7. Patient:innen-Bewertungen
               </h2>
               <p className="mt-3">
-                Über das Formular auf der Seite „Bewertung" können Sie uns
+                Über das Formular auf der Seite „Bewertung“ können Sie uns
                 freiwillig eine Bewertung übermitteln (Sterne, Text, optional
                 Name und Ort). Die Angaben werden uns per E-Mail zugestellt und
                 nur mit Ihrer ausdrücklichen Einwilligung — ggf. gekürzt — auf

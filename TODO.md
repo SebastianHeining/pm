@@ -1,6 +1,14 @@
 # TODO — Offene Punkte (für Astrid Mally bzw. Sebastian)
 
-> Stand: 2026-06-10. Kunden-Feedback („Änderungen Sebastian~02.docx") ist eingearbeitet.
+> Stand: 2026-06-11. Feedbackrunde 2 ist vollständig eingearbeitet
+> (Rot/Grau ist Standard-Design, Team final, Leistungen mit Behandlungsfotos).
+
+## Aus Feedbackrunde 2 noch offen
+
+- [ ] **Karriere-Text an Astrid mailen** (Sebastian): Astrid möchte den Karriere-Seitentext zum Querlesen per Mail — Seite ist auf die Version ohne 12-Punkte-Plan zurückgebaut.
+- [ ] **info@-Postfach**: Die Webseite nutzt jetzt überall `praxis-astrid-mally@t-online.de`. Falls `info@physiotherapie-mally.de` beim Domain-Umzug eingerichtet wird, an zentraler Stelle (`lib/site-config.ts`) zurückstellen.
+- [ ] **Benefits-Icons der Kundin**: Astrid hat sich Icons „mit ChatGPT gemacht" — falls sie die liefert, in die Karriere-Seite einbauen.
+- [ ] **Google-Maps-Routenziel** zeigt erst nach dem Domain-/GBP-Livegang zuverlässig auf die Praxis (Kundin informiert).
 
 ## Inhalte / Klärung mit der Kundin
 
@@ -30,7 +38,7 @@
 
 - [ ] **Hosting-Entscheidung**: ionos / hetzner / eigener Server (oder Vercel behalten — läuft bereits auf mally-website-one.vercel.app).
 - [ ] **Domain-DNS**: Zugang klären; Umzugsplan.
-- [ ] **E-Mail-Postfach `info@physiotherapie-mally.de`** + SMTP-Zugangsdaten als Env-Vars setzen (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `MAIL_FROM`, `MAIL_TO`) — betrifft Kontaktformular UND Bewertungs-Formular.
+- [ ] **E-Mail-Postfach `praxis-astrid-mally@t-online.de`** + SMTP-Zugangsdaten als Env-Vars setzen (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `MAIL_FROM`, `MAIL_TO`) — betrifft Kontaktformular UND Bewertungs-Formular.
 - [ ] **Decap CMS Production-Backend**: GitHub-OAuth einrichten, sobald über die echte Domain erreichbar.
 - [ ] **Datenschutz-/Impressums-Review** vor Live-Gang (Matterport, OSM, Formulare, Bewertungen).
 

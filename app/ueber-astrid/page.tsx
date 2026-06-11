@@ -40,10 +40,9 @@ const ansatz = [
 
 const qualifikationen = [
   "Staatlich anerkannte Physiotherapeutin",
-  "Manuelle Therapie (OMT)",
+  "Manuelle Therapie",
   "Manuelle Lymphdrainage",
-  "CMD-Spezialistin (Craniomandibuläre Dysfunktion)",
-  "Zertifizierte Skoliosetherapeutin nach Schroth",
+  "CMD-Therapeutin",
   "Sportphysiotherapie",
   "Schmerzphysiotherapie (Florian Hockenholz Akademie)",
   "Medizinische Trainingstherapie / KG am Gerät",

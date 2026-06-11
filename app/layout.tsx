@@ -2,12 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/brand/SiteHeader";
 import { SiteFooter } from "@/components/brand/SiteFooter";
-import { ThemeBadge } from "@/components/theme/ThemeBadge";
 import "./globals.css";
-
-// Setzt die Theme-Klasse VOR dem ersten Paint (kein Farb-Flackern).
-// Variante wird über /variante-rot bzw. /variante-standard umgeschaltet.
-const themeInitScript = `try{if(localStorage.getItem("mally-theme")==="rot")document.documentElement.classList.add("theme-rot")}catch(e){}`;
 
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
@@ -57,7 +52,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  themeColor: "#152D47",
+  themeColor: "#544F4A",
 };
 
 export default function RootLayout({
@@ -68,7 +63,6 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${dmSans.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col bg-surface text-graphite">
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-brand-navy focus:px-4 focus:py-2 focus:text-white"
@@ -80,7 +74,6 @@ export default function RootLayout({
           {children}
         </main>
         <SiteFooter />
-        <ThemeBadge />
       </body>
     </html>
   );

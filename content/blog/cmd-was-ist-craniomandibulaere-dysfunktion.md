@@ -11,7 +11,7 @@ Vielleicht haben Sie es selbst schon erlebt: morgens aufstehen mit dumpfen Kopfs
 
 Wenn solche Symptome zusammenkommen, lohnt sich ein zweiter Blick. Häufig steckt eine **Craniomandibuläre Dysfunktion** dahinter — kurz **CMD**.
 
-## Was bedeutet „Craniomandibuläre Dysfunktion"?
+## Was bedeutet „Craniomandibuläre Dysfunktion“?
 
 Der Begriff klingt komplizierter, als die Sache eigentlich ist:
 
@@ -23,7 +23,7 @@ CMD bezeichnet also eine Fehlfunktion im Zusammenspiel zwischen Schädel, Unterk
 
 ## Typische Symptome
 
-CMD zeigt sich selten als „die eine" Beschwerde. Häufiger ist es eine ganze Familie von Symptomen, die zusammen auftreten:
+CMD zeigt sich selten als „die eine“ Beschwerde. Häufiger ist es eine ganze Familie von Symptomen, die zusammen auftreten:
 
 - Knacken oder Reiben beim Öffnen oder Schließen des Mundes
 - Eingeschränkte Mundöffnung
@@ -44,7 +44,7 @@ Die Ursachen sind selten singulär. Häufig kommen mehrere Faktoren zusammen:
 
 **Muskulär:** chronische Verspannungen durch nächtliches Knirschen, Pressen oder eine dauerhafte Fehlhaltung der Halswirbelsäule.
 
-**Psychosomatisch:** Stress, der sich „auf die Zähne" legt — die Muskulatur ist tagsüber dauerhaft angespannt, nachts wird intensiver geknirscht.
+**Psychosomatisch:** Stress, der sich „auf die Zähne“ legt — die Muskulatur ist tagsüber dauerhaft angespannt, nachts wird intensiver geknirscht.
 
 **Funktionell:** Atemmuster, die den Kiefer ständig in eine ungünstige Position bringen.
 

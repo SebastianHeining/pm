@@ -3,7 +3,7 @@ name: Jasmin Gelhaus
 rolle: Anmeldung und Organisation
 bild: /team/jasmin-gelhaus.jpg
 abteilung: empfang
-reihenfolge: 23
+reihenfolge: 22
 seitJahr: 0
 qualifikationen: []
 notiz: "Foto-Zuordnung über Feedback-Dokument (Screenshot der Karte neben ihrem Namen). Eintrittsjahr offen."

@@ -79,7 +79,7 @@ const faqs: Array<AccordionItem & { plain: string }> = [
       'Ja, bei entsprechender ärztlicher Verordnung ("Hausbesuch") oder in begründeten Fällen bieten wir physiotherapeutische Behandlungen bei Ihnen zu Hause an. Dies ist besonders für Patienten mit eingeschränkter Mobilität eine wertvolle Option.',
     answer: (
       <p>
-        Ja, bei entsprechender ärztlicher Verordnung („Hausbesuch") oder in
+        Ja, bei entsprechender ärztlicher Verordnung („Hausbesuch“) oder in
         begründeten Fällen bieten wir physiotherapeutische Behandlungen bei
         Ihnen zu Hause an. Dies ist besonders für Patient:innen mit
         eingeschränkter Mobilität eine wertvolle Option.

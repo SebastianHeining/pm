@@ -5,6 +5,7 @@ export type IconName =
   | "manuelle"
   | "lymph"
   | "cmd"
+  | "massage"
   | "skoliose"
   | "beckenboden"
   | "pilates"
@@ -17,10 +18,13 @@ export type IconName =
   | "hausbesuch";
 
 const paths: Record<IconName, React.ReactNode> = {
+  // Aktive Person in Bewegung — Krankengymnastik
   kg: (
     <>
-      <path d="M12 3v18M4 8h16M4 16h16" />
-      <circle cx="12" cy="12" r="9" />
+      <circle cx="12" cy="4.5" r="2" />
+      <path d="M12 7v6" />
+      <path d="M5 9.5l7 1L19 8" />
+      <path d="M12 13l-3.5 8M12 13l3.5 8" />
     </>
   ),
   manuelle: (
@@ -37,10 +41,13 @@ const paths: Record<IconName, React.ReactNode> = {
       <circle cx="12" cy="10" r="0.8" fill="currentColor" />
     </>
   ),
+  // Kiefer mit Gelenkpunkt — CMD
   cmd: (
     <>
-      <path d="M5 9c0-3 3-5 7-5s7 2 7 5c0 2-1 3-3 4-1 1-1 1-1 3v2c0 1-1 2-3 2s-3-1-3-2v-3c0-1 0-1-1-2-2-1-3-2-3-4Z" />
-      <path d="M9 13l-2 4M15 13l2 4" />
+      <path d="M4.5 8.5h10" />
+      <path d="M17 10.5c0 4.2-3.2 7-7.5 7h-5" />
+      <circle cx="17" cy="8.5" r="2" />
+      <path d="M20.5 5.5l1.5-1.5M21.5 9.5H23" />
     </>
   ),
   skoliose: (
@@ -94,12 +101,23 @@ const paths: Record<IconName, React.ReactNode> = {
       <path d="M9 5l10 10" />
     </>
   ),
+  // Fußsohle mit Druckpunkten — Fußreflexzonen
   reflex: (
     <>
-      <path d="M9 21c-2 0-4-2-4-4 0-3 4-7 4-10a3 3 0 0 1 6 0c0 1 0 2 1 3 2 2 3 4 3 6 0 2-1 4-3 5-1 0-1 0-2-1-1 1-3 1-5 1Z" />
-      <circle cx="10" cy="9" r="0.8" fill="currentColor" />
-      <circle cx="14" cy="11" r="0.8" fill="currentColor" />
-      <circle cx="11" cy="14" r="0.8" fill="currentColor" />
+      <path d="M10.5 3.5C13 3.5 15 5.8 15 9c0 2.4-1.1 3.6-1.1 5.6 0 1.6 1 2.2 1 3.7 0 1.6-1.3 2.7-3.1 2.7s-3-1.1-3-2.6c0-1.6.7-2.4.7-4.4C9.5 11.6 7 10.6 7 7.5c0-2.3 1.4-4 3.5-4Z" />
+      <circle cx="11" cy="7.5" r="0.9" fill="currentColor" stroke="none" />
+      <circle cx="11.6" cy="11" r="0.9" fill="currentColor" stroke="none" />
+      <circle cx="11" cy="14.5" r="0.9" fill="currentColor" stroke="none" />
+    </>
+  ),
+  // Zwei Hände über Wellen — Massage
+  massage: (
+    <>
+      <path d="M7 4.5c2.5 1.5 7.5 1.5 10 0" />
+      <path d="M5.5 9c3.5 2 9.5 2 13 0" />
+      <path d="M12 11.5v3" />
+      <path d="M8 21v-3.5c0-1.5 1-2.5 2.5-2.5h3c1.5 0 2.5 1 2.5 2.5V21" />
+      <path d="M5.5 21v-2c0-1.2.8-2 2-2M18.5 21v-2c0-1.2-.8-2-2-2" />
     </>
   ),
   hausbesuch: (

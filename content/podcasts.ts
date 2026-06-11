@@ -8,16 +8,10 @@ export type PodcastEmpfehlung = {
   suchhinweis?: string;
 };
 
-// Empfehlungen von Astrid Mally (Kunden-Feedback Juni 2026).
+// Empfehlungen von Astrid Mally (Kunden-Feedback Juni 2026,
+// Links vervollständigt in Feedbackrunde 2 — Doc Felix auf Kundenwunsch entfernt).
 // QR-Codes werden zur Build-Zeit aus `url` generiert.
 export const podcastEmpfehlungen: PodcastEmpfehlung[] = [
-  {
-    titel: "Doc Felix",
-    von: "Felix M. Berndt",
-    beschreibung:
-      "Medizinwissen verständlich und unterhaltsam — Prävention, Ernährung und gesunde Routinen für den Alltag.",
-    url: "https://open.spotify.com/show/52OpQa5o88aTvCxgmDCexz",
-  },
   {
     titel: "Unheilbar gesund",
     von: "Ruth Biallowons",
@@ -37,13 +31,13 @@ export const podcastEmpfehlungen: PodcastEmpfehlung[] = [
     von: "Schmerzreduktion, Gesundheit & Leistungssteigerung",
     beschreibung:
       "Neurozentrierte Ansätze rund um Schmerz, Beweglichkeit und Leistungsfähigkeit.",
-    suchhinweis: "In Ihrer Podcast-App nach „Neuro 360“ suchen",
+    url: "https://open.spotify.com/show/7yOMktbkgZjUp3aqga7Xg5",
   },
   {
     titel: "Momentmal",
     von: "Franziska Behlert",
     beschreibung:
       "Geführte Meditationen zum Runterkommen — eine wohltuende Ergänzung zu jeder Therapie.",
-    suchhinweis: "In Ihrer Podcast-App nach „Momentmal“ suchen",
+    url: "https://open.spotify.com/show/2eQ83s94SIwSOGLjcktjEl",
   },
 ];

@@ -233,8 +233,8 @@ export default async function LeistungDetail({
                     key={h.days}
                     className="flex items-center justify-between gap-6"
                   >
-                    <span className="text-white/70">{h.days}</span>
-                    <span className="font-medium">{h.time}</span>
+                    <span className="whitespace-nowrap text-white/70">{h.days}</span>
+                    <span className="whitespace-nowrap font-medium">{h.time}</span>
                   </li>
                 ))}
               </ul>

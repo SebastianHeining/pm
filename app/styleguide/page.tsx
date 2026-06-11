@@ -16,14 +16,16 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
+// Rot/Weiß/Grau-Palette (Kunden-Entscheidung Feedbackrunde 2) —
+// Token-Name "brand-navy" ist historisch und meint die dunkle Primärfarbe.
 const swatches = [
-  { name: "brand-navy", value: "#152D47", text: "white" },
-  { name: "brand-navy-soft", value: "#233F5E", text: "white" },
+  { name: "brand-navy (Stone)", value: "#544F4A", text: "white" },
+  { name: "brand-navy-soft", value: "#6B6660", text: "white" },
   { name: "brand-red", value: "#C8202A", text: "white" },
   { name: "brand-red-hover", value: "#A51820", text: "white" },
   { name: "brand-red-soft", value: "#F1D4D6", text: "navy" },
-  { name: "graphite", value: "#4C4C4D", text: "white" },
-  { name: "graphite-soft", value: "#747474", text: "white" },
+  { name: "graphite", value: "#5C5751", text: "white" },
+  { name: "graphite-soft", value: "#6E6964", text: "white" },
   { name: "surface", value: "#FFFFFF", text: "navy" },
   { name: "surface-warm", value: "#F7F5F2", text: "navy" },
   { name: "surface-mute", value: "#EFEBE5", text: "navy" },

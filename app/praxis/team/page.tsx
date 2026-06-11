@@ -149,24 +149,20 @@ function MemberTile({ member, featured }: { member: TeamMember; featured?: boole
               </ul>
             </div>
           )}
+          {member.slug.includes("astrid") && (
+            <div className="mt-7">
+              <LinkButton href="/ueber-astrid" variant="secondary">
+                Mehr über Astrid
+              </LinkButton>
+            </div>
+          )}
         </div>
-      )}
-      {!featured && member.spezialisierung && (
-        <p className="mt-5 text-sm leading-relaxed text-graphite">
-          <span className="font-semibold text-brand-navy">Schwerpunkt: </span>
-          {member.spezialisierung}
-        </p>
       )}
       {!featured && member.qualifikationen.length > 0 && (
         <ul className="mt-4 flex flex-wrap gap-2">
-          {member.qualifikationen.slice(0, 4).map((q) => (
+          {member.qualifikationen.map((q) => (
             <QualiTag key={q} q={q} compact />
           ))}
-          {member.qualifikationen.length > 4 && (
-            <li className="rounded-full bg-surface-warm px-2.5 py-0.5 text-xs font-medium text-graphite-soft ring-1 ring-border-soft">
-              +{member.qualifikationen.length - 4}
-            </li>
-          )}
         </ul>
       )}
       {isPlaceholder && (

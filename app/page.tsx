@@ -152,9 +152,9 @@ export default function Home() {
               </p>
               <ul className="mt-4 space-y-2 text-white/90">
                 {siteConfig.hours.map((h) => (
-                  <li key={h.days} className="flex items-center justify-between gap-6">
-                    <span className="text-white/70">{h.days}</span>
-                    <span className="font-medium">{h.time}</span>
+                  <li key={h.days} className="flex items-center justify-between gap-4">
+                    <span className="whitespace-nowrap text-white/70">{h.days}</span>
+                    <span className="whitespace-nowrap font-medium">{h.time}</span>
                   </li>
                 ))}
               </ul>

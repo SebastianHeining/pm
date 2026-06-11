@@ -66,14 +66,14 @@ SMTP_HOST=...
 SMTP_PORT=587            # oder 465 für SSL
 SMTP_USER=...
 SMTP_PASS=...
-MAIL_FROM=info@physiotherapie-mally.de
-MAIL_TO=info@physiotherapie-mally.de
+MAIL_FROM=praxis-astrid-mally@t-online.de
+MAIL_TO=praxis-astrid-mally@t-online.de
 ```
 
 ## Designsystem
 
 - Schrift: **DM Sans** (selbst gehostet via `next/font`)
-- Farben: `#152D47` Marineblau · `#C8202A` Logo-Rot · `#4C4C4D` Graphit · `#F7F5F2` Warm-Off-White
+- Farben: `#544F4A` Stone-Grau · `#C8202A` Logo-Rot · `#5C5751` Graphit · `#F7F5F2` Warm-Off-White (Rot/Weiß/Grau passend zum Logo; die frühere Blau-Palette liegt als Archiv-Kommentar in `app/globals.css`)
 - Style-Guide unter `/styleguide` (nicht in Sitemap, von robots ausgeschlossen)
 
 ## Hosting

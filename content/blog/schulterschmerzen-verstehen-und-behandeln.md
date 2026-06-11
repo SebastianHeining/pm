@@ -13,7 +13,7 @@ Die Schulter ist ein kleines Wunderwerk: kein anderes Gelenk im Körper ist so b
 
 Schulterschmerzen haben viele Gesichter. Häufige Muster, die wir in der Praxis sehen:
 
-- **Schmerz beim Heben des Arms**, besonders zwischen 60 und 120 Grad („schmerzhafter Bogen")
+- **Schmerz beim Heben des Arms**, besonders zwischen 60 und 120 Grad („schmerzhafter Bogen“)
 - **Nächtliche Schmerzen** — das Liegen auf der betroffenen Seite ist kaum möglich
 - **Einschränkung beim Anziehen**: Jacke, BH-Verschluss, Gürtel hinten
 - **Kraftverlust** beim Tragen oder Überkopf-Arbeiten
@@ -26,13 +26,13 @@ Schulterschmerzen haben viele Gesichter. Häufige Muster, die wir in der Praxis 
 
 **Rotatorenmanschetten-Probleme:** Die vier Muskeln, die den Oberarmkopf in der Pfanne zentrieren, können gereizt, teilgerissen oder degenerativ verändert sein. Typisch ab der Lebensmitte, aber auch bei Sportler:innen.
 
-**Frozen Shoulder (Schultersteife):** Die Gelenkkapsel entzündet sich und schrumpft — die Schulter „friert ein". Verläuft in Phasen über Monate, ist aber gut begleitbar und heilt in den allermeisten Fällen aus.
+**Frozen Shoulder (Schultersteife):** Die Gelenkkapsel entzündet sich und schrumpft — die Schulter „friert ein“. Verläuft in Phasen über Monate, ist aber gut begleitbar und heilt in den allermeisten Fällen aus.
 
 **Kalkschulter:** Kalkeinlagerungen in den Sehnen können lange unbemerkt bleiben — und sich dann mit heftigen, akuten Schmerzepisoden melden.
 
 **Verspannungen & Haltung:** Schreibtischarbeit, nach vorn gezogene Schultern, Stress — oft beginnt das Problem gar nicht im Gelenk, sondern in der Muskulatur von Nacken, Brust und oberem Rücken.
 
-## Warum „Schonen" selten die Lösung ist
+## Warum „Schonen“ selten die Lösung ist
 
 Der verständliche Reflex bei Schmerzen: den Arm möglichst wenig benutzen. Kurzfristig sinnvoll — auf Dauer aber kontraproduktiv. Die Schulter lebt von Bewegung: Die Muskeln der Rotatorenmanschette brauchen Aktivität, um den Oberarmkopf zu zentrieren. Wird die Schulter still gelegt, schwächt die Muskulatur, die Kapsel verklebt, und der Schmerz verstärkt sich.
 
@@ -58,7 +58,7 @@ Drei einfache Impulse für zwischendurch — sie ersetzen keine Behandlung, tun 
 
 **2. Türrahmen-Dehnung:** Unterarm an den Türrahmen, Ellbogen auf Schulterhöhe, einen kleinen Schritt vorwärts — die Dehnung vorn in Brust und Schulter 30 Sekunden halten. Seite wechseln.
 
-**3. Schulterblätter „in die Hosentaschen":** Im Sitzen oder Stehen die Schulterblätter sanft nach hinten-unten ziehen, 5 Sekunden halten, 10 Wiederholungen. Aktiviert genau die Muskulatur, die im Alltag zu kurz kommt.
+**3. Schulterblätter „in die Hosentaschen“:** Im Sitzen oder Stehen die Schulterblätter sanft nach hinten-unten ziehen, 5 Sekunden halten, 10 Wiederholungen. Aktiviert genau die Muskulatur, die im Alltag zu kurz kommt.
 
 **Wichtig:** Bei akuten, heftigen Schmerzen, nach einem Sturz oder bei Taubheitsgefühlen gehören die Beschwerden zuerst in ärztliche Abklärung.
 

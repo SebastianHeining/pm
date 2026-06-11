@@ -32,7 +32,7 @@ async function qrSvg(url: string): Promise<string> {
     type: "svg",
     margin: 0,
     width: 112,
-    color: { dark: "#152D47", light: "#FFFFFF" },
+    color: { dark: "#544F4A", light: "#FFFFFF" },
   });
 }
 

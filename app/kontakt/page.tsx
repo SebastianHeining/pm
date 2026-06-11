@@ -104,8 +104,8 @@ export default function Kontakt() {
                       key={h.days}
                       className="flex items-center justify-between gap-6 border-b border-border-soft pb-3 last:border-0"
                     >
-                      <span className="font-medium text-brand-navy">{h.days}</span>
-                      <span className="text-graphite">{h.time}</span>
+                      <span className="whitespace-nowrap font-medium text-brand-navy">{h.days}</span>
+                      <span className="whitespace-nowrap text-graphite">{h.time}</span>
                     </li>
                   ))}
                 </ul>
@@ -139,7 +139,7 @@ export default function Kontakt() {
                 </p>
                 <p>
                   <strong className="text-brand-navy">Mit dem Bus:</strong>{" "}
-                  Bushaltestelle „Lücke / JuSt", wenige Gehminuten von der Praxis
+                  Bushaltestelle „Lücke / JuSt“, wenige Gehminuten von der Praxis
                   entfernt.
                 </p>
                 <p>

@@ -1,6 +1,6 @@
 import type { IconName } from "@/components/icons/ServiceIcon";
 
-export type Kategorie = "kasse" | "selbstzahler" | "spezial";
+export type Kategorie = "kasse" | "selbstzahler";
 
 export type Leistung = {
   slug: string;
@@ -10,27 +10,86 @@ export type Leistung = {
   kurzbeschreibung: string;
   heroEyebrow: string;
   heroLead: string;
+  bild?: string;
+  bildAlt?: string;
   wannHilft: string[];
   ablauf: string[];
   hinweise?: string;
   kostenuebernahme: string;
   relatedSlugs?: string[];
-  // Optionales Raumbild (Standbild aus dem 3D-Rundgang oder Foto)
-  bild?: string;
-  bildAlt?: string;
 };
 
 export const leistungen: Leistung[] = [
   {
+    slug: "krankengymnastik",
+    titel: "Krankengymnastik",
+    kategorie: "kasse",
+    icon: "kg",
+    kurzbeschreibung:
+      "Aktive Bewegungstherapie zur Wiederherstellung von Mobilität, Kraft und Schmerzfreiheit.",
+    heroEyebrow: "Bewegung als Therapie",
+    heroLead:
+      "Unsere klassische Krankengymnastik fördert gezielt Ihre Beweglichkeit, stärkt die Muskulatur und lindert Schmerzen. Mit individuell angepassten Übungen unterstützen wir Ihren Heilungsprozess und verbessern Ihre Mobilität im Alltag.",
+    bild: "/leistungen/krankengymnastik.jpg",
+    bildAlt: "Aktive Übung mit dem Theraband in der Praxis",
+    wannHilft: [
+      "Rückenschmerzen und Verspannungen",
+      "Nach Operationen (Knie, Hüfte, Schulter)",
+      "Chronische Beschwerden des Bewegungsapparates",
+      "Bei Haltungsproblemen und Fehlbelastungen",
+      "Sturz- und Bewegungsangst im Alter",
+    ],
+    ablauf: [
+      "Behandlung auf Grundlage Ihrer ärztlichen Verordnung",
+      "Ausführliche Anamnese und Bewegungsanalyse im Erstgespräch",
+      "Individuell aufgebaute Übungen — passiv geführt oder aktiv begleitet",
+      "Heim-Übungen für den Alltag, damit der Effekt zwischen den Terminen anhält",
+    ],
+    kostenuebernahme:
+      "Kassenleistung — Erstattung durch die gesetzliche Krankenkasse bei ärztlicher Verordnung (Heilmittelverordnung).",
+    relatedSlugs: ["manuelle-therapie", "massage-bgm"],
+  },
+  {
+    slug: "manuelle-therapie",
+    titel: "Manuelle Therapie (MT)",
+    kategorie: "kasse",
+    icon: "manuelle",
+    kurzbeschreibung:
+      "Spezialisierte Handgriffe zur Mobilisation blockierter Gelenke und zur Schmerzlinderung.",
+    heroEyebrow: "Gezielte Mobilisation",
+    heroLead:
+      "Mit spezialisierten Handgriffen mobilisieren wir blockierte Gelenke, lösen Verspannungen und helfen Ihnen, Ihre Bewegungsfreiheit zurückzugewinnen. Unsere erfahrenen Therapeut:innen setzen gezielt manuelle Techniken ein, um Schmerzen zu reduzieren und die Funktionsfähigkeit zu verbessern.",
+    bild: "/leistungen/manuelle-therapie.jpg",
+    bildAlt: "Manuelle Behandlung des Schulterblatts",
+    wannHilft: [
+      "Gelenkblockaden und eingeschränkte Bewegungsamplitude",
+      "Nacken- und Schulterschmerzen",
+      "Hexenschuss / akute Rückenbeschwerden",
+      "Kopfschmerzen, die von der Halswirbelsäule ausgehen",
+      "Nach Sportverletzungen und Distorsionen",
+    ],
+    ablauf: [
+      "Behandlung auf Grundlage Ihrer ärztlichen Verordnung",
+      "Befundung der betroffenen Region und angrenzenden Strukturen",
+      "Sanfte, gezielte Mobilisationen — keine ruckartigen Manipulationen",
+      "Begleitende Übungen zur Stabilisierung und Beratung für den Alltag",
+    ],
+    kostenuebernahme:
+      "Kassenleistung — Erstattung durch die gesetzliche Krankenkasse bei entsprechender Verordnung.",
+    relatedSlugs: ["krankengymnastik", "cmd-kiefergelenk"],
+  },
+  {
     slug: "cmd-kiefergelenk",
     titel: "CMD — Kiefergelenkbehandlung",
-    kategorie: "spezial",
+    kategorie: "kasse",
     icon: "cmd",
     kurzbeschreibung:
       "Therapie der Craniomandibulären Dysfunktion bei Kieferknacken, Kopfschmerzen und Nackenverspannung.",
-    heroEyebrow: "Schwerpunkt unserer Praxis",
+    heroEyebrow: "Kiefer, Kopf & Nacken",
     heroLead:
       "Beschwerden im Kiefergelenk (Craniomandibuläre Dysfunktion, kurz CMD) können sich durch Schmerzen im Kiefer-, Kopf- oder Nackenbereich, Knacken beim Öffnen des Mundes oder Verspannungen bemerkbar machen. Astrid Mally und mehrere Teammitglieder sind speziell qualifiziert.",
+    bild: "/leistungen/cmd-kiefergelenk.jpg",
+    bildAlt: "CMD-Behandlung am Kiefergelenk in Rückenlage",
     wannHilft: [
       "Kieferknacken oder -reiben beim Öffnen des Mundes",
       "Wiederkehrende Kopfschmerzen, vor allem morgens",
@@ -51,64 +110,6 @@ export const leistungen: Leistung[] = [
     relatedSlugs: ["manuelle-therapie", "krankengymnastik"],
   },
   {
-    slug: "manuelle-therapie",
-    titel: "Manuelle Therapie (MT)",
-    kategorie: "spezial",
-    icon: "manuelle",
-    kurzbeschreibung:
-      "Spezialisierte Handgriffe zur Mobilisation blockierter Gelenke und zur Schmerzlinderung.",
-    heroEyebrow: "Schwerpunkt unserer Praxis",
-    heroLead:
-      "Mit spezialisierten Handgriffen mobilisieren wir blockierte Gelenke, lösen Verspannungen und helfen Ihnen, Ihre Bewegungsfreiheit zurückzugewinnen. Unsere erfahrenen Therapeut:innen setzen gezielt manuelle Techniken ein, um Schmerzen zu reduzieren und die Funktionsfähigkeit zu verbessern.",
-    wannHilft: [
-      "Gelenkblockaden und eingeschränkte Bewegungsamplitude",
-      "Nacken- und Schulterschmerzen",
-      "Hexenschuss / akute Rückenbeschwerden",
-      "Kopfschmerzen, die von der Halswirbelsäule ausgehen",
-      "Nach Sportverletzungen und Distorsionen",
-    ],
-    ablauf: [
-      "Behandlung auf Grundlage Ihrer ärztlichen Verordnung",
-      "Befundung der betroffenen Region und angrenzenden Strukturen",
-      "Sanfte, gezielte Mobilisationen — keine ruckartigen Manipulationen",
-      "Begleitende Übungen zur Stabilisierung und Beratung für den Alltag",
-    ],
-    kostenuebernahme:
-      "Kassenleistung — Erstattung durch die gesetzliche Krankenkasse bei entsprechender Verordnung.",
-    relatedSlugs: ["krankengymnastik", "cmd-kiefergelenk"],
-    bild: "/praxis/behandlungsraum.jpg",
-    bildAlt: "Behandlungsraum der Praxis mit Therapieliege",
-  },
-  {
-    slug: "krankengymnastik",
-    titel: "Krankengymnastik",
-    kategorie: "kasse",
-    icon: "kg",
-    kurzbeschreibung:
-      "Aktive Bewegungstherapie zur Wiederherstellung von Mobilität, Kraft und Schmerzfreiheit.",
-    heroEyebrow: "Bewegung als Therapie",
-    heroLead:
-      "Unsere klassische Krankengymnastik fördert gezielt Ihre Beweglichkeit, stärkt die Muskulatur und lindert Schmerzen. Mit individuell angepassten Übungen unterstützen wir Ihren Heilungsprozess und verbessern Ihre Mobilität im Alltag.",
-    wannHilft: [
-      "Rückenschmerzen und Verspannungen",
-      "Nach Operationen (Knie, Hüfte, Schulter)",
-      "Chronische Beschwerden des Bewegungsapparates",
-      "Bei Haltungsproblemen und Fehlbelastungen",
-      "Sturz- und Bewegungsangst im Alter",
-    ],
-    ablauf: [
-      "Behandlung auf Grundlage Ihrer ärztlichen Verordnung",
-      "Ausführliche Anamnese und Bewegungsanalyse im Erstgespräch",
-      "Individuell aufgebaute Übungen — passiv geführt oder aktiv begleitet",
-      "Heim-Übungen für den Alltag, damit der Effekt zwischen den Terminen anhält",
-    ],
-    kostenuebernahme:
-      "Kassenleistung — Erstattung durch die gesetzliche Krankenkasse bei ärztlicher Verordnung (Heilmittelverordnung).",
-    relatedSlugs: ["manuelle-therapie", "massage-und-waerme"],
-    bild: "/praxis/trainingsraum.jpg",
-    bildAlt: "Trainingsraum mit Sprossenwand, Therapieliege und Übungsgeräten",
-  },
-  {
     slug: "manuelle-lymphdrainage",
     titel: "Manuelle Lymphdrainage",
     kategorie: "kasse",
@@ -118,6 +119,8 @@ export const leistungen: Leistung[] = [
     heroEyebrow: "Entstauung & Ödemtherapie",
     heroLead:
       "Diese sanfte Behandlungsmethode reduziert Schwellungen, regt den Lymphfluss an und unterstützt die Heilung nach Operationen oder bei Lymphödemen. Die rhythmischen, pumpenden Bewegungen fördern den Abtransport von Gewebsflüssigkeit und beschleunigen den Heilungsprozess.",
+    bild: "/leistungen/manuelle-lymphdrainage.jpg",
+    bildAlt: "Sanfter Lymphdrainage-Griff am Unterarm",
     wannHilft: [
       "Lymphödeme nach Brustkrebs- oder Krebstherapien",
       "Schwellungen nach Operationen und Verletzungen",
@@ -133,7 +136,61 @@ export const leistungen: Leistung[] = [
     ],
     kostenuebernahme:
       "Kassenleistung — verordnungsfähig durch Hausärzt:in oder Fachärzt:in (z. B. Phlebologie, Lymphologie, Onkologie, Chirurgie).",
-    relatedSlugs: ["massage-und-waerme", "hausbesuche"],
+    relatedSlugs: ["waerme-kaelte", "hausbesuche"],
+  },
+  {
+    slug: "massage-bgm",
+    titel: "Massage & Bindegewebsmassage",
+    kategorie: "kasse",
+    icon: "massage",
+    kurzbeschreibung:
+      "Klassische Massage und Bindegewebsmassage — lösen Verspannungen und fördern die Regeneration.",
+    heroEyebrow: "Lösen & Regenerieren",
+    heroLead:
+      "Gezielte Massagen lösen Verspannungen, fördern die Durchblutung und unterstützen die Regeneration Ihres Körpers. Die Bindegewebsmassage wirkt über Reflexzonen tief im Gewebe, aktiviert die Selbstheilungskräfte und kann positiv auf innere Organe und das Nervensystem einwirken.",
+    bild: "/leistungen/massage-bgm.jpg",
+    bildAlt: "Klassische Rückenmassage in der Praxis",
+    wannHilft: [
+      "Muskuläre Verspannungen und Verhärtungen",
+      "Schmerzhafte Bewegungseinschränkungen",
+      "Stressbedingte Beschwerden",
+      "Begleitend zu Krankengymnastik und Manueller Therapie",
+    ],
+    ablauf: [
+      "Anwendung gemäß Ihrer ärztlichen Verordnung — oder als Wunschleistung nach kurzer Absprache",
+      "Klassische Massage oder Bindegewebsmassage am betroffenen Bereich",
+      "Häufig in Kombination mit Wärmeanwendungen",
+    ],
+    hinweise:
+      "Sie möchten Ihr Rezept um zusätzliche Leistungen ergänzen — etwa längere Behandlungszeiten oder eine Wärmeanwendung? Sprechen Sie uns an, wir beraten Sie gerne individuell.",
+    kostenuebernahme:
+      "Kassenleistung bei entsprechender Verordnung — darüber hinaus jederzeit als Selbstzahlerleistung buchbar.",
+    relatedSlugs: ["waerme-kaelte", "manuelle-therapie"],
+  },
+  {
+    slug: "waerme-kaelte",
+    titel: "Fango, Heißluft & Kälteanwendungen",
+    kategorie: "kasse",
+    icon: "waerme",
+    kurzbeschreibung:
+      "Wohltuende Wärme aus Naturmoor, Heißluft, Heiße Rolle — und gezielte Kälte bei akuten Beschwerden.",
+    heroEyebrow: "Wärmen & Kühlen",
+    heroLead:
+      "Wohltuende Wärme aus Naturmoor lockert die Muskulatur, fördert die Durchblutung und bereitet den Körper optimal auf weitere Behandlungen vor. Die Heiße Rolle kombiniert intensive, punktuelle Wärme mit Massagegriffen. Gezielte Kälteanwendungen lindern Schmerzen, hemmen Entzündungen und reduzieren Schwellungen.",
+    wannHilft: [
+      "Muskuläre Verspannungen (Wärme)",
+      "Vorbereitung auf Krankengymnastik oder Massage",
+      "Akute Entzündungen und Schwellungen (Kälte)",
+      "Schmerzlinderung bei akuten und chronischen Beschwerden",
+    ],
+    ablauf: [
+      "Anwendung gemäß Ihrer ärztlichen Verordnung — meist ergänzend zur aktiven Behandlung",
+      "Fango, Heißluft oder Heiße Rolle zur Vorbereitung — bzw. Kälte bei akuten Reizungen",
+      "Direkt im Anschluss: Massage, Krankengymnastik oder Manuelle Therapie",
+    ],
+    kostenuebernahme:
+      "Kassenleistung als ergänzendes Heilmittel bei entsprechender Verordnung.",
+    relatedSlugs: ["massage-bgm", "krankengymnastik"],
   },
   {
     slug: "schlingentisch",
@@ -145,6 +202,8 @@ export const leistungen: Leistung[] = [
     heroEyebrow: "Schwerelos behandeln",
     heroLead:
       "Sanfte Entlastung durch Aufhängung: Der Körper wird nahezu schwerelos gelagert, wodurch Schmerzen gelindert, Bewegungen erleichtert und die Muskulatur gezielt entspannt werden kann.",
+    bild: "/praxis/schlingentisch.jpg",
+    bildAlt: "Behandlungsraum mit Schlingentisch-Gerät über der Liege",
     wannHilft: [
       "Akute Rücken- und Nackenschmerzen",
       "Hüft- und Schulterbeschwerden",
@@ -161,8 +220,6 @@ export const leistungen: Leistung[] = [
     kostenuebernahme:
       "Kassenleistung — Erstattung durch die gesetzliche Krankenkasse bei entsprechender Verordnung.",
     relatedSlugs: ["krankengymnastik", "manuelle-therapie"],
-    bild: "/praxis/schlingentisch.jpg",
-    bildAlt: "Behandlungsraum 5 mit Schlingentisch-Gerät über der Therapieliege",
   },
   {
     slug: "hausbesuche",
@@ -191,35 +248,6 @@ export const leistungen: Leistung[] = [
     relatedSlugs: ["manuelle-lymphdrainage", "krankengymnastik"],
   },
   {
-    slug: "massage-und-waerme",
-    titel: "Massage, Fango & Wärme",
-    kategorie: "selbstzahler",
-    icon: "waerme",
-    kurzbeschreibung:
-      "Klassische Massage, Bindegewebsmassage, Fango, Heißluft, Heiße Rolle und Kälteanwendungen.",
-    heroEyebrow: "Lösen, Wärmen, Beruhigen",
-    heroLead:
-      "Gezielte Wärme- und Massagetechniken lösen Verspannungen, fördern die Durchblutung und unterstützen die Regeneration. Kälteanwendungen wirken entzündungshemmend und schmerzlindernd — wir kombinieren passend zu Ihrem Behandlungsziel.",
-    wannHilft: [
-      "Muskuläre Verspannungen und Verhärtungen",
-      "Vorbereitung auf weitere Therapien (Wärme öffnet das Gewebe)",
-      "Schmerzhafte Bewegungseinschränkungen",
-      "Akute Entzündungen und Schwellungen (Kälte)",
-      "Stress und Erschöpfung — als wohltuende Auszeit",
-    ],
-    ablauf: [
-      "Anwendung gemäß Ihrer ärztlichen Verordnung — oder als Wunschleistung nach kurzer Absprache",
-      "Wärmebehandlung (Fango, Heißluft, Heiße Rolle) oder Kälteanwendung",
-      "Klassische Massage oder Bindegewebsmassage am betroffenen Bereich",
-      "Häufig in Kombination mit Krankengymnastik oder Manueller Therapie",
-    ],
-    hinweise:
-      "Sie möchten Ihr Rezept um zusätzliche Leistungen ergänzen — etwa längere Behandlungszeiten, Fango oder die Heiße Rolle? Sprechen Sie uns an, wir beraten Sie gerne individuell.",
-    kostenuebernahme:
-      "Als Ergänzung zur ärztlichen Verordnung Kassenleistung — darüber hinaus jederzeit als Selbstzahler- und Wellnessleistung buchbar.",
-    relatedSlugs: ["manuelle-therapie", "schlingentisch"],
-  },
-  {
     slug: "kinesio-taping",
     titel: "Kinesiologisches Taping",
     kategorie: "selbstzahler",
@@ -229,6 +257,8 @@ export const leistungen: Leistung[] = [
     heroEyebrow: "Unterstützung in Bewegung",
     heroLead:
       "Kinesio-Tapes sind elastische Baumwoll-Tapes, die Muskeln und Gelenke stützen, ohne sie zu blockieren. Sie wirken über die Haut auf das Bindegewebe und die Mikrozirkulation und können Schmerzen lindern, ohne die Bewegungsfreiheit zu beschränken.",
+    bild: "/leistungen/kinesio-taping.jpg",
+    bildAlt: "Anlegen eines Kinesio-Tapes an der Schulter",
     wannHilft: [
       "Muskel- und Gelenkbeschwerden",
       "Nach Verletzungen wie Verstauchungen oder Zerrungen",
@@ -269,14 +299,13 @@ export const leistungen: Leistung[] = [
     ],
     kostenuebernahme:
       "Selbstzahlerleistung. Manche private Zusatzversicherungen erstatten.",
-    relatedSlugs: ["massage-und-waerme", "hausbesuche"],
+    relatedSlugs: ["massage-bgm", "hausbesuche"],
   },
 ];
 
 export const kategorieLabel: Record<Kategorie, string> = {
   kasse: "Kassenleistungen",
   selbstzahler: "Prävention, Selbstzahler & Wellness",
-  spezial: "Unsere Schwerpunkte",
 };
 
 export function getLeistung(slug: string) {
