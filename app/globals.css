@@ -43,6 +43,10 @@
 
 @layer base {
   html {
+    /* Kundenwunsch: Seite wirkte bei 100 % Browser-Zoom zu groß.
+       87,5 % Basis (14px) skaliert alle rem-Größen — Text, Abstände,
+       Container — gleichmäßig herunter, bleibt aber gut lesbar. */
+    font-size: 87.5%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;

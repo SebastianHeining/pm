@@ -45,7 +45,7 @@ export default function Home() {
           Mitarbeiter gesucht!
         </Link>
       </div>
-      <Section tone="warm" spacing="loose" className="relative overflow-hidden">
+      <Section tone="warm" spacing="default" className="relative overflow-hidden">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-center">
             <div>
