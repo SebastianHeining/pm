@@ -34,22 +34,13 @@ export default function Home() {
   return (
     <>
       <JsonLd data={medicalBusinessJsonLd()} />
+      {/* Diagonale Job-Banderole unten rechts — bleibt beim Scrollen sichtbar */}
       <Link
         href="/karriere"
-        className="group block bg-brand-red px-4 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-brand-navy sm:text-base"
+        aria-label="Mitarbeiter gesucht — zur Karriere-Seite"
+        className="fixed -right-14 bottom-9 z-40 rotate-[-40deg] bg-brand-red px-16 py-2 text-center text-sm font-semibold uppercase tracking-[0.08em] text-white shadow-xl ring-1 ring-white/30 transition-colors hover:bg-brand-navy sm:-right-12 sm:bottom-11 sm:px-20"
       >
-        <span className="font-semibold uppercase tracking-[0.08em]">
-          Motivierte Teamplayer gesucht!
-        </span>{" "}
-        <span className="text-white/90">
-          Physiotherapeut:in (m/w/d) in Voll- oder Teilzeit
-        </span>
-        <span
-          aria-hidden
-          className="ml-2 inline-block transition-transform group-hover:translate-x-1"
-        >
-          →
-        </span>
+        Mitarbeiter gesucht!
       </Link>
       <Section tone="warm" spacing="loose" className="relative overflow-hidden">
         <Container>
