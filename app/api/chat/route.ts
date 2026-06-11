@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
-import { buildSabineSystemPrompt } from "@/lib/chat-knowledge";
+import { buildBieneSystemPrompt } from "@/lib/chat-knowledge";
 
 export const runtime = "nodejs";
 
@@ -101,7 +101,7 @@ export async function POST(request: Request) {
   }
 
   try {
-    const system = await buildSabineSystemPrompt();
+    const system = await buildBieneSystemPrompt();
     const response = await anthropic.messages.create({
       model: CHAT_MODEL,
       max_tokens: 600,

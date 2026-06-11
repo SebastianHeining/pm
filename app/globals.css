@@ -100,34 +100,59 @@
     animation: cta-shake 7s ease-in-out 3s infinite;
   }
 
-  /* Sabine-Avatar: Blinzeln, sanftes Kopfneigen, Schweben im Chat-Button.
+  /* Biene-Avatar: Blinzeln, sanftes Kopfneigen, Schweben im Chat-Button.
      Beide Kopf-Gruppen rotieren um denselben viewBox-Punkt (Halsansatz),
      damit Haare und Gesicht synchron bleiben. */
-  @keyframes sabine-blink {
+  @keyframes biene-blink {
     0%, 93%, 100% { transform: scaleY(1); }
     96% { transform: scaleY(0.08); }
   }
-  @keyframes sabine-tilt {
+  @keyframes biene-tilt {
     0%, 18%, 52%, 100% { transform: rotate(0deg); }
     32% { transform: rotate(-2.4deg); }
     72% { transform: rotate(1.8deg); }
   }
-  @keyframes sabine-float {
+  @keyframes biene-float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-3px); }
   }
-  .sabine-head {
+  .biene-head {
     transform-box: view-box;
     transform-origin: 50% 72%;
-    animation: sabine-tilt 7s ease-in-out infinite;
+    animation: biene-tilt 7s ease-in-out infinite;
   }
-  .sabine-eye {
+  .biene-eye {
     transform-box: fill-box;
     transform-origin: center;
-    animation: sabine-blink 4.6s linear infinite;
+    animation: biene-blink 4.6s linear infinite;
   }
-  .animate-sabine-float {
-    animation: sabine-float 3.8s ease-in-out infinite;
+  .animate-biene-float {
+    animation: biene-float 3.8s ease-in-out infinite;
+  }
+
+  /* Kleine Biene fliegt gelegentlich (~alle 18 s) eine Schleife um den
+     Chat-Button; dazwischen ist sie unsichtbar. Bleibt aufrecht
+     (offset-rotate 0), Flügel flattern dauerhaft. */
+  @keyframes biene-flug {
+    0%, 72% { offset-distance: 0%; opacity: 0; }
+    75% { opacity: 1; }
+    96% { opacity: 1; }
+    99%, 100% { offset-distance: 100%; opacity: 0; }
+  }
+  @keyframes biene-fluegel-flattern {
+    from { transform: scaleY(1); }
+    to { transform: scaleY(0.4); }
+  }
+  .biene-flieger {
+    offset-path: path("M 4 4 C 30 -55, 140 -65, 195 -25 C 235 5, 205 45, 145 32 C 95 22, 25 55, 4 4");
+    offset-rotate: 0deg;
+    opacity: 0;
+    animation: biene-flug 18s ease-in-out infinite;
+  }
+  .biene-fluegel {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+    animation: biene-fluegel-flattern 0.14s ease-in-out infinite alternate;
   }
 
   .prose-mally {

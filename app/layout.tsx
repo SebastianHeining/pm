@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/brand/SiteHeader";
 import { SiteFooter } from "@/components/brand/SiteFooter";
-import { SabineChat } from "@/components/chat/SabineChat";
+import { BieneChat } from "@/components/chat/BieneChat";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -75,7 +75,7 @@ export default function RootLayout({
           {children}
         </main>
         <SiteFooter />
-        <SabineChat />
+        <BieneChat />
       </body>
     </html>
   );

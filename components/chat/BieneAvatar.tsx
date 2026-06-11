@@ -4,17 +4,17 @@ type Props = {
 };
 
 /**
- * Gezeichneter Comic-Avatar „Sabine“ im weißen Praxis-Kasack — flacher,
+ * Gezeichneter Comic-Avatar „Biene“ im weißen Praxis-Kasack — flacher,
  * freundlich-professioneller Stil in den Markenfarben.
  */
-export function SabineAvatar({ size = 56, className }: Props) {
+export function BieneAvatar({ size = 56, className }: Props) {
   return (
     <svg
       width={size}
       height={size}
       viewBox="0 0 96 96"
       role="img"
-      aria-label="Sabine — digitale Praxis-Assistentin"
+      aria-label="Biene — digitale Praxis-Assistentin"
       className={className}
     >
       <defs>
@@ -28,7 +28,7 @@ export function SabineAvatar({ size = 56, className }: Props) {
       <g clipPath="url(#sabine-circle)">
         {/* Haare hinten (blond) — eigene Kopf-Gruppe, da sie hinter dem
             Kasack liegen müssen; animiert synchron zur Gesichts-Gruppe */}
-        <g className="sabine-head">
+        <g className="biene-head">
           <path
             d="M48 16c-16 0-25 11-25 25 0 8 1 14 1 20 0 9 4 16 4 16h40s4-7 4-16c0-6 1-12 1-20 0-14-9-25-25-25z"
             fill="#d9a93f"
@@ -56,7 +56,7 @@ export function SabineAvatar({ size = 56, className }: Props) {
         {/* Hals */}
         <path d="M42 64h12v8c0 3.3-2.7 5-6 5s-6-1.7-6-5z" fill="#f3c9a5" />
         {/* Kopf-Gruppe (neigt sich sanft) */}
-        <g className="sabine-head">
+        <g className="biene-head">
         {/* Gesicht */}
         <ellipse cx="48" cy="45" rx="17.5" ry="19" fill="#f9d9b8" />
         {/* Ohren */}
@@ -76,11 +76,11 @@ export function SabineAvatar({ size = 56, className }: Props) {
         <path d="M37 41c2-2 6-2 8 0" fill="none" stroke="#b5872f" strokeWidth="1.8" strokeLinecap="round" />
         <path d="M51 41c2-2 6-2 8 0" fill="none" stroke="#b5872f" strokeWidth="1.8" strokeLinecap="round" />
         {/* Augen (blinzeln) */}
-        <g className="sabine-eye">
+        <g className="biene-eye">
           <circle cx="41" cy="46.5" r="2.3" fill="#423e39" />
           <circle cx="41.8" cy="45.7" r="0.7" fill="#ffffff" />
         </g>
-        <g className="sabine-eye">
+        <g className="biene-eye">
           <circle cx="55" cy="46.5" r="2.3" fill="#423e39" />
           <circle cx="55.8" cy="45.7" r="0.7" fill="#ffffff" />
         </g>

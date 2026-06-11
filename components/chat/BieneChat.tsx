@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { SabineAvatar } from "./SabineAvatar";
+import { BieneAvatar } from "./BieneAvatar";
 import { cn } from "@/lib/utils";
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
@@ -9,7 +9,7 @@ type ChatMessage = { role: "user" | "assistant"; content: string };
 const GREETING: ChatMessage = {
   role: "assistant",
   content:
-    "Hallo! Ich bin Sabine, die digitale Assistentin der Praxis. Ich beantworte Ihnen gerne Fragen zu unseren Behandlungen, Öffnungszeiten oder Ihrem Termin. Was möchten Sie wissen?",
+    "Hallo! Ich bin Biene, die digitale Assistentin der Praxis. Ich beantworte Ihnen gerne Fragen zu unseren Behandlungen, Öffnungszeiten oder Ihrem Termin. Was möchten Sie wissen?",
 };
 
 const QUICK_QUESTIONS = [
@@ -40,7 +40,7 @@ function renderInline(text: string) {
 }
 
 /**
- * Strukturiert Sabines Antworten: Zeilen mit "- "/"• " werden Listenpunkte,
+ * Strukturiert Bienes Antworten: Zeilen mit "- "/"• " werden Listenpunkte,
  * "1." / "2." nummerierte Schritte, der Rest Absätze — falls das Modell doch
  * mal Markdown schreibt, sieht es trotzdem ordentlich aus.
  */
@@ -109,7 +109,7 @@ function FormattedMessage({ text }: { text: string }) {
   );
 }
 
-export function SabineChat() {
+export function BieneChat() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([GREETING]);
   const [input, setInput] = useState("");
@@ -178,24 +178,42 @@ export function SabineChat() {
 
   return (
     <>
+      {/* Kleine Biene, die gelegentlich eine Runde um den Chat-Button fliegt */}
+      {!open && (
+        <span
+          aria-hidden
+          className="biene-flieger pointer-events-none fixed bottom-10 left-10 z-40"
+        >
+          <svg width="24" height="20" viewBox="0 0 26 22">
+            <ellipse className="biene-fluegel" cx="10" cy="5.5" rx="3.6" ry="5" fill="#dceefb" opacity="0.9" />
+            <ellipse className="biene-fluegel" cx="15.5" cy="5.5" rx="3.6" ry="5" fill="#eef7fd" opacity="0.9" style={{ animationDelay: "0.07s" }} />
+            <ellipse cx="12.5" cy="13.5" rx="8.5" ry="6.5" fill="#f2b705" />
+            <path d="M9 7.6c-1.6 3.4-1.6 8.4 0 11.8" stroke="#423e39" strokeWidth="2.4" fill="none" />
+            <path d="M14 7.2c-1.8 3.8-1.8 9 0 12.6" stroke="#423e39" strokeWidth="2.4" fill="none" />
+            <circle cx="20.5" cy="12.5" r="3.6" fill="#423e39" />
+            <circle cx="21.8" cy="11.4" r="0.9" fill="#fff" />
+            <path d="M4.5 13.5L1 12.7l3.3 2.2z" fill="#423e39" />
+          </svg>
+        </span>
+      )}
       {/* Floating-Button unten links (rechts sitzt die Job-Banderole) */}
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        aria-controls="sabine-chat-panel"
+        aria-controls="biene-chat-panel"
         className={cn(
           "fixed bottom-5 left-5 z-40 flex items-center gap-3 rounded-full bg-white p-1.5 pr-5 shadow-xl ring-1 ring-border-soft transition-transform hover:scale-105",
           open && "scale-0 opacity-0",
         )}
       >
-        <span className="relative animate-sabine-float">
-          <SabineAvatar size={48} />
+        <span className="relative animate-biene-float">
+          <BieneAvatar size={48} />
           <span className="absolute -right-0.5 -top-0.5 h-3 w-3 rounded-full border-2 border-white bg-emerald-500" />
         </span>
         <span className="text-left leading-tight">
           <span className="block text-sm font-semibold text-brand-navy">
-            Fragen? Sabine hilft.
+            Fragen? Biene hilft.
           </span>
           <span className="block text-xs text-graphite-soft">
             Digitale Praxis-Assistentin
@@ -205,9 +223,9 @@ export function SabineChat() {
 
       {/* Chat-Panel */}
       <div
-        id="sabine-chat-panel"
+        id="biene-chat-panel"
         role="dialog"
-        aria-label="Chat mit Sabine, der digitalen Praxis-Assistentin"
+        aria-label="Chat mit Biene, der digitalen Praxis-Assistentin"
         className={cn(
           "fixed bottom-4 left-4 right-4 z-50 flex max-h-[min(40rem,calc(100dvh-2rem))] flex-col overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-border-soft transition-all duration-200 sm:left-5 sm:right-auto sm:w-[24rem]",
           open
@@ -217,9 +235,9 @@ export function SabineChat() {
       >
         {/* Kopf */}
         <div className="flex items-center gap-3 border-b border-border-soft bg-surface-warm px-4 py-3">
-          <SabineAvatar size={44} />
+          <BieneAvatar size={44} />
           <div className="min-w-0 flex-1 leading-tight">
-            <p className="text-base font-semibold text-brand-navy">Sabine</p>
+            <p className="text-base font-semibold text-brand-navy">Biene</p>
             <p className="truncate text-xs text-graphite-soft">
               Digitale Praxis-Assistentin (KI)
             </p>
@@ -286,7 +304,7 @@ export function SabineChat() {
                   style={{ animationDelay: `${d * 150}ms` }}
                 />
               ))}
-              <span className="sr-only">Sabine schreibt …</span>
+              <span className="sr-only">Biene schreibt …</span>
             </div>
           )}
           {showChips && (
@@ -320,8 +338,8 @@ export function SabineChat() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               maxLength={1000}
-              placeholder="Ihre Frage an Sabine …"
-              aria-label="Ihre Frage an Sabine"
+              placeholder="Ihre Frage an Biene …"
+              aria-label="Ihre Frage an Biene"
               className="block w-full rounded-full border border-border-soft bg-surface-warm px-4 py-2.5 text-sm text-brand-navy placeholder:text-graphite-soft focus:border-brand-red focus:outline-none focus:ring-2 focus:ring-brand-red/30"
             />
             <button

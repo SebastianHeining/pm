@@ -134,7 +134,7 @@ export default function Datenschutz() {
 
             <section>
               <h2 className="text-2xl font-semibold text-brand-navy">
-                8. KI-Chat-Assistentin „Sabine“
+                8. KI-Chat-Assistentin „Biene“
               </h2>
               <p className="mt-3">
                 Auf dieser Webseite können Sie freiwillig einen Chat-Assistenten

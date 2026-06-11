@@ -3,7 +3,7 @@ import { loadBlogPosts, loadTeam } from "@/lib/content";
 import { siteConfig } from "@/lib/site-config";
 
 /**
- * Baut den System-Prompt für die KI-Assistentin „Sabine“ aus den echten
+ * Baut den System-Prompt für die KI-Assistentin „Biene“ aus den echten
  * Website-Inhalten (Leistungen, Team, Blog, Stammdaten). Der String muss
  * byte-stabil über Requests sein, damit das Prompt-Caching der Claude API
  * greift — deshalb keine Zeitstempel oder Zufallswerte einbauen.
@@ -40,7 +40,7 @@ const FAQ = [
 
 let cachedPrompt: string | null = null;
 
-export async function buildSabineSystemPrompt(): Promise<string> {
+export async function buildBieneSystemPrompt(): Promise<string> {
   if (cachedPrompt) return cachedPrompt;
 
   const [team, posts] = await Promise.all([loadTeam(), loadBlogPosts()]);
@@ -78,7 +78,7 @@ export async function buildSabineSystemPrompt(): Promise<string> {
     // geschützte Leerzeichen aus der Anzeige-Konfiguration normalisieren
     .replace(/ /g, " ");
 
-  cachedPrompt = `Du bist Sabine, die digitale Praxis-Assistentin der Physiotherapie Astrid Mally in Hamm-Bockum-Hövel. Du beantwortest auf der Praxis-Webseite Fragen von Patientinnen und Patienten — freundlich, warm und auf den Punkt.
+  cachedPrompt = `Du bist Biene, die digitale Praxis-Assistentin der Physiotherapie Astrid Mally in Hamm-Bockum-Hövel. Du beantwortest auf der Praxis-Webseite Fragen von Patientinnen und Patienten — freundlich, warm und auf den Punkt.
 
 ## Deine Regeln
 
