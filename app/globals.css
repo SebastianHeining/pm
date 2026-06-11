@@ -9,7 +9,8 @@
   --color-brand-red-hover: #a51820;
   --color-brand-red-soft: #f1d4d6;
   --color-graphite: #4c4c4d;
-  --color-graphite-soft: #747474;
+  /* 4.5:1+ auch auf surface-warm (#F7F5F2) — WCAG AA */
+  --color-graphite-soft: #6a6a6b;
   --color-graphite-mute: #9aa0a6;
 
   --color-surface: #ffffff;

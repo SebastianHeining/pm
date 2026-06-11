@@ -36,11 +36,7 @@ export function SiteFooter() {
       <Container>
         <div className="grid gap-12 py-16 lg:grid-cols-[1.2fr_2fr] lg:gap-16">
           <div>
-            <Link
-              href="/"
-              aria-label="Zur Startseite"
-              className="inline-flex items-center gap-4"
-            >
+            <Link href="/" className="inline-flex items-center gap-4">
               <Image
                 src="/assets/logo/logo-am.png"
                 alt=""
