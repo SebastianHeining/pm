@@ -3,6 +3,11 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  // Der KI-Chat liest Team- und Blog-Markdown zur Laufzeit — die Dateien
+  // müssen mit in das Serverless-Bundle der Route.
+  outputFileTracingIncludes: {
+    "/api/chat": ["./content/**/*"],
+  },
   images: {
     formats: ["image/avif", "image/webp"],
   },

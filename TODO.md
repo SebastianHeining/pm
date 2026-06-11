@@ -34,6 +34,15 @@
 - [ ] **Wichtig**: QR-Code zeigt auf `physiotherapie-mally.de/bewertung` — funktioniert erst nach dem Domain-Umzug. Aushang erst danach aufhängen.
 - [ ] Hinweis-Text „Bewertungen" in Datenschutzerklärung ergänzen lassen (Einwilligung/Widerruf ist im Formular abgedeckt, zur Sicherheit juristisch prüfen).
 
+## KI-Chat „Sabine" (NEU — eingebaut)
+
+- [x] Floating-Chat unten links auf allen Seiten — Comic-Avatar im Praxis-Kasack
+- [x] `/api/chat` mit Claude API (Haiku, Prompt-Caching), Wissensbasis aus allen Website-Inhalten
+- [x] Regeln: keine medizinische Beratung, Termin verschieben/absagen nur telefonisch, keine erfundenen Preise
+- [x] Datenschutz-Abschnitt zum KI-Chat
+- [ ] **Wichtig**: `ANTHROPIC_API_KEY` als Env-Var in Vercel setzen (Settings → Environment Variables) — ohne Key antwortet der Chat mit einem freundlichen Offline-Hinweis. Key unter console.anthropic.com erstellen; Modell via `CHAT_MODEL` übersteuerbar (Standard `claude-haiku-4-5`).
+- [ ] Optional: Avatar durch ein generiertes Comic-Porträt nach Sabines echtem Foto ersetzen (Datei einfach gegen `components/chat/SabineAvatar.tsx` tauschen bzw. PNG einsetzen).
+
 ## Technik / Setup
 
 - [ ] **Hosting-Entscheidung**: ionos / hetzner / eigener Server (oder Vercel behalten — läuft bereits auf mally-website-one.vercel.app).

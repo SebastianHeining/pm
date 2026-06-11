@@ -134,7 +134,32 @@ export default function Datenschutz() {
 
             <section>
               <h2 className="text-2xl font-semibold text-brand-navy">
-                8. Ihre Rechte
+                8. KI-Chat-Assistentin „Sabine“
+              </h2>
+              <p className="mt-3">
+                Auf dieser Webseite können Sie freiwillig einen Chat-Assistenten
+                nutzen, der allgemeine Fragen zur Praxis beantwortet (z. B.
+                Öffnungszeiten, Behandlungsangebot, Ablauf). Die Antworten
+                werden durch ein KI-Sprachmodell erzeugt. Dazu werden Ihre
+                Chat-Eingaben an unseren Auftragsverarbeiter Anthropic
+                (Anthropic PBC, USA — Claude API) übermittelt; die Übermittlung
+                in die USA ist durch EU-Standardvertragsklauseln abgesichert.
+                Anthropic verwendet über die API übermittelte Inhalte nicht zum
+                Training seiner Modelle und speichert sie nur kurzzeitig zur
+                Missbrauchsprävention. Wir selbst speichern den Chat-Verlauf
+                nicht; er verbleibt in Ihrem Browser bis zum Verlassen der
+                Seite. Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO (Ihre
+                Einwilligung durch aktive Nutzung). Bitte geben Sie im Chat
+                keine Gesundheitsdaten oder andere sensible Informationen ein —
+                für persönliche Anliegen erreichen Sie uns telefonisch. Die
+                Antworten der KI sind ohne Gewähr und ersetzen keine
+                medizinische Beratung.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-brand-navy">
+                9. Ihre Rechte
               </h2>
               <p className="mt-3">
                 Sie haben das Recht auf Auskunft (Art. 15 DSGVO),
