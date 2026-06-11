@@ -207,14 +207,12 @@ export default function UeberAstrid() {
       <Section tone="navy" spacing="default">
         <Container>
           <Quote attribution="Astrid Mally">
-            <span className="text-white">
-              Mir ist wichtig, dass Therapie verständlich bleibt — und dass Sie
-              unsere Praxis mit einem guten Gefühl verlassen. Ich freue mich
-              darauf, Sie auf Ihrem Weg zu mehr Wohlbefinden zu begleiten.
-            </span>
+            Mir ist wichtig, dass Therapie verständlich bleibt — und dass Sie
+            unsere Praxis mit einem guten Gefühl verlassen. Ich freue mich
+            darauf, Sie auf Ihrem Weg zu mehr Wohlbefinden zu begleiten.
           </Quote>
           <div className="mt-12">
-            <LinkButton href="/kontakt" variant="onNavy" size="lg">
+            <LinkButton href="/kontakt" size="lg">
               Terminanfrage stellen
             </LinkButton>
           </div>

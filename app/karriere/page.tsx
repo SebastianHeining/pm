@@ -165,13 +165,11 @@ export default function Karriere() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center">
             <div>
-              <SectionEyebrow>
-                <span className="text-brand-red-soft">So geht's weiter</span>
-              </SectionEyebrow>
-              <SectionHeading className="text-white">
+              <SectionEyebrow>So geht's weiter</SectionEyebrow>
+              <SectionHeading>
                 Lust auf ein Gespräch?
               </SectionHeading>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/85">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-graphite">
                 Schick uns deine Unterlagen oder ruf einfach an. Auch ohne
                 vollständige Bewerbung sind wir offen für ein erstes
                 Kennenlernen — vielleicht passt es ja.
@@ -179,33 +177,32 @@ export default function Karriere() {
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <LinkButton
                   href={`mailto:${siteConfig.contact.email}?subject=Bewerbung%20Physiotherapeut:in%20bei%20Praxis%20Mally`}
-                  variant="onNavy"
                   size="lg"
                 >
                   Bewerbung per E-Mail
                 </LinkButton>
                 <a
                   href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-                  className="text-lg font-medium text-white underline underline-offset-4 hover:text-brand-red-soft"
+                  className="text-lg font-medium text-brand-navy underline underline-offset-4 hover:text-brand-red"
                 >
                   {siteConfig.contact.phoneDisplay}
                 </a>
               </div>
             </div>
-            <div className="rounded-2xl bg-white/5 p-7 ring-1 ring-white/10">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-red-soft">
+            <div className="rounded-2xl bg-white p-7 shadow-sm ring-1 ring-border-soft">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-red">
                 Praxis Mally
               </p>
-              <p className="mt-3 text-white">
+              <p className="mt-3 text-brand-navy">
                 {siteConfig.address.street}
                 <br />
                 {siteConfig.address.postalCode} {siteConfig.address.city}-{siteConfig.address.district}
               </p>
-              <p className="mt-4 text-white/80">
+              <p className="mt-4 text-graphite">
                 E-Mail:{" "}
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="underline underline-offset-4 hover:text-brand-red-soft"
+                  className="underline underline-offset-4 hover:text-brand-red"
                 >
                   {siteConfig.contact.email}
                 </a>

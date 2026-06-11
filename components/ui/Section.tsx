@@ -19,9 +19,10 @@ export function Section({
         tone === "white" && "bg-surface",
         tone === "warm" && "bg-surface-warm",
         tone === "mute" && "bg-surface-mute",
-        // FB: Kunde wollte die dunklen CTA-Bänder etwas heller — soft-Ton
-        // statt Vollton; der Footer bleibt dunkler (bg-brand-navy)
-        tone === "navy" && "bg-brand-navy-soft text-white",
+        // FB: Kunde wollte die CTA-Bänder bewusst hell (kein zweiter
+        // Dunkelton neben dem Footer) — heller Mute-Ton mit feiner
+        // Trennlinie; dunkel bleibt allein der Footer
+        tone === "navy" && "border-y border-border-soft bg-surface-mute",
         spacing === "tight" && "py-12 sm:py-16",
         spacing === "default" && "py-20 sm:py-28 lg:py-32",
         spacing === "loose" && "py-28 sm:py-36 lg:py-44",

@@ -127,10 +127,10 @@ export default function LeistungenIndex() {
 
       <Section tone="navy" spacing="default">
         <Container>
-          <SectionHeading className="text-white">
+          <SectionHeading>
             Nicht sicher, welche Behandlung zu Ihnen passt?
           </SectionHeading>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/85">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-graphite">
             Rufen Sie uns an oder schicken Sie uns eine Terminanfrage —
             wir hören Ihnen zu und besprechen gemeinsam, welcher Weg
             sinnvoll ist.
@@ -138,13 +138,13 @@ export default function LeistungenIndex() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Link
               href="/kontakt"
-              className="inline-flex h-13 items-center justify-center rounded-full bg-white px-7 text-base font-medium text-brand-navy transition-colors hover:bg-brand-red hover:text-white"
+              className="inline-flex h-13 items-center justify-center rounded-full bg-brand-red px-7 text-base font-medium text-white transition-colors hover:bg-brand-red-hover"
             >
               Terminanfrage stellen
             </Link>
             <Link
               href="/faq"
-              className="text-base font-medium text-white underline underline-offset-4 hover:text-brand-red-soft"
+              className="text-base font-medium text-brand-navy underline underline-offset-4 hover:text-brand-red"
             >
               Antworten auf häufige Fragen
             </Link>

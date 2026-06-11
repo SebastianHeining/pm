@@ -153,19 +153,17 @@ export default function PraxisPage() {
 
       <Section tone="navy" spacing="default">
         <Container>
-          <SectionEyebrow>
-            <span className="text-brand-red-soft">Lust auf einen ersten Eindruck?</span>
-          </SectionEyebrow>
-          <SectionHeading className="text-white">
+          <SectionEyebrow>Lust auf einen ersten Eindruck?</SectionEyebrow>
+          <SectionHeading>
             Vereinbaren Sie einen Termin und kommen Sie persönlich vorbei.
           </SectionHeading>
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <LinkButton href="/kontakt" variant="onNavy" size="lg">
+            <LinkButton href="/kontakt" size="lg">
               Terminanfrage stellen
             </LinkButton>
             <a
               href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-              className="text-lg font-medium text-white underline underline-offset-4 hover:text-brand-red-soft"
+              className="text-lg font-medium text-brand-navy underline underline-offset-4 hover:text-brand-red"
             >
               {siteConfig.contact.phoneDisplay}
             </a>

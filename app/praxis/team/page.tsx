@@ -269,26 +269,24 @@ export default async function TeamPage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center">
             <div>
-              <SectionEyebrow>
-                <span className="text-brand-red-soft">Karriere</span>
-              </SectionEyebrow>
-              <SectionHeading className="text-white">
+              <SectionEyebrow>Karriere</SectionEyebrow>
+              <SectionHeading>
                 Lust, Teil unseres Teams zu werden?
               </SectionHeading>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/85">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-graphite">
                 Wir suchen Therapeut:innen, die mit Herz und Verstand bei der
                 Sache sind. Wertschätzung, fachliche Weiterentwicklung und
                 planbare Arbeitszeiten sind bei uns gelebter Alltag.
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-4">
-                <LinkButton href="/karriere" variant="onNavy" size="lg">
+                <LinkButton href="/karriere" size="lg">
                   Karriere bei Mally
                 </LinkButton>
               </div>
             </div>
-            <Card tone="navy" className="bg-white/5 ring-1 ring-white/10">
-              <CardTitle className="text-white">Wir suchen Verstärkung</CardTitle>
-              <CardBody className="text-white/85">
+            <Card className="bg-white shadow-sm ring-1 ring-border-soft">
+              <CardTitle>Wir suchen Verstärkung</CardTitle>
+              <CardBody>
                 Aktuell suchen wir eine:n Physiotherapeut:in (m/w/d) in Voll-
                 oder Teilzeit für unser Team in Hamm-Bockum-Hövel.
               </CardBody>

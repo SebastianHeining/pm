@@ -118,41 +118,39 @@ export default function Home() {
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-[1.4fr_1fr]">
             <div>
-              <SectionEyebrow>
-                <span className="text-brand-red-soft">Kontakt</span>
-              </SectionEyebrow>
-              <SectionHeading className="text-white">
+              <SectionEyebrow>Kontakt</SectionEyebrow>
+              <SectionHeading>
                 Bereit für den nächsten Schritt zu mehr Wohlbefinden?
               </SectionHeading>
-              <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/85">
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-graphite">
                 Rufen Sie uns an oder schicken Sie eine Terminanfrage —
                 wir melden uns zeitnah zurück und besprechen alles Weitere persönlich.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
-                <LinkButton href="/kontakt" variant="onNavy" size="lg">
+                <LinkButton href="/kontakt" size="lg">
                   Terminanfrage
                 </LinkButton>
                 <a
                   href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-                  className="text-lg font-medium text-white underline underline-offset-4 hover:text-brand-red-soft"
+                  className="text-lg font-medium text-brand-navy underline underline-offset-4 hover:text-brand-red"
                 >
                   {siteConfig.contact.phoneDisplay}
                 </a>
               </div>
             </div>
-            <div className="rounded-2xl bg-white/5 p-8 ring-1 ring-white/10">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-red-soft">
+            <div className="rounded-2xl bg-white p-8 shadow-sm ring-1 ring-border-soft">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-red">
                 Öffnungszeiten
               </p>
-              <ul className="mt-4 space-y-2 text-white/90">
+              <ul className="mt-4 space-y-2 text-brand-navy">
                 {siteConfig.hours.map((h) => (
                   <li key={h.days} className="flex items-center justify-between gap-4">
-                    <span className="whitespace-nowrap text-white/70">{h.days}</span>
+                    <span className="whitespace-nowrap text-graphite-soft">{h.days}</span>
                     <span className="whitespace-nowrap font-medium">{h.time}</span>
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 text-sm text-white/70">
+              <p className="mt-6 text-sm text-graphite-soft">
                 Außerhalb dieser Zeiten erreichen Sie unseren Anrufbeantworter —
                 wir rufen schnellstmöglich zurück.
               </p>
