@@ -15,9 +15,10 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-border-soft bg-surface/95 backdrop-blur supports-[backdrop-filter]:bg-surface/80">
       <Container>
         <div className="flex h-20 items-center justify-between gap-6 lg:h-24">
-          {/* Großes Logo, das unten über den Header-Rahmen hinausragt */}
+          {/* Großes Logo mit Überhang; der weiße Halo stellt es auf jedem
+              Hintergrund frei (z. B. auf der roten Job-Banderole) */}
           <div className="relative z-10 -mb-6 self-end sm:-mb-7 lg:-mb-9">
-            <Logo sizeClassName="h-20 w-auto drop-shadow-sm sm:h-24 lg:h-32" />
+            <Logo sizeClassName="h-20 w-auto sm:h-24 lg:h-32 [filter:drop-shadow(0_0_3px_white)_drop-shadow(0_0_8px_white)_drop-shadow(0_0_16px_rgba(255,255,255,0.85))_drop-shadow(0_1px_2px_rgba(0,0,0,0.06))]" />
           </div>
           <nav aria-label="Hauptnavigation" className="hidden lg:flex">
             <ul className="flex items-center gap-1">
@@ -25,7 +26,7 @@ export function SiteHeader() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="rounded-md px-4 py-2 text-sm font-medium text-brand-navy transition-colors hover:bg-surface-warm hover:text-brand-red"
+                    className="rounded-md px-3.5 py-2 text-base font-medium text-brand-navy transition-colors hover:bg-surface-warm hover:text-brand-red xl:px-4"
                   >
                     {item.label}
                   </Link>
@@ -36,7 +37,7 @@ export function SiteHeader() {
           <div className="hidden items-center gap-3 lg:flex">
             <a
               href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-              className="text-sm font-medium text-brand-navy hover:text-brand-red"
+              className="whitespace-nowrap text-base font-medium text-brand-navy hover:text-brand-red"
             >
               {siteConfig.contact.phoneDisplay}
             </a>
