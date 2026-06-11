@@ -40,7 +40,7 @@
 - [x] `/api/chat` mit Claude API (Haiku, Prompt-Caching), Wissensbasis aus allen Website-Inhalten
 - [x] Regeln: keine medizinische Beratung, Termin verschieben/absagen nur telefonisch, keine erfundenen Preise
 - [x] Datenschutz-Abschnitt zum KI-Chat
-- [ ] **Wichtig**: `ANTHROPIC_API_KEY` als Env-Var in Vercel setzen (Settings → Environment Variables) — ohne Key antwortet der Chat mit einem freundlichen Offline-Hinweis. Key unter console.anthropic.com erstellen; Modell via `CHAT_MODEL` übersteuerbar (Standard `claude-haiku-4-5`).
+- [x] `ANTHROPIC_API_KEY` in Vercel gesetzt (Production, 2026-06-11) — Chat antwortet live. Modell via `CHAT_MODEL` übersteuerbar (Standard `claude-haiku-4-5`). Verbrauch/Kosten einsehbar unter console.anthropic.com.
 - [ ] Optional: Avatar durch ein generiertes Comic-Porträt nach Sabines echtem Foto ersetzen (Datei einfach gegen `components/chat/SabineAvatar.tsx` tauschen bzw. PNG einsetzen).
 
 ## Technik / Setup
