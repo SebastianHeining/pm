@@ -77,14 +77,14 @@ export default function Home() {
                 {siteConfig.legal.licensed}
               </p>
             </div>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-surface-mute lg:aspect-[5/6]">
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-xs overflow-hidden rounded-3xl bg-surface-mute sm:max-w-sm lg:mx-0 lg:max-w-md lg:justify-self-end lg:self-center">
               <Image
                 src="/team/astrid-mally.jpg"
                 alt="Astrid Mally – Inhaberin und Physiotherapeutin"
                 fill
                 priority
                 className="object-cover"
-                sizes="(min-width: 1024px) 40vw, 100vw"
+                sizes="(min-width: 1024px) 448px, (min-width: 640px) 384px, 320px"
               />
             </div>
           </div>

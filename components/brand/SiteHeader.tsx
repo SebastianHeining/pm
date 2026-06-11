@@ -40,7 +40,7 @@ export function SiteHeader() {
             >
               {siteConfig.contact.phoneDisplay}
             </a>
-            <LinkButton href="/kontakt" size="md">
+            <LinkButton href="/kontakt" size="md" className="animate-cta-attention">
               Terminanfrage
             </LinkButton>
           </div>

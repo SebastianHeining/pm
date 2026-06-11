@@ -82,6 +82,20 @@
 }
 
 @layer components {
+  /* Dezentes periodisches Schütteln für den Terminanfrage-CTA im Header */
+  @keyframes cta-shake {
+    0%, 86%, 100% { transform: translateX(0) rotate(0deg); }
+    88% { transform: translateX(-2px) rotate(-1.5deg); }
+    90% { transform: translateX(2px) rotate(1.8deg); }
+    92% { transform: translateX(-2px) rotate(-1.8deg); }
+    94% { transform: translateX(1.5px) rotate(1.2deg); }
+    96% { transform: translateX(-1px) rotate(-0.6deg); }
+    98% { transform: translateX(0.5px) rotate(0.3deg); }
+  }
+  .animate-cta-attention {
+    animation: cta-shake 7s ease-in-out 3s infinite;
+  }
+
   .prose-mally {
     color: var(--color-graphite);
     font-size: 1.0625rem;
