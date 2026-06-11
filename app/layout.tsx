@@ -39,8 +39,20 @@ export const metadata: Metadata = {
     title: "Physiotherapie Astrid Mally – Hamm-Bockum-Hövel",
     description:
       "Individuell, empathisch, wirkungsvoll. Spezialisierte Physiotherapie seit 2000.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Praxis für Physiotherapie Astrid Mally — individuell, empathisch, wirkungsvoll",
+      },
+    ],
   },
   robots: { index: true, follow: true },
+};
+
+export const viewport = {
+  themeColor: "#152D47",
 };
 
 export default function RootLayout({

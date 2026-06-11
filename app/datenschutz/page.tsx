@@ -117,7 +117,24 @@ export default function Datenschutz() {
 
             <section>
               <h2 className="text-2xl font-semibold text-brand-navy">
-                7. Ihre Rechte
+                7. Patient:innen-Bewertungen
+              </h2>
+              <p className="mt-3">
+                Über das Formular auf der Seite „Bewertung" können Sie uns
+                freiwillig eine Bewertung übermitteln (Sterne, Text, optional
+                Name und Ort). Die Angaben werden uns per E-Mail zugestellt und
+                nur mit Ihrer ausdrücklichen Einwilligung — ggf. gekürzt — auf
+                dieser Webseite veröffentlicht. Rechtsgrundlage ist Art. 6
+                Abs. 1 lit. a DSGVO. Sie können Ihre Einwilligung jederzeit mit
+                Wirkung für die Zukunft widerrufen; wir entfernen die
+                Bewertung dann zeitnah von der Webseite. Ein Anspruch auf
+                Veröffentlichung besteht nicht.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-brand-navy">
+                8. Ihre Rechte
               </h2>
               <p className="mt-3">
                 Sie haben das Recht auf Auskunft (Art. 15 DSGVO),
