@@ -15,6 +15,9 @@ export type Leistung = {
   hinweise?: string;
   kostenuebernahme: string;
   relatedSlugs?: string[];
+  // Optionales Raumbild (Standbild aus dem 3D-Rundgang oder Foto)
+  bild?: string;
+  bildAlt?: string;
 };
 
 export const leistungen: Leistung[] = [
@@ -73,6 +76,8 @@ export const leistungen: Leistung[] = [
     kostenuebernahme:
       "Kassenleistung — Erstattung durch die gesetzliche Krankenkasse bei entsprechender Verordnung.",
     relatedSlugs: ["krankengymnastik", "cmd-kiefergelenk"],
+    bild: "/praxis/behandlungsraum.jpg",
+    bildAlt: "Behandlungsraum der Praxis mit Therapieliege",
   },
   {
     slug: "krankengymnastik",
@@ -100,6 +105,8 @@ export const leistungen: Leistung[] = [
     kostenuebernahme:
       "Kassenleistung — Erstattung durch die gesetzliche Krankenkasse bei ärztlicher Verordnung (Heilmittelverordnung).",
     relatedSlugs: ["manuelle-therapie", "massage-und-waerme"],
+    bild: "/praxis/trainingsraum.jpg",
+    bildAlt: "Trainingsraum mit Sprossenwand, Therapieliege und Übungsgeräten",
   },
   {
     slug: "manuelle-lymphdrainage",
@@ -154,6 +161,8 @@ export const leistungen: Leistung[] = [
     kostenuebernahme:
       "Kassenleistung — Erstattung durch die gesetzliche Krankenkasse bei entsprechender Verordnung.",
     relatedSlugs: ["krankengymnastik", "manuelle-therapie"],
+    bild: "/praxis/schlingentisch.jpg",
+    bildAlt: "Behandlungsraum 5 mit Schlingentisch-Gerät über der Therapieliege",
   },
   {
     slug: "hausbesuche",

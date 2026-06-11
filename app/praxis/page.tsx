@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import {
   Section,
@@ -96,6 +97,39 @@ export default function PraxisPage() {
                 <CardTitle>{w.title}</CardTitle>
                 <CardBody>{w.body}</CardBody>
               </Card>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <Section spacing="default">
+        <Container>
+          <SectionEyebrow>Einblicke</SectionEyebrow>
+          <SectionHeading>Aus unseren Räumen.</SectionHeading>
+          <SectionLead>
+            Hell, freundlich und mit kurzen Wegen — ein paar Eindrücke aus dem
+            3D-Rundgang. Noch mehr sehen Sie oben im virtuellen Rundgang.
+          </SectionLead>
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { src: "/praxis/empfang.jpg", alt: "Empfangsbereich mit Tresen und Blick zum Wartebereich", caption: "Empfang" },
+              { src: "/praxis/wartebereich.jpg", alt: "Wartebereich mit Stühlen und Wandbild", caption: "Wartebereich" },
+              { src: "/praxis/trainingsraum.jpg", alt: "Trainingsraum mit Sprossenwand, Liege und Übungsgeräten", caption: "Trainingsraum" },
+            ].map((img) => (
+              <figure key={img.src} className="overflow-hidden rounded-2xl border border-border-soft bg-white">
+                <div className="relative aspect-[16/10]">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  />
+                </div>
+                <figcaption className="px-4 py-3 text-sm font-medium text-brand-navy">
+                  {img.caption}
+                </figcaption>
+              </figure>
             ))}
           </div>
         </Container>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
@@ -98,6 +99,26 @@ export default async function LeistungDetail({
           </div>
         </Container>
       </Section>
+
+      {leistung.bild && (
+        <Section spacing="tight">
+          <Container>
+            <div className="relative aspect-[16/10] max-h-[480px] w-full overflow-hidden rounded-3xl border border-border-soft sm:aspect-[2/1]">
+              <Image
+                src={leistung.bild}
+                alt={leistung.bildAlt ?? `Praxisraum — ${leistung.titel}`}
+                fill
+                className="object-cover"
+                sizes="(min-width: 1280px) 1216px, 100vw"
+              />
+            </div>
+            <p className="mt-3 text-sm text-graphite-soft">
+              Einblick aus unserem 3D-Rundgang — den kompletten Rundgang finden
+              Sie auf der <Link href="/praxis" className="underline underline-offset-2 hover:text-brand-red">Praxis-Seite</Link>.
+            </p>
+          </Container>
+        </Section>
+      )}
 
       <Section spacing="default">
         <Container>
