@@ -96,6 +96,36 @@
     animation: cta-shake 7s ease-in-out 3s infinite;
   }
 
+  /* Sabine-Avatar: Blinzeln, sanftes Kopfneigen, Schweben im Chat-Button.
+     Beide Kopf-Gruppen rotieren um denselben viewBox-Punkt (Halsansatz),
+     damit Haare und Gesicht synchron bleiben. */
+  @keyframes sabine-blink {
+    0%, 93%, 100% { transform: scaleY(1); }
+    96% { transform: scaleY(0.08); }
+  }
+  @keyframes sabine-tilt {
+    0%, 18%, 52%, 100% { transform: rotate(0deg); }
+    32% { transform: rotate(-2.4deg); }
+    72% { transform: rotate(1.8deg); }
+  }
+  @keyframes sabine-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+  .sabine-head {
+    transform-box: view-box;
+    transform-origin: 50% 72%;
+    animation: sabine-tilt 7s ease-in-out infinite;
+  }
+  .sabine-eye {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: sabine-blink 4.6s linear infinite;
+  }
+  .animate-sabine-float {
+    animation: sabine-float 3.8s ease-in-out infinite;
+  }
+
   .prose-mally {
     color: var(--color-graphite);
     font-size: 1.0625rem;

@@ -99,7 +99,7 @@ export function SabineChat() {
           open && "scale-0 opacity-0",
         )}
       >
-        <span className="relative">
+        <span className="relative animate-sabine-float">
           <SabineAvatar size={48} />
           <span className="absolute -right-0.5 -top-0.5 h-3 w-3 rounded-full border-2 border-white bg-emerald-500" />
         </span>

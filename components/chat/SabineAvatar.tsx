@@ -26,11 +26,14 @@ export function SabineAvatar({ size = 56, className }: Props) {
       {/* Hintergrund */}
       <circle cx="48" cy="48" r="46" fill="#f1d4d6" />
       <g clipPath="url(#sabine-circle)">
-        {/* Haare hinten (blond) */}
-        <path
-          d="M48 16c-16 0-25 11-25 25 0 8 1 14 1 20 0 9 4 16 4 16h40s4-7 4-16c0-6 1-12 1-20 0-14-9-25-25-25z"
-          fill="#d9a93f"
-        />
+        {/* Haare hinten (blond) — eigene Kopf-Gruppe, da sie hinter dem
+            Kasack liegen müssen; animiert synchron zur Gesichts-Gruppe */}
+        <g className="sabine-head">
+          <path
+            d="M48 16c-16 0-25 11-25 25 0 8 1 14 1 20 0 9 4 16 4 16h40s4-7 4-16c0-6 1-12 1-20 0-14-9-25-25-25z"
+            fill="#d9a93f"
+          />
+        </g>
         {/* Kasack (weiß, Arztdress) */}
         <path
           d="M24 96c0-15 9-23 24-23s24 8 24 23z"
@@ -52,6 +55,8 @@ export function SabineAvatar({ size = 56, className }: Props) {
         <rect x="63.4" y="79.5" width="2.2" height="6" rx="1.1" fill="#c8202a" />
         {/* Hals */}
         <path d="M42 64h12v8c0 3.3-2.7 5-6 5s-6-1.7-6-5z" fill="#f3c9a5" />
+        {/* Kopf-Gruppe (neigt sich sanft) */}
+        <g className="sabine-head">
         {/* Gesicht */}
         <ellipse cx="48" cy="45" rx="17.5" ry="19" fill="#f9d9b8" />
         {/* Ohren */}
@@ -70,11 +75,15 @@ export function SabineAvatar({ size = 56, className }: Props) {
         {/* Augenbrauen */}
         <path d="M37 41c2-2 6-2 8 0" fill="none" stroke="#b5872f" strokeWidth="1.8" strokeLinecap="round" />
         <path d="M51 41c2-2 6-2 8 0" fill="none" stroke="#b5872f" strokeWidth="1.8" strokeLinecap="round" />
-        {/* Augen */}
-        <circle cx="41" cy="46.5" r="2.3" fill="#423e39" />
-        <circle cx="55" cy="46.5" r="2.3" fill="#423e39" />
-        <circle cx="41.8" cy="45.7" r="0.7" fill="#ffffff" />
-        <circle cx="55.8" cy="45.7" r="0.7" fill="#ffffff" />
+        {/* Augen (blinzeln) */}
+        <g className="sabine-eye">
+          <circle cx="41" cy="46.5" r="2.3" fill="#423e39" />
+          <circle cx="41.8" cy="45.7" r="0.7" fill="#ffffff" />
+        </g>
+        <g className="sabine-eye">
+          <circle cx="55" cy="46.5" r="2.3" fill="#423e39" />
+          <circle cx="55.8" cy="45.7" r="0.7" fill="#ffffff" />
+        </g>
         {/* Wangen */}
         <circle cx="36.5" cy="53" r="2.8" fill="#f4b8ab" opacity="0.7" />
         <circle cx="59.5" cy="53" r="2.8" fill="#f4b8ab" opacity="0.7" />
@@ -88,6 +97,7 @@ export function SabineAvatar({ size = 56, className }: Props) {
           strokeWidth="2"
           strokeLinecap="round"
         />
+        </g>
       </g>
       {/* feiner Rand */}
       <circle cx="48" cy="48" r="45.2" fill="none" stroke="#c8202a" strokeOpacity="0.25" strokeWidth="1.5" />
