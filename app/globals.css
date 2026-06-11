@@ -33,12 +33,15 @@
 /*
  * Design-Variante "Rot/Weiß/Grau" — ohne Blau, passend zum neuen Logo.
  * Aktivierung über /variante-rot (localStorage), Rückschalter /variante-standard.
- * Überschreibt nur die Blau-Töne; Rot, Grau und Flächen bleiben identisch.
+ * Warme Stone-Grautöne (Ton-in-Ton, angelehnt an die Print-Anzeige);
+ * alle Kombinationen erfüllen WCAG AA.
  */
 html.theme-rot {
-  --color-brand-navy: #3b3b3d;
-  --color-brand-navy-soft: #515154;
-  --color-brand-navy-deep: #29292b;
+  --color-brand-navy: #544f4a;
+  --color-brand-navy-soft: #6b6660;
+  --color-brand-navy-deep: #423e39;
+  --color-graphite: #5c5751;
+  --color-graphite-soft: #6e6964;
 }
 
 @layer base {
