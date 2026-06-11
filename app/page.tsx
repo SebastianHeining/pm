@@ -34,14 +34,17 @@ export default function Home() {
   return (
     <>
       <JsonLd data={medicalBusinessJsonLd()} />
-      {/* Diagonale Job-Banderole unten rechts — bleibt beim Scrollen sichtbar */}
-      <Link
-        href="/karriere"
-        aria-label="Mitarbeiter gesucht — zur Karriere-Seite"
-        className="fixed -right-14 bottom-9 z-40 rotate-[-40deg] bg-brand-red px-16 py-2 text-center text-sm font-semibold uppercase tracking-[0.08em] text-white shadow-xl ring-1 ring-white/30 transition-colors hover:bg-brand-navy sm:-right-12 sm:bottom-11 sm:px-20"
-      >
-        Mitarbeiter gesucht!
-      </Link>
+      {/* Diagonale Job-Banderole unten rechts — der Clip-Container schneidet
+          die Bandenden sauber ab, der Text sitzt mittig auf dem Band */}
+      <div className="pointer-events-none fixed bottom-0 right-0 z-40 h-40 w-40 overflow-hidden">
+        <Link
+          href="/karriere"
+          aria-label="Mitarbeiter gesucht — zur Karriere-Seite"
+          className="pointer-events-auto absolute bottom-[34px] right-[-42px] block w-[210px] rotate-[-45deg] bg-brand-red py-2 text-center text-sm font-semibold uppercase tracking-[0.08em] text-white shadow-lg ring-1 ring-white/30 transition-colors hover:bg-brand-navy"
+        >
+          Mitarbeiter gesucht!
+        </Link>
+      </div>
       <Section tone="warm" spacing="loose" className="relative overflow-hidden">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-center">

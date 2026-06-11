@@ -32,6 +32,9 @@ export function Logo({
       alt="Praxis für Physiotherapie Astrid Mally"
       priority
       className={cn(
+        // max-w-none: Tailwinds img-Preflight (max-width:100%) würde das Logo
+        // bei engem Flex-Platz horizontal stauchen statt es überlaufen zu lassen
+        "max-w-none",
         sizeClassName,
         variant === "mark" && "rounded-full",
         invert && "brightness-0 invert",

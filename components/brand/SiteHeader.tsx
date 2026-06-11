@@ -16,9 +16,10 @@ export function SiteHeader() {
       <Container>
         <div className="flex h-20 items-center justify-between gap-6 lg:h-24">
           {/* Großes Logo mit Überhang; sehr weicher Schein als dezente
-              Freistellung, falls dunklere Flächen unters Logo geraten */}
-          <div className="relative z-10 -mb-6 self-end sm:-mb-7 lg:-mb-9">
-            <Logo sizeClassName="h-20 w-auto sm:h-24 lg:h-32 [filter:drop-shadow(0_0_14px_rgba(255,255,255,0.6))_drop-shadow(0_1px_2px_rgba(0,0,0,0.05))]" />
+              Freistellung, falls dunklere Flächen unters Logo geraten.
+              shrink-0 + max-w-none (in Logo) verhindern Stauchung bei engem Platz. */}
+          <div className="relative z-10 -mb-6 shrink-0 self-end sm:-mb-7 lg:-mb-9">
+            <Logo sizeClassName="h-20 w-auto sm:h-24 2xl:h-32 [filter:drop-shadow(0_0_14px_rgba(255,255,255,0.6))_drop-shadow(0_1px_2px_rgba(0,0,0,0.05))]" />
           </div>
           <nav aria-label="Hauptnavigation" className="hidden lg:flex">
             <ul className="flex items-center gap-1">
@@ -26,7 +27,7 @@ export function SiteHeader() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="rounded-md px-3.5 py-2 text-base font-medium text-brand-navy transition-colors hover:bg-surface-warm hover:text-brand-red xl:px-4"
+                    className="rounded-md px-1.5 py-2 text-[15px] font-medium text-brand-navy transition-colors hover:bg-surface-warm hover:text-brand-red xl:px-2.5 2xl:px-3.5 2xl:text-base"
                   >
                     {item.label}
                   </Link>
@@ -37,7 +38,7 @@ export function SiteHeader() {
           <div className="hidden items-center gap-3 lg:flex">
             <a
               href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
-              className="whitespace-nowrap text-base font-medium text-brand-navy hover:text-brand-red"
+              className="hidden whitespace-nowrap text-base font-medium text-brand-navy hover:text-brand-red xl:block"
             >
               {siteConfig.contact.phoneDisplay}
             </a>
