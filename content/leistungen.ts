@@ -30,8 +30,9 @@ export const leistungen: Leistung[] = [
     heroEyebrow: "Bewegung als Therapie",
     heroLead:
       "Unsere klassische Krankengymnastik fördert gezielt Ihre Beweglichkeit, stärkt die Muskulatur und lindert Schmerzen. Mit individuell angepassten Übungen unterstützen wir Ihren Heilungsprozess und verbessern Ihre Mobilität im Alltag.",
-    bild: "/leistungen/krankengymnastik.jpg",
-    bildAlt: "Aktive Übung mit dem Theraband in der Praxis",
+    // FB4: Testweise Illustration statt Foto (Tausch: krankengymnastik.jpg)
+    bild: "/leistungen/krankengymnastik-illustration.jpg",
+    bildAlt: "Illustration: Aktive Übung mit dem Theraband in der Praxis",
     wannHilft: [
       "Rückenschmerzen und Verspannungen",
       "Nach Operationen (Knie, Hüfte, Schulter)",
@@ -119,8 +120,7 @@ export const leistungen: Leistung[] = [
     heroEyebrow: "Entstauung & Ödemtherapie",
     heroLead:
       "Diese sanfte Behandlungsmethode reduziert Schwellungen, regt den Lymphfluss an und unterstützt die Heilung nach Operationen oder bei Lymphödemen. Die rhythmischen, pumpenden Bewegungen fördern den Abtransport von Gewebsflüssigkeit und beschleunigen den Heilungsprozess.",
-    bild: "/leistungen/manuelle-lymphdrainage.jpg",
-    bildAlt: "Sanfter Lymphdrainage-Griff am Unterarm",
+    // FB4: Bildmotiv fachlich nicht passend — bewusst ohne Bild (Kundin)
     wannHilft: [
       "Lymphödeme nach Brustkrebs- oder Krebstherapien",
       "Schwellungen nach Operationen und Verletzungen",
@@ -148,8 +148,9 @@ export const leistungen: Leistung[] = [
     heroEyebrow: "Lösen & Regenerieren",
     heroLead:
       "Gezielte Massagen lösen Verspannungen, fördern die Durchblutung und unterstützen die Regeneration Ihres Körpers. Die Bindegewebsmassage wirkt über Reflexzonen tief im Gewebe, aktiviert die Selbstheilungskräfte und kann positiv auf innere Organe und das Nervensystem einwirken.",
-    bild: "/leistungen/massage-bgm.jpg",
-    bildAlt: "Klassische Rückenmassage in der Praxis",
+    // FB4: Testweise Illustration statt Foto (Tausch: massage-bgm.jpg)
+    bild: "/leistungen/massage-bgm-illustration.jpg",
+    bildAlt: "Illustration: Klassische Rückenmassage in der Praxis",
     wannHilft: [
       "Muskuläre Verspannungen und Verhärtungen",
       "Schmerzhafte Bewegungseinschränkungen",
@@ -177,8 +178,7 @@ export const leistungen: Leistung[] = [
     heroEyebrow: "Wärmen & Kühlen",
     heroLead:
       "Wohltuende Wärme aus Naturmoor lockert die Muskulatur, fördert die Durchblutung und bereitet den Körper optimal auf weitere Behandlungen vor. Die Heiße Rolle kombiniert intensive, punktuelle Wärme mit Massagegriffen. Gezielte Kälteanwendungen lindern Schmerzen, hemmen Entzündungen und reduzieren Schwellungen.",
-    bild: "/leistungen/waerme-kaelte.jpg",
-    bildAlt: "Behandlung am Rücken — Vorbereitung mit Wärme",
+    // FB4: bewusst ohne Bild (Kundin)
     wannHilft: [
       "Muskuläre Verspannungen (Wärme)",
       "Vorbereitung auf Krankengymnastik oder Massage",
@@ -302,6 +302,33 @@ export const leistungen: Leistung[] = [
     kostenuebernahme:
       "Selbstzahlerleistung. Manche private Zusatzversicherungen erstatten.",
     relatedSlugs: ["massage-bgm", "hausbesuche"],
+  },
+  {
+    // FB4: Von der Kundin gewünschte Zusatzleistung — Text ist ein
+    // Platzhalter-Entwurf, Astrid liefert den finalen Text nach (TODO.md)
+    slug: "therapie-plus",
+    titel: "Therapie Plus — 10 Minuten mehr Zeit",
+    kategorie: "selbstzahler",
+    icon: "kg",
+    kurzbeschreibung:
+      "Verlängern Sie Ihre Behandlung um 10 Minuten — als private Zusatzleistung zu jedem Termin dazubuchbar.",
+    heroEyebrow: "Mehr Zeit für Sie",
+    heroLead:
+      "Manchmal braucht gute Behandlung einfach ein paar Minuten mehr. Mit Therapie Plus verlängern Sie Ihren Termin um 10 Minuten — für zusätzliche Handgriffe, mehr Ruhe oder eine ausführlichere Übungsanleitung. Sprechen Sie uns bei der Terminvergabe oder am Empfang an.",
+    wannHilft: [
+      "Wenn die verordnete Behandlungszeit für Ihr Anliegen knapp ist",
+      "Für ergänzende Techniken im Anschluss an die Behandlung",
+      "Für Übungsanleitung ohne Zeitdruck",
+      "Kombinierbar mit jeder unserer Behandlungen",
+    ],
+    ablauf: [
+      "Bei der Terminvergabe oder direkt am Empfang dazubuchen",
+      "Ihre Therapeutin plant die zusätzliche Zeit fest für Sie ein",
+      "Unkomplizierte Abrechnung als private Zusatzleistung",
+    ],
+    kostenuebernahme:
+      "Selbstzahlerleistung — pro Termin zubuchbar. Die aktuellen Konditionen nennt Ihnen gerne unser Empfangsteam.",
+    relatedSlugs: ["massage-bgm", "krankengymnastik"],
   },
 ];
 

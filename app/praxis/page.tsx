@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 const werte = [
   {
     title: "Spezialisierung & Qualität",
-    body: "Expertise in CMD-Therapie, Manueller Therapie und spezialisierter Schmerzphysiotherapie — gestützt durch kontinuierliche Fortbildung.",
+    body: "Schwerpunkte in CMD-Therapie, Manueller Therapie und Schmerzphysiotherapie — gestützt durch kontinuierliche Fortbildung.",
   },
   {
     title: "Familiäre Atmosphäre",

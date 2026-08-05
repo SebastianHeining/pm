@@ -29,7 +29,10 @@ const ORDER: Kategorie[] = ["kasse", "selbstzahler"];
 export default function LeistungenIndex() {
   const grouped = ORDER.map((kat) => ({
     kat,
-    items: leistungen.filter((l) => l.kategorie === kat),
+    // FB4: Kacheln ohne Bild ans Ende der Gruppe (stehen unten nebeneinander)
+    items: leistungen
+      .filter((l) => l.kategorie === kat)
+      .sort((a, b) => Number(!!b.bild) - Number(!!a.bild)),
   })).filter((g) => g.items.length > 0);
 
   return (
@@ -48,7 +51,7 @@ export default function LeistungenIndex() {
             <span className="block text-brand-red">in Ihrem Körper wieder zuhause fühlen.</span>
           </>
         }
-        lead="Wir kombinieren bewährte Verfahren mit spezialisierter Expertise — von Krankengymnastik bis zur Manuellen Therapie. Jede Behandlung wird individuell auf Ihre Bedürfnisse zugeschnitten."
+        lead="Wir kombinieren bewährte Verfahren mit spezialisierten Behandlungskonzepten — von Krankengymnastik bis zur Manuellen Therapie. Jede Behandlung wird individuell auf Ihre Bedürfnisse zugeschnitten."
       />
 
       {grouped.map(({ kat, items }) => (

@@ -178,7 +178,7 @@ export default function UeberAstrid() {
         <Container>
           <SectionEyebrow>Meine Qualifikationen</SectionEyebrow>
           <SectionHeading>
-            Kontinuierliche Fortbildung. Spezialisierte Expertise.
+            Kontinuierliche Fortbildung. Gewachsene Erfahrung.
           </SectionHeading>
           <SectionLead>
             Ein Auszug aus meinen Aus- und Weiterbildungen — die Grundlage

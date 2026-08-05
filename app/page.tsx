@@ -18,7 +18,7 @@ import { siteConfig } from "@/lib/site-config";
 const usps = [
   {
     title: "Spezialisierung & Qualität",
-    body: "Expertise in CMD-Therapie, Manueller Therapie und spezialisierter Schmerzphysiotherapie. Zusatzqualifikationen für eine optimale Behandlung Ihrer Beschwerden.",
+    body: "Schwerpunkte in CMD-Therapie, Manueller Therapie und Schmerzphysiotherapie — mit Zusatzqualifikationen und regelmäßigen Fortbildungen für eine optimale Behandlung Ihrer Beschwerden.",
   },
   {
     title: "Familiäre Atmosphäre",

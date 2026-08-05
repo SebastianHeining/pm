@@ -12,6 +12,7 @@ const footerNav = {
   ],
   Leistungen: [
     { label: "Übersicht", href: "/leistungen" },
+    { label: "Krankengymnastik", href: "/leistungen/krankengymnastik" },
     { label: "Manuelle Therapie", href: "/leistungen/manuelle-therapie" },
     { label: "CMD / Kiefergelenk", href: "/leistungen/cmd-kiefergelenk" },
     { label: "Lymphdrainage", href: "/leistungen/manuelle-lymphdrainage" },

@@ -165,24 +165,6 @@ export default async function RatgeberIndex() {
         </Container>
       </Section>
 
-      <Section spacing="default">
-        <Container>
-          <div className="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center">
-            <div>
-              <SectionEyebrow>Themenvorschlag?</SectionEyebrow>
-              <SectionHeading>Worüber sollen wir als nächstes schreiben?</SectionHeading>
-              <SectionLead>
-                Sie haben eine Frage, zu der wir keinen Artikel finden? Schreiben Sie uns — vielleicht wird genau das unser nächster Beitrag.
-              </SectionLead>
-              <div className="mt-8">
-                <LinkButton href="/kontakt" variant="primary" size="lg">
-                  Themenvorschlag senden
-                </LinkButton>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
     </>
   );
 }

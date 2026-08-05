@@ -43,6 +43,13 @@
 - [x] `ANTHROPIC_API_KEY` in Vercel gesetzt (Production, 2026-06-11) — Chat antwortet live. Modell via `CHAT_MODEL` übersteuerbar (Standard `claude-haiku-4-5`). Verbrauch/Kosten einsehbar unter console.anthropic.com.
 - [ ] Optional: Avatar durch ein generiertes Comic-Porträt nach Sabines echtem Foto ersetzen (Datei einfach gegen `components/chat/SabineAvatar.tsx` tauschen bzw. PNG einsetzen).
 
+## Aus Feedbackrunde 4 offen
+
+- [ ] **Therapie Plus — finaler Text von Astrid**: Die neue Selbstzahler-Seite `/leistungen/therapie-plus` (10-Min-Verlängerung) steht mit einem Platzhalter-Entwurf. Sobald Astrids Text kommt, in `content/leistungen.ts` ersetzen.
+- [ ] **Rückfrage Kundin: „2 Bilder nebeneinander, da muss das eine weg"** — der Satz in der Mail nennt die Stelle nicht („Außerdem sind bei…. 2 Bilder nebeneinander"). Klären, welche Seite gemeint ist.
+- [ ] **Illustrationen-Entscheidung**: Testweise eingebaut bei Krankengymnastik + Massage/BGM (Kachel + Detailseite). Gefällt es? → weitere Leistungen umstellen oder zurück zu Fotos (Foto-Versionen liegen parallel in `public/leistungen/`).
+- [ ] Bearbeitete Bilder 03 (Handgriffe), 05 (Bein), 06 (Schulter Rückenlage), 08 (Massage überkreuzt), 09 (Tape Arm) + 8 weitere Illustrationen liegen ungenutzt in `dokumentekunde/feedback4/entpackt/` als Reserve.
+
 ## Technik / Setup
 
 - [ ] **Hosting-Entscheidung**: ionos / hetzner / eigener Server (oder Vercel behalten — läuft bereits auf mally-website-one.vercel.app).
