@@ -27,6 +27,21 @@ const nextConfig: NextConfig = {
       // aktiv) — temporäre Redirects, Inhalte bleiben im Repo erhalten
       { source: "/ratgeber", destination: "/", permanent: false },
       { source: "/ratgeber/:slug*", destination: "/", permanent: false },
+      // Heimserver-Hosting: Nebendomains und www bündeln per 301 auf die
+      // Hauptdomain (Canonical/SEO). Greift erst, wenn die Domains auf den
+      // Server zeigen — auf Vercel matchen diese Hosts nie.
+      ...[
+        "www.physiotherapie-mally.de",
+        "physio-astrid-mally.de",
+        "www.physio-astrid-mally.de",
+        "physiotherapie-astrid-mally.de",
+        "www.physiotherapie-astrid-mally.de",
+      ].map((host) => ({
+        source: "/:path*",
+        has: [{ type: "host" as const, value: host }],
+        destination: "https://physiotherapie-mally.de/:path*",
+        permanent: true,
+      })),
     ];
   },
 };
