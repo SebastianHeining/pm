@@ -49,8 +49,8 @@ export default function LeistungenIndex() {
         eyebrow="Behandlungen"
         title={
           <>
-            Alles, was wir tun, damit Sie sich
-            <span className="block text-brand-red">in Ihrem Körper wieder zuhause fühlen.</span>
+            Unsere Behandlungen —
+            <span className="block text-brand-red">für mehr Beweglichkeit und weniger Schmerzen.</span>
           </>
         }
         lead="Wir kombinieren bewährte Verfahren mit spezialisierten Behandlungskonzepten — von Krankengymnastik bis zur Manuellen Therapie. Jede Behandlung wird individuell auf Ihre Bedürfnisse zugeschnitten."
