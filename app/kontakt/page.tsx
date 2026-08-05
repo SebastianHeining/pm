@@ -172,9 +172,11 @@ export default function Kontakt() {
               </div>
             </div>
             <div className="overflow-hidden rounded-3xl border border-border-soft">
+              {/* Koordinaten Hammer Str. 90a (Ärztehaus), Bockum-Hövel —
+                  via OSM/Nominatim verifiziert: 51.6940, 7.7468 */}
               <iframe
                 title="Standort der Praxis auf einer Karte (OpenStreetMap)"
-                src={`https://www.openstreetmap.org/export/embed.html?bbox=7.7806%2C51.7064%2C7.8006%2C51.7164&layer=mapnik&marker=51.7114%2C7.7906`}
+                src={`https://www.openstreetmap.org/export/embed.html?bbox=7.7408%2C51.6900%2C7.7528%2C51.6980&layer=mapnik&marker=51.6940%2C7.7468`}
                 className="h-[420px] w-full"
                 loading="lazy"
               />
