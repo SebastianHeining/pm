@@ -21,12 +21,18 @@ export const siteConfig = {
     // aktives Postfach der Praxis ist die t-online-Adresse.
     email: "praxis-astrid-mally@t-online.de",
   },
-  // Öffnungszeiten (Therapie- und Anmeldezeiten kombiniert)
+  // Behandlungszeiten (so lange wird therapiert)
   //   (geschütztes Leerzeichen) verhindert den Umbruch „19:00 / Uhr“ auf Mobile
   hours: [
     { days: "Mo, Mi", time: "07:30 – 19:00 Uhr" },
     { days: "Di, Do", time: "07:30 – 16:30 Uhr" },
     { days: "Fr", time: "07:30 – 15:00 Uhr" },
+  ],
+  // Büro- & Anmeldezeiten — der Empfang ist kürzer besetzt als behandelt
+  // wird; außerhalb springt der Anrufbeantworter ein
+  officeHours: [
+    { days: "Mo, Di, Do", time: "07:30 – 16:00 Uhr" },
+    { days: "Mi, Fr", time: "07:30 – 14:00 Uhr" },
   ],
   matterportEmbed: "https://my.matterport.com/show/?m=QbLa5s7ChXh",
   social: {} as Record<string, string>,

@@ -68,6 +68,11 @@ export async function buildBieneSystemPrompt(): Promise<string> {
         : ""
     }`;
 
+  const officeHoursText = siteConfig.officeHours
+    .map((h) => `${h.days}: ${h.time}`)
+    .join("\n")
+    .replace(/ /g, " ");
+
   const hoursText = siteConfig.hours
     .map((h) => `${h.days}: ${h.time}`)
     .join("\n")
@@ -103,8 +108,12 @@ Fax: 02381 / 5444 - 534
 E-Mail: ${siteConfig.contact.email}
 ${siteConfig.legal.licensed}
 
-Öffnungszeiten:
+Öffnungszeiten (Behandlungszeiten):
 ${hoursText}
+
+Büro- & Anmeldezeiten (Empfang persönlich und telefonisch besetzt, z. B. für Terminvereinbarung):
+${officeHoursText}
+Außerhalb der Büro- und Anmeldezeiten nimmt der Anrufbeantworter Nachrichten entgegen — das Team ruft schnellstmöglich zurück.
 
 Ein virtueller 3D-Rundgang durch die Praxis ist auf der Seite /praxis eingebettet.
 

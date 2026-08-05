@@ -108,7 +108,7 @@ export default function Kontakt() {
                   Öffnungszeiten
                 </p>
                 <p className="mt-2 text-2xl font-semibold text-brand-navy">
-                  Anmeldung & Therapie
+                  Behandlungszeiten
                 </p>
                 <ul className="mt-6 space-y-3 text-base">
                   {siteConfig.hours.map((h) => (
@@ -121,9 +121,25 @@ export default function Kontakt() {
                     </li>
                   ))}
                 </ul>
+                <p className="mt-8 text-2xl font-semibold text-brand-navy">
+                  Büro- &amp; Anmeldezeiten
+                </p>
+                <ul className="mt-6 space-y-3 text-base">
+                  {siteConfig.officeHours.map((h) => (
+                    <li
+                      key={h.days}
+                      className="flex items-center justify-between gap-6 border-b border-border-soft pb-3 last:border-0"
+                    >
+                      <span className="whitespace-nowrap font-medium text-brand-navy">{h.days}</span>
+                      <span className="whitespace-nowrap text-graphite">{h.time}</span>
+                    </li>
+                  ))}
+                </ul>
                 <p className="mt-6 text-sm leading-relaxed text-graphite-soft">
-                  Außerhalb dieser Zeiten erreichen Sie unseren
-                  Anrufbeantworter — wir rufen schnellstmöglich zurück.
+                  Zu den Büro- und Anmeldezeiten ist unser Empfang persönlich
+                  und telefonisch für Sie da. Außerhalb dieser Zeiten erreichen
+                  Sie unseren Anrufbeantworter — wir rufen schnellstmöglich
+                  zurück.
                 </p>
               </div>
             </Card>
