@@ -20,23 +20,20 @@ sudo sed -i 's|service: http://localhost:3002|service: http://localhost:3001|g' 
 (Der Test-Hostname mally-test.flipdigital.de darf dabei auf 3002 bleiben
 oder mit umgestellt werden.)
 
-## Noch offen: DNS der 3 Mally-Zonen (Dashboard, ~5 Min)
+## DNS der 3 Mally-Zonen — ERLEDIGT (2026-08-05)
 
-Das Server-Zertifikat (`cert.pem`) ist nur für die flipdigital.de-Zone
-autorisiert — die Mally-Zonen müssen einmalig im Cloudflare-Dashboard
-umgestellt werden. Pro Zone (physiotherapie-mally.de,
-physiotherapie-astrid-mally.de, physio-astrid-mally.de) unter DNS → Records:
+Alle drei Zonen zeigen mit `CNAME @` und `CNAME www` (Proxied) auf
+`3b6709d4-e4fb-4c43-a0fa-20814b421c20.cfargotunnel.com` — die
+Übergangsseite ist damit unter allen 6 Hostnames live. Die Mail-Records
+(`A mail`, MX `mail.webclient2.de`, SPF/DKIM-TXT) blieben unangetastet,
+E-Mail läuft weiter über den bisherigen Anbieter. Die versehentlich
+entstandenen 6 CNAMEs in der flipdigital.de-Zone sind gelöscht
+(`mally-test` und `share` bestehen weiter).
 
-1. Bestehende `A`/`AAAA`/`CNAME`-Records für `@` und `www` löschen
-   (MX/TXT nicht anfassen!)
-2. Neu anlegen, Proxy-Status „Proxied" (orange Wolke):
-   - `CNAME  @    3b6709d4-e4fb-4c43-a0fa-20814b421c20.cfargotunnel.com`
-   - `CNAME  www  3b6709d4-e4fb-4c43-a0fa-20814b421c20.cfargotunnel.com`
-
-**Aufräumen (einmalig):** In der Zone **flipdigital.de** sind versehentlich
-6 CNAME-Records entstanden (`physiotherapie-mally.de.flipdigital.de`,
-`www.physiotherapie-mally.de.flipdigital.de` usw. für alle drei Domains) —
-diese 6 löschen. `mally-test` und `share` bleiben!
+**Hinweis lokales Testen:** Der LAN-Resolver zuhause hängt an die Domains
+das Suffix `.zuhause.heining.nrw` an und liefert dann die dogado-Park-IP.
+Daher extern testen (Mobilfunk) oder per
+`curl --resolve physiotherapie-mally.de:443:188.114.96.3 https://physiotherapie-mally.de/`.
 
 ## Architektur
 
