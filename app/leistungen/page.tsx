@@ -50,7 +50,7 @@ export default function LeistungenIndex() {
         title={
           <>
             Unsere Behandlungen —
-            <span className="block text-brand-red">für mehr Beweglichkeit und weniger Schmerzen.</span>
+            <span className="block text-brand-red">für mehr Beweglichkeit, Kraft und Wohlbefinden im Alltag.</span>
           </>
         }
         lead="Wir kombinieren bewährte Verfahren mit spezialisierten Behandlungskonzepten — von Krankengymnastik bis zur Manuellen Therapie. Jede Behandlung wird individuell auf Ihre Bedürfnisse zugeschnitten."

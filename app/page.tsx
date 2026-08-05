@@ -55,9 +55,10 @@ export default function Home() {
                 <span className="block text-brand-red">individuell, empathisch, wirkungsvoll.</span>
               </SectionHeading>
               <SectionLead>
-                Seit {siteConfig.founded} begleiten wir Menschen in Hamm-Bockum-Hövel
-                auf ihrem Weg zu mehr Beweglichkeit und weniger Schmerzen — mit
-                spezialisierten Behandlungskonzepten und einem Team, das zuhört.
+                Seit {siteConfig.founded} begleiten wir Menschen in
+                Hamm-Bockum-Hövel zu mehr Beweglichkeit und Lebensqualität —
+                mit spezialisierten Behandlungskonzepten und einem Team,
+                das zuhört.
               </SectionLead>
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <LinkButton href="/kontakt" size="lg">

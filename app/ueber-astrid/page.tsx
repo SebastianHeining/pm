@@ -80,8 +80,8 @@ export default function UeberAstrid() {
                 <span className="block text-brand-red">Physiotherapeutin aus Leidenschaft.</span>
               </SectionHeading>
               <SectionLead>
-                Seit 2000 begleite ich Menschen in Hamm-Bockum-Hövel auf ihrem
-                Weg zu mehr Beweglichkeit und weniger Schmerzen. Als Gründerin
+                Seit 2000 begleite ich Menschen in Hamm-Bockum-Hövel zu mehr
+                Beweglichkeit und Lebensqualität. Als Gründerin
                 der Praxis liegt mir die individuelle Betreuung jeder einzelnen
                 Patient:in besonders am Herzen.
               </SectionLead>

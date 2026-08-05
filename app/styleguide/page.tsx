@@ -117,9 +117,9 @@ export default function StyleGuide() {
                 Body
               </p>
               <p className="mt-2 max-w-2xl text-lg leading-relaxed">
-                Seit 2000 begleiten wir Menschen in Hamm-Bockum-Hövel auf ihrem
-                Weg zu mehr Beweglichkeit und weniger Schmerzen — mit
-                spezialisierten Behandlungskonzepten und einem Team, das zuhört.
+                Seit 2000 begleiten wir Menschen in Hamm-Bockum-Hövel zu mehr
+                Beweglichkeit und Lebensqualität — mit spezialisierten
+                Behandlungskonzepten und einem Team, das zuhört.
               </p>
             </div>
             <div>
