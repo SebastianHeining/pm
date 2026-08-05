@@ -62,7 +62,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de" className={`${dmSans.variable} h-full antialiased`}>
+    <html lang="de" className={`${dmSans.variable} h-full scroll-smooth antialiased`}>
       <body className="flex min-h-full flex-col bg-surface text-graphite">
         <a
           href="#main"

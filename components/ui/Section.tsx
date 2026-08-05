@@ -6,15 +6,18 @@ export function Section({
   tone = "white",
   spacing = "default",
   as: Tag = "section",
+  id,
 }: {
   children: React.ReactNode;
   className?: string;
   tone?: "white" | "warm" | "navy" | "mute";
   spacing?: "tight" | "default" | "loose";
   as?: "section" | "div" | "article" | "header" | "footer";
+  id?: string;
 }) {
   return (
     <Tag
+      id={id}
       className={cn(
         tone === "white" && "bg-surface",
         tone === "warm" && "bg-surface-warm",

@@ -27,13 +27,15 @@ export const metadata: Metadata = {
 const ORDER: Kategorie[] = ["kasse", "selbstzahler"];
 
 export default function LeistungenIndex() {
-  const grouped = ORDER.map((kat) => ({
-    kat,
-    // FB4: Kacheln ohne Bild ans Ende der Gruppe (stehen unten nebeneinander)
-    items: leistungen
-      .filter((l) => l.kategorie === kat)
-      .sort((a, b) => Number(!!b.bild) - Number(!!a.bild)),
-  })).filter((g) => g.items.length > 0);
+  // FB4: Kacheln ohne Bild als eigene Reihe unter den Bild-Kacheln
+  const grouped = ORDER.map((kat) => {
+    const items = leistungen.filter((l) => l.kategorie === kat);
+    return {
+      kat,
+      mitBild: items.filter((l) => l.bild),
+      ohneBild: items.filter((l) => !l.bild),
+    };
+  }).filter((g) => g.mitBild.length + g.ohneBild.length > 0);
 
   return (
     <>
@@ -54,7 +56,7 @@ export default function LeistungenIndex() {
         lead="Wir kombinieren bewährte Verfahren mit spezialisierten Behandlungskonzepten — von Krankengymnastik bis zur Manuellen Therapie. Jede Behandlung wird individuell auf Ihre Bedürfnisse zugeschnitten."
       />
 
-      {grouped.map(({ kat, items }) => (
+      {grouped.map(({ kat, mitBild, ohneBild }) => (
         <Section
           key={kat}
           tone={kat === "kasse" ? "white" : "warm"}
@@ -76,8 +78,17 @@ export default function LeistungenIndex() {
             )}
 
             <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {items.map((l) => (
-                <li key={l.slug}>
+              {[...mitBild, ...ohneBild].map((l, i) => (
+                <li
+                  key={l.slug}
+                  className={
+                    // erste Kachel ohne Bild beginnt eine neue Reihe —
+                    // so stehen die bildlosen unten nebeneinander (FB4)
+                    i === mitBild.length && mitBild.length > 0
+                      ? "sm:col-start-1 lg:col-start-1"
+                      : undefined
+                  }
+                >
                   <Link
                     href={`/leistungen/${l.slug}`}
                     className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border-soft bg-white transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-xl"

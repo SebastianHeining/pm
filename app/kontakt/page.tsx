@@ -7,6 +7,7 @@ import {
   SectionLead,
 } from "@/components/ui/Section";
 import { Card, CardBody, CardTitle } from "@/components/ui/Card";
+import { LinkButton } from "@/components/ui/Button";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, medicalBusinessJsonLd } from "@/lib/seo";
@@ -18,8 +19,11 @@ export const metadata: Metadata = {
     "So erreichen Sie die Praxis für Physiotherapie Astrid Mally in Hamm-Bockum-Hövel — Telefon, Adresse, Anfahrt und Online-Terminanfrage.",
 };
 
+// Nur die reine Adresse als Routenziel: Mit Praxisnamen matcht Google auf
+// den (noch nicht aktualisierten) alten Brancheneintrag; "Hamm" statt
+// "Hamm-Bockum-Hövel", damit das Geocoding eindeutig bleibt.
 const mapsQuery = encodeURIComponent(
-  `${siteConfig.name}, ${siteConfig.address.street}, ${siteConfig.address.postalCode} ${siteConfig.address.city}-${siteConfig.address.district}`,
+  `${siteConfig.address.street}, ${siteConfig.address.postalCode} ${siteConfig.address.city}`,
 );
 
 export default function Kontakt() {
@@ -49,6 +53,14 @@ export default function Kontakt() {
                 oder kommen Sie während der Öffnungszeiten persönlich in der
                 Praxis vorbei.
               </SectionLead>
+
+              {/* FB4: direkt zum Formular springen, ohne zu scrollen */}
+              <div className="mt-8">
+                <LinkButton href="#terminanfrage" size="lg">
+                  Zur Terminanfrage
+                  <span aria-hidden className="ml-1">↓</span>
+                </LinkButton>
+              </div>
 
               <dl className="mt-10 space-y-6">
                 <div>
@@ -171,7 +183,8 @@ export default function Kontakt() {
         </Container>
       </Section>
 
-      <Section tone="warm" spacing="default">
+      {/* Anker-Ziel für den "Zur Terminanfrage"-Button im Seitenkopf */}
+      <Section tone="warm" spacing="default" id="terminanfrage" className="scroll-mt-28">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
             <div>
