@@ -1,7 +1,42 @@
 # Hosting auf dem Heimserver „web1" (10.10.10.76)
 
-Stand: 2026-08-05. Die Seite läuft dort produktionsbereit parallel zu Vercel —
-die DNS-Umstellung passiert erst nach Kundenfreigabe.
+Stand: 2026-08-05. Die Seite läuft dort produktionsbereit parallel zu Vercel.
+
+## AKTUELLE PHASE: Übergangsseite (Holding)
+
+Bis zur Kundenfreigabe zeigen die Domains auf die **Übergangsseite**
+(`mally-holding.service`, Port 3002 — Logo, Öffnungszeiten, Kontakt,
+Anfahrt, Impressum, „neue Webseite in Arbeit"). Alte Deep-Links landen
+ebenfalls dort. Test-/Preview-URL: https://mally-test.flipdigital.de
+
+**Umschalten auf die echte Webseite bei Freigabe** (1 Befehl auf web1):
+
+```bash
+sudo sed -i 's|service: http://localhost:3002|service: http://localhost:3001|g' /etc/cloudflared/config.yml \
+  && sudo cloudflared tunnel --config /etc/cloudflared/config.yml ingress validate \
+  && sudo systemctl restart cloudflared
+```
+
+(Der Test-Hostname mally-test.flipdigital.de darf dabei auf 3002 bleiben
+oder mit umgestellt werden.)
+
+## Noch offen: DNS der 3 Mally-Zonen (Dashboard, ~5 Min)
+
+Das Server-Zertifikat (`cert.pem`) ist nur für die flipdigital.de-Zone
+autorisiert — die Mally-Zonen müssen einmalig im Cloudflare-Dashboard
+umgestellt werden. Pro Zone (physiotherapie-mally.de,
+physiotherapie-astrid-mally.de, physio-astrid-mally.de) unter DNS → Records:
+
+1. Bestehende `A`/`AAAA`/`CNAME`-Records für `@` und `www` löschen
+   (MX/TXT nicht anfassen!)
+2. Neu anlegen, Proxy-Status „Proxied" (orange Wolke):
+   - `CNAME  @    3b6709d4-e4fb-4c43-a0fa-20814b421c20.cfargotunnel.com`
+   - `CNAME  www  3b6709d4-e4fb-4c43-a0fa-20814b421c20.cfargotunnel.com`
+
+**Aufräumen (einmalig):** In der Zone **flipdigital.de** sind versehentlich
+6 CNAME-Records entstanden (`physiotherapie-mally.de.flipdigital.de`,
+`www.physiotherapie-mally.de.flipdigital.de` usw. für alle drei Domains) —
+diese 6 löschen. `mally-test` und `share` bleiben!
 
 ## Architektur
 
@@ -30,28 +65,13 @@ Das Skript packt den aktuellen Git-Stand (`git archive HEAD`), lädt ihn auf
 den Server, baut dort neu und startet den Service durch. SSH-Passwort wird
 abgefragt (oder vorab `export WEB1_PW=…`).
 
-## DNS-Umstellung (erst nach Kundenfreigabe!)
+## Nach der Kundenfreigabe (Live-Gang der echten Seite)
 
-Alle drei Zonen liegen bereits in Cloudflare („Active"). Pro Zone im
-Dashboard (DNS → Records):
-
-1. Vorhandene `A`/`CNAME`-Records für `@` und `www` (zeigen auf das alte
-   Hosting) löschen bzw. ersetzen durch:
-   - `CNAME  @    3b6709d4-e4fb-4c43-a0fa-20814b421c20.cfargotunnel.com` (Proxy: an/orange)
-   - `CNAME  www  3b6709d4-e4fb-4c43-a0fa-20814b421c20.cfargotunnel.com` (Proxy: an/orange)
-2. Das für `physiotherapie-mally.de`, `physiotherapie-astrid-mally.de`
-   und `physio-astrid-mally.de` wiederholen.
-3. Testen: Alle 6 Hostnames aufrufen — Nebendomains/www müssen per 301 auf
+1. Ingress von 3002 auf 3001 umschalten (Befehl oben)
+2. Testen: Alle 6 Hostnames aufrufen — Nebendomains/www müssen per 301 auf
    `https://physiotherapie-mally.de` landen.
 
-Alternativ per CLI auf dem Server (macht dasselbe):
-
-```bash
-cloudflared tunnel route dns 3b6709d4-e4fb-4c43-a0fa-20814b421c20 physiotherapie-mally.de
-# … je Hostname wiederholen
-```
-
-Nach der Umstellung außerdem:
+Außerdem:
 - Vercel-Deployment pausieren oder als Staging weiterlaufen lassen
 - Google Business Profile auf die neue URL aktualisieren
 - QR-Aushang für /bewertung freigeben (zeigt auf physiotherapie-mally.de)
