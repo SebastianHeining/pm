@@ -30,7 +30,8 @@ export const leistungen: Leistung[] = [
     heroEyebrow: "Bewegung als Therapie",
     heroLead:
       "Unsere klassische Krankengymnastik fördert gezielt Ihre Beweglichkeit, stärkt die Muskulatur und lindert Schmerzen. Mit individuell angepassten Übungen unterstützen wir Ihren Heilungsprozess und verbessern Ihre Mobilität im Alltag.",
-    // FB4: Testweise Illustration statt Foto (Tausch: krankengymnastik.jpg)
+    // FB4: Illustrations-Look für alle Leistungs-Kacheln (Kundin);
+    // Foto-Version liegt parallel: krankengymnastik.jpg
     bild: "/leistungen/krankengymnastik-illustration.jpg",
     bildAlt: "Illustration: Aktive Übung mit dem Theraband in der Praxis",
     wannHilft: [
@@ -60,8 +61,8 @@ export const leistungen: Leistung[] = [
     heroEyebrow: "Gezielte Mobilisation",
     heroLead:
       "Mit spezialisierten Handgriffen mobilisieren wir blockierte Gelenke, lösen Verspannungen und helfen Ihnen, Ihre Bewegungsfreiheit zurückzugewinnen. Unsere erfahrenen Therapeut:innen setzen gezielt manuelle Techniken ein, um Schmerzen zu reduzieren und die Funktionsfähigkeit zu verbessern.",
-    bild: "/leistungen/manuelle-therapie.jpg",
-    bildAlt: "Manuelle Behandlung des Schulterblatts",
+    bild: "/leistungen/manuelle-therapie-illustration.jpg",
+    bildAlt: "Illustration: Manuelle Behandlung des Schulterblatts",
     wannHilft: [
       "Gelenkblockaden und eingeschränkte Bewegungsamplitude",
       "Nacken- und Schulterschmerzen",
@@ -89,8 +90,8 @@ export const leistungen: Leistung[] = [
     heroEyebrow: "Kiefer, Kopf & Nacken",
     heroLead:
       "Beschwerden im Kiefergelenk (Craniomandibuläre Dysfunktion, kurz CMD) können sich durch Schmerzen im Kiefer-, Kopf- oder Nackenbereich, Knacken beim Öffnen des Mundes oder Verspannungen bemerkbar machen. Astrid Mally und mehrere Teammitglieder sind speziell qualifiziert.",
-    bild: "/leistungen/cmd-kiefergelenk.jpg",
-    bildAlt: "CMD-Behandlung am Kiefergelenk in Rückenlage",
+    bild: "/leistungen/cmd-kiefergelenk-illustration.jpg",
+    bildAlt: "Illustration: CMD-Behandlung am Kiefergelenk in Rückenlage",
     wannHilft: [
       "Kieferknacken oder -reiben beim Öffnen des Mundes",
       "Wiederkehrende Kopfschmerzen, vor allem morgens",
@@ -148,7 +149,6 @@ export const leistungen: Leistung[] = [
     heroEyebrow: "Lösen & Regenerieren",
     heroLead:
       "Gezielte Massagen lösen Verspannungen, fördern die Durchblutung und unterstützen die Regeneration Ihres Körpers. Die Bindegewebsmassage wirkt über Reflexzonen tief im Gewebe, aktiviert die Selbstheilungskräfte und kann positiv auf innere Organe und das Nervensystem einwirken.",
-    // FB4: Testweise Illustration statt Foto (Tausch: massage-bgm.jpg)
     bild: "/leistungen/massage-bgm-illustration.jpg",
     bildAlt: "Illustration: Klassische Rückenmassage in der Praxis",
     wannHilft: [
@@ -204,8 +204,8 @@ export const leistungen: Leistung[] = [
     heroEyebrow: "Schwerelos behandeln",
     heroLead:
       "Sanfte Entlastung durch Aufhängung: Der Körper wird nahezu schwerelos gelagert, wodurch Schmerzen gelindert, Bewegungen erleichtert und die Muskulatur gezielt entspannt werden kann.",
-    bild: "/praxis/schlingentisch.jpg",
-    bildAlt: "Behandlungsraum mit Schlingentisch-Gerät über der Liege",
+    // FB4: einheitlicher Illustrations-Look — Raumfoto raus, Icon-Kachel
+    // (der Raum ist weiterhin in der Galerie auf /praxis zu sehen)
     wannHilft: [
       "Akute Rücken- und Nackenschmerzen",
       "Hüft- und Schulterbeschwerden",
@@ -259,8 +259,8 @@ export const leistungen: Leistung[] = [
     heroEyebrow: "Unterstützung in Bewegung",
     heroLead:
       "Kinesio-Tapes sind elastische Baumwoll-Tapes, die Muskeln und Gelenke stützen, ohne sie zu blockieren. Sie wirken über die Haut auf das Bindegewebe und die Mikrozirkulation und können Schmerzen lindern, ohne die Bewegungsfreiheit zu beschränken.",
-    bild: "/leistungen/kinesio-taping.jpg",
-    bildAlt: "Anlegen eines Kinesio-Tapes an der Schulter",
+    bild: "/leistungen/kinesio-taping-illustration.jpg",
+    bildAlt: "Illustration: Anlegen eines Kinesio-Tapes an der Schulter",
     wannHilft: [
       "Muskel- und Gelenkbeschwerden",
       "Nach Verletzungen wie Verstauchungen oder Zerrungen",

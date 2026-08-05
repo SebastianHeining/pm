@@ -47,7 +47,8 @@
 
 - [ ] **Therapie Plus — finaler Text von Astrid**: Die neue Selbstzahler-Seite `/leistungen/therapie-plus` (10-Min-Verlängerung) steht mit einem Platzhalter-Entwurf. Sobald Astrids Text kommt, in `content/leistungen.ts` ersetzen.
 - [ ] **Rückfrage Kundin: „2 Bilder nebeneinander, da muss das eine weg"** — der Satz in der Mail nennt die Stelle nicht („Außerdem sind bei…. 2 Bilder nebeneinander"). Klären, welche Seite gemeint ist.
-- [ ] **Illustrationen-Entscheidung**: Testweise eingebaut bei Krankengymnastik + Massage/BGM (Kachel + Detailseite). Gefällt es? → weitere Leistungen umstellen oder zurück zu Fotos (Foto-Versionen liegen parallel in `public/leistungen/`).
+- [x] **Illustrationen**: Alle 5 verfügbaren Motive eingebaut (KG, MT, CMD, Massage, Taping) — übrige Leistungen als Icon-Kacheln. Foto-Versionen liegen zum Rücktausch parallel in `public/leistungen/`.
+- [ ] Optional: Tim könnte 4 fehlende Illustrations-Motive nachliefern (Fango/Wärme, Hausbesuch, Fußreflexzonen, fachlich korrekte Lymphdrainage) — dann wären alle Kacheln illustriert.
 - [ ] Bearbeitete Bilder 03 (Handgriffe), 05 (Bein), 06 (Schulter Rückenlage), 08 (Massage überkreuzt), 09 (Tape Arm) + 8 weitere Illustrationen liegen ungenutzt in `dokumentekunde/feedback4/entpackt/` als Reserve.
 
 ## Technik / Setup
