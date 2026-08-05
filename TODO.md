@@ -55,8 +55,8 @@
 
 ## Technik / Setup
 
-- [ ] **Hosting-Entscheidung**: ionos / hetzner / eigener Server (oder Vercel behalten — läuft bereits auf mally-website-one.vercel.app).
-- [ ] **Domain-DNS**: Zugang klären; Umzugsplan.
+- [x] **Hosting**: Heimserver „web1" (10.10.10.76) ist produktionsbereit eingerichtet (2026-08-05) — App unter /opt/mally-website, systemd `mally-website.service` auf Port 3001, Cloudflare-Tunnel-Ingress für alle 3 Domains + www vorbereitet. Details + Deploy-Skript: `DEPLOY-HOMESERVER.md` / `scripts/deploy-web1.sh`. Vercel läuft parallel weiter als Preview.
+- [ ] **DNS-Umstellung nach Kundenfreigabe**: Pro Cloudflare-Zone CNAME @ + www auf den Tunnel (Anleitung in DEPLOY-HOMESERVER.md). Danach GBP, QR-Aushang, Decap-OAuth.
 - [ ] **E-Mail-Postfach `praxis-astrid-mally@t-online.de`** + SMTP-Zugangsdaten als Env-Vars setzen (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `MAIL_FROM`, `MAIL_TO`) — betrifft Kontaktformular UND Bewertungs-Formular.
 - [ ] **Decap CMS Production-Backend**: GitHub-OAuth einrichten, sobald über die echte Domain erreichbar.
 - [ ] **Datenschutz-/Impressums-Review** vor Live-Gang (Matterport, OSM, Formulare, Bewertungen).
