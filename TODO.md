@@ -45,6 +45,8 @@
 
 ## Aus Feedbackrunde 4 offen
 
+- [ ] **Ratgeber vorerst ausgeblendet** (Sebastian, 2026-08-05): Die Praxis möchte den Blog aktuell nicht aktiv pflegen. Nav-/Footer-Links entfernt, /ratgeber(+Artikel) leitet auf die Startseite um, Sitemap bereinigt, Biene-Wissensbasis ohne Blog. Inhalte (3 Artikel, Podcasts mit QR-Codes) bleiben vollständig im Repo — Reaktivierung: Redirects in next.config.ts entfernen, Nav-Eintrag in lib/site-config.ts + Footer-Link wieder rein, Sitemap-Zeilen zurück.
+
 - [ ] **Therapie Plus — finaler Text von Astrid**: Die neue Selbstzahler-Seite `/leistungen/therapie-plus` (10-Min-Verlängerung) steht mit einem Platzhalter-Entwurf. Sobald Astrids Text kommt, in `content/leistungen.ts` ersetzen.
 - [ ] **Rückfrage Kundin: „2 Bilder nebeneinander, da muss das eine weg"** — der Satz in der Mail nennt die Stelle nicht („Außerdem sind bei…. 2 Bilder nebeneinander"). Klären, welche Seite gemeint ist.
 - [x] **Illustrationen**: Alle 5 verfügbaren Motive eingebaut (KG, MT, CMD, Massage, Taping) — übrige Leistungen als Icon-Kacheln. Foto-Versionen liegen zum Rücktausch parallel in `public/leistungen/`.

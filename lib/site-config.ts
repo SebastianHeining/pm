@@ -41,7 +41,8 @@ export const navigation = [
   { label: "Praxis", href: "/praxis" },
   { label: "Leistungen", href: "/leistungen" },
   { label: "Team", href: "/praxis/team" },
-  { label: "Ratgeber", href: "/ratgeber" },
+  // FB4: Ratgeber vorerst ausgeblendet — die Praxis möchte den Blog
+  // aktuell nicht aktiv pflegen (Redirects in next.config.ts)
   { label: "Karriere", href: "/karriere" },
   { label: "Bewertung", href: "/bewertung" },
   { label: "Kontakt", href: "/kontakt" },

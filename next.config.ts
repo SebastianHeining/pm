@@ -23,6 +23,10 @@ const nextConfig: NextConfig = {
         destination: "/leistungen/massage-bgm",
         permanent: true,
       },
+      // FB4: Ratgeber vorerst ausgeblendet (Praxis pflegt den Blog nicht
+      // aktiv) — temporäre Redirects, Inhalte bleiben im Repo erhalten
+      { source: "/ratgeber", destination: "/", permanent: false },
+      { source: "/ratgeber/:slug*", destination: "/", permanent: false },
     ];
   },
 };

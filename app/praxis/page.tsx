@@ -56,9 +56,9 @@ export default function PraxisPage() {
                 Seit {siteConfig.founded} in Hamm-Bockum-Hövel
               </SectionEyebrow>
               <SectionHeading as="h1" className="mt-6">
-                Ein Ort, an dem Therapie wirkt —
+                Lernen Sie unsere Praxis kennen —
                 <span className="block text-brand-red">
-                  weil sie persönlich bleibt.
+                  hell, freundlich, mitten in Bockum-Hövel.
                 </span>
               </SectionHeading>
               <SectionLead>

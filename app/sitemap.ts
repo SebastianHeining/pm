@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { leistungen } from "@/content/leistungen";
-import { loadBlogSlugs } from "@/lib/content";
 
 const staticRoutes = [
   { path: "/", priority: 1.0, changeFrequency: "monthly" as const },
@@ -10,7 +9,7 @@ const staticRoutes = [
   { path: "/ueber-astrid", priority: 0.8, changeFrequency: "yearly" as const },
   { path: "/leistungen", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/karriere", priority: 0.7, changeFrequency: "monthly" as const },
-  { path: "/ratgeber", priority: 0.6, changeFrequency: "weekly" as const },
+  // FB4: /ratgeber vorerst ausgeblendet (Redirects in next.config.ts)
   { path: "/kontakt", priority: 0.8, changeFrequency: "yearly" as const },
   { path: "/faq", priority: 0.6, changeFrequency: "monthly" as const },
   { path: "/impressum", priority: 0.1, changeFrequency: "yearly" as const },
@@ -19,7 +18,6 @@ const staticRoutes = [
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
-  const blogSlugs = await loadBlogSlugs();
 
   return [
     ...staticRoutes.map((r) => ({
@@ -36,12 +34,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: ["cmd-kiefergelenk", "manuelle-therapie"].includes(l.slug)
         ? 0.8
         : 0.7,
-    })),
-    ...blogSlugs.map((slug) => ({
-      url: `${siteConfig.url}/ratgeber/${slug}`,
-      lastModified,
-      changeFrequency: "yearly" as const,
-      priority: 0.5,
     })),
   ];
 }
