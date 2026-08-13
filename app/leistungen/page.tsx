@@ -29,7 +29,9 @@ const ORDER: Kategorie[] = ["kasse", "selbstzahler"];
 export default function LeistungenIndex() {
   // FB4: Kacheln ohne Bild als eigene Reihe unter den Bild-Kacheln
   const grouped = ORDER.map((kat) => {
-    const items = leistungen.filter((l) => l.kategorie === kat);
+    const items = leistungen.filter(
+      (l) => l.kategorie === kat || l.auchIn === kat,
+    );
     return {
       kat,
       mitBild: items.filter((l) => l.bild),

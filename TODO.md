@@ -46,7 +46,7 @@
 ## Aus Feedbackrunde 5 (Astrid, 2026-08-13)
 
 - [x] **Ratgeber wieder eingeblendet**: Astrid vermisste die Artikel- und Podcast-Seite. Nav-/Footer-Link zurück, Redirects entfernt, Sitemap und Biene-Wissen wieder mit Blog.
-- [x] **Massage & Fango/Heißluft** in den Selbstzahlerbereich der Leistungsübersicht einsortiert („Kassenleistung bei Verordnung" bleibt in der Kostenübernahme-Box vermerkt).
+- [x] **Massage & Fango/Heißluft** erscheinen in beiden Bereichen der Leistungsübersicht (Kassenleistungen und Selbstzahler, Feld `auchIn`) — Astrids Nachfassen: Patienten sollen sofort sehen, dass beides möglich ist.
 - [x] **Therapie Plus**: „für ergänzende Techniken im Anschluss an die Behandlung" → „vor Ihrem Behandlungstermin" korrigiert.
 - [ ] **Rückfrage an Astrid**: Sie erwähnt „Informationen zu Rückenbeschwerden" — einen Rücken-Artikel gab es nie (vorhanden: CMD, Lymphdrainage, Schulterschmerzen; der frühere Skoliose-Artikel wurde auf Kundenwunsch ersetzt). Falls gewünscht: neuen Artikel „Rückenschmerzen" schreiben und fachlich freigeben lassen.
 - [ ] **web1-Deploy nachholen (VOR dem Live-Gang!)**: Der FB5-Stand (36a58e5) ist auf Vercel, aber noch NICHT auf dem Heimserver — 10.10.10.76 war am 13.08. aus dem LAN nicht erreichbar (Live-Holding via Tunnel lief unbeeinträchtigt weiter). Sobald der Server wieder antwortet: `bash scripts/deploy-web1.sh`.

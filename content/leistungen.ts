@@ -6,6 +6,9 @@ export type Leistung = {
   slug: string;
   titel: string;
   kategorie: Kategorie;
+  // FB5 (Astrid): Leistungen wie Massage/Fango sollen in BEIDEN Bereichen
+  // der Übersicht erscheinen — Patienten sehen so sofort, dass beides geht
+  auchIn?: Kategorie;
   icon: IconName;
   kurzbeschreibung: string;
   heroEyebrow: string;
@@ -142,9 +145,8 @@ export const leistungen: Leistung[] = [
   {
     slug: "massage-bgm",
     titel: "Massage & Bindegewebsmassage",
-    // FB5 (Astrid): im Selbstzahlerbereich einsortieren — Kassenleistung
-    // bei Verordnung bleibt (siehe kostenuebernahme)
-    kategorie: "selbstzahler",
+    kategorie: "kasse",
+    auchIn: "selbstzahler",
     icon: "massage",
     kurzbeschreibung:
       "Klassische Massage und Bindegewebsmassage — lösen Verspannungen und fördern die Regeneration.",
@@ -173,8 +175,8 @@ export const leistungen: Leistung[] = [
   {
     slug: "waerme-kaelte",
     titel: "Fango, Heißluft & Kälteanwendungen",
-    // FB5 (Astrid): im Selbstzahlerbereich einsortieren
-    kategorie: "selbstzahler",
+    kategorie: "kasse",
+    auchIn: "selbstzahler",
     icon: "waerme",
     kurzbeschreibung:
       "Wohltuende Wärme aus Naturmoor, Heißluft, Heiße Rolle — und gezielte Kälte bei akuten Beschwerden.",

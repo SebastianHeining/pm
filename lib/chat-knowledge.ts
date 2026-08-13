@@ -48,7 +48,9 @@ export async function buildBieneSystemPrompt(): Promise<string> {
   const leistungenText = leistungen
     .map((l) => {
       const teile = [
-        `### ${l.titel} (${kategorieLabel[l.kategorie]})`,
+        `### ${l.titel} (${kategorieLabel[l.kategorie]}${
+          l.auchIn ? ` — auch: ${kategorieLabel[l.auchIn]}` : ""
+        })`,
         `Seite: /leistungen/${l.slug}`,
         l.kurzbeschreibung,
         `Hilft bei: ${l.wannHilft.join("; ")}`,
