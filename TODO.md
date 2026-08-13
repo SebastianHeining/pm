@@ -49,6 +49,7 @@
 - [x] **Massage & Fango/Heißluft** in den Selbstzahlerbereich der Leistungsübersicht einsortiert („Kassenleistung bei Verordnung" bleibt in der Kostenübernahme-Box vermerkt).
 - [x] **Therapie Plus**: „für ergänzende Techniken im Anschluss an die Behandlung" → „vor Ihrem Behandlungstermin" korrigiert.
 - [ ] **Rückfrage an Astrid**: Sie erwähnt „Informationen zu Rückenbeschwerden" — einen Rücken-Artikel gab es nie (vorhanden: CMD, Lymphdrainage, Schulterschmerzen; der frühere Skoliose-Artikel wurde auf Kundenwunsch ersetzt). Falls gewünscht: neuen Artikel „Rückenschmerzen" schreiben und fachlich freigeben lassen.
+- [ ] **web1-Deploy nachholen (VOR dem Live-Gang!)**: Der FB5-Stand (36a58e5) ist auf Vercel, aber noch NICHT auf dem Heimserver — 10.10.10.76 war am 13.08. aus dem LAN nicht erreichbar (Live-Holding via Tunnel lief unbeeinträchtigt weiter). Sobald der Server wieder antwortet: `bash scripts/deploy-web1.sh`.
 
 ## Aus Feedbackrunde 4 offen
 
