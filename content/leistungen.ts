@@ -142,7 +142,9 @@ export const leistungen: Leistung[] = [
   {
     slug: "massage-bgm",
     titel: "Massage & Bindegewebsmassage",
-    kategorie: "kasse",
+    // FB5 (Astrid): im Selbstzahlerbereich einsortieren — Kassenleistung
+    // bei Verordnung bleibt (siehe kostenuebernahme)
+    kategorie: "selbstzahler",
     icon: "massage",
     kurzbeschreibung:
       "Klassische Massage und Bindegewebsmassage — lösen Verspannungen und fördern die Regeneration.",
@@ -171,7 +173,8 @@ export const leistungen: Leistung[] = [
   {
     slug: "waerme-kaelte",
     titel: "Fango, Heißluft & Kälteanwendungen",
-    kategorie: "kasse",
+    // FB5 (Astrid): im Selbstzahlerbereich einsortieren
+    kategorie: "selbstzahler",
     icon: "waerme",
     kurzbeschreibung:
       "Wohltuende Wärme aus Naturmoor, Heißluft, Heiße Rolle — und gezielte Kälte bei akuten Beschwerden.",
@@ -191,7 +194,7 @@ export const leistungen: Leistung[] = [
       "Direkt im Anschluss: Massage, Krankengymnastik oder Manuelle Therapie",
     ],
     kostenuebernahme:
-      "Kassenleistung als ergänzendes Heilmittel bei entsprechender Verordnung.",
+      "Kassenleistung als ergänzendes Heilmittel bei entsprechender Verordnung — darüber hinaus jederzeit als Selbstzahlerleistung buchbar.",
     relatedSlugs: ["massage-bgm", "krankengymnastik"],
   },
   {
@@ -317,7 +320,7 @@ export const leistungen: Leistung[] = [
       "Manchmal braucht gute Behandlung einfach ein paar Minuten mehr. Mit Therapie Plus verlängern Sie Ihren Termin um 10 Minuten — für zusätzliche Handgriffe, mehr Ruhe oder eine ausführlichere Übungsanleitung. Sprechen Sie uns bei der Terminvergabe oder am Empfang an.",
     wannHilft: [
       "Wenn die verordnete Behandlungszeit für Ihr Anliegen knapp ist",
-      "Für ergänzende Techniken im Anschluss an die Behandlung",
+      "Für ergänzende Techniken vor Ihrem Behandlungstermin",
       "Für Übungsanleitung ohne Zeitdruck",
       "Kombinierbar mit jeder unserer Behandlungen",
     ],

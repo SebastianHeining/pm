@@ -43,9 +43,16 @@
 - [x] `ANTHROPIC_API_KEY` in Vercel gesetzt (Production, 2026-06-11) — Chat antwortet live. Modell via `CHAT_MODEL` übersteuerbar (Standard `claude-haiku-4-5`). Verbrauch/Kosten einsehbar unter console.anthropic.com.
 - [ ] Optional: Avatar durch ein generiertes Comic-Porträt nach Sabines echtem Foto ersetzen (Datei einfach gegen `components/chat/SabineAvatar.tsx` tauschen bzw. PNG einsetzen).
 
+## Aus Feedbackrunde 5 (Astrid, 2026-08-13)
+
+- [x] **Ratgeber wieder eingeblendet**: Astrid vermisste die Artikel- und Podcast-Seite. Nav-/Footer-Link zurück, Redirects entfernt, Sitemap und Biene-Wissen wieder mit Blog.
+- [x] **Massage & Fango/Heißluft** in den Selbstzahlerbereich der Leistungsübersicht einsortiert („Kassenleistung bei Verordnung" bleibt in der Kostenübernahme-Box vermerkt).
+- [x] **Therapie Plus**: „für ergänzende Techniken im Anschluss an die Behandlung" → „vor Ihrem Behandlungstermin" korrigiert.
+- [ ] **Rückfrage an Astrid**: Sie erwähnt „Informationen zu Rückenbeschwerden" — einen Rücken-Artikel gab es nie (vorhanden: CMD, Lymphdrainage, Schulterschmerzen; der frühere Skoliose-Artikel wurde auf Kundenwunsch ersetzt). Falls gewünscht: neuen Artikel „Rückenschmerzen" schreiben und fachlich freigeben lassen.
+
 ## Aus Feedbackrunde 4 offen
 
-- [ ] **Ratgeber vorerst ausgeblendet** (Sebastian, 2026-08-05): Die Praxis möchte den Blog aktuell nicht aktiv pflegen. Nav-/Footer-Links entfernt, /ratgeber(+Artikel) leitet auf die Startseite um, Sitemap bereinigt, Biene-Wissensbasis ohne Blog. Inhalte (3 Artikel, Podcasts mit QR-Codes) bleiben vollständig im Repo — Reaktivierung: Redirects in next.config.ts entfernen, Nav-Eintrag in lib/site-config.ts + Footer-Link wieder rein, Sitemap-Zeilen zurück.
+- [x] **Ratgeber vorerst ausgeblendet** (Sebastian, 2026-08-05) — in FB5 auf Astrids Wunsch wieder eingeblendet, siehe oben.
 
 - [ ] **Therapie Plus — finaler Text von Astrid**: Die neue Selbstzahler-Seite `/leistungen/therapie-plus` (10-Min-Verlängerung) steht mit einem Platzhalter-Entwurf. Sobald Astrids Text kommt, in `content/leistungen.ts` ersetzen.
 - [ ] **Rückfrage Kundin: „2 Bilder nebeneinander, da muss das eine weg"** — der Satz in der Mail nennt die Stelle nicht („Außerdem sind bei…. 2 Bilder nebeneinander"). Klären, welche Seite gemeint ist.

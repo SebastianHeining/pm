@@ -1,5 +1,5 @@
 import { leistungen, kategorieLabel } from "@/content/leistungen";
-import { loadTeam } from "@/lib/content";
+import { loadBlogPosts, loadTeam } from "@/lib/content";
 import { siteConfig } from "@/lib/site-config";
 
 /**
@@ -43,7 +43,7 @@ let cachedPrompt: string | null = null;
 export async function buildBieneSystemPrompt(): Promise<string> {
   if (cachedPrompt) return cachedPrompt;
 
-  const team = await loadTeam();
+  const [team, posts] = await Promise.all([loadTeam(), loadBlogPosts()]);
 
   const leistungenText = leistungen
     .map((l) => {
@@ -67,6 +67,10 @@ export async function buildBieneSystemPrompt(): Promise<string> {
         ? `. Qualifikationen: ${m.qualifikationen.join(", ")}`
         : ""
     }`;
+
+  const blogText = posts
+    .map((p) => `- „${p.titel}“ (/ratgeber/${p.slug}): ${p.kurzbeschreibung}`)
+    .join("\n");
 
   const officeHoursText = siteConfig.officeHours
     .map((h) => `${h.days}: ${h.time}`)
@@ -149,13 +153,17 @@ Alle Gesichter mit Foto: auf der Seite /praxis/team.
 
 ${FAQ.map((f) => `F: ${f.frage}\nA: ${f.antwort}`).join("\n\n")}
 
+## Ratgeber-Artikel (Seite /ratgeber)
+
+${blogText}
+Auf /ratgeber gibt es außerdem Podcast-Empfehlungen rund um Gesundheit und Bewegung.
+
 ## Weitere Seiten
 
 - /praxis — Praxis, Werte und 3D-Rundgang
 - /ueber-astrid — über Inhaberin Astrid Mally
 - /leistungen — alle Behandlungen im Überblick
 - /karriere — die Praxis sucht motivierte Physiotherapeut:innen (m/w/d) in Voll- oder Teilzeit! Bewerbungen gern per E-Mail.
-  (Hinweis: Einen Ratgeber-/Blog-Bereich gibt es derzeit nicht — verweise bei Gesundheitstipps freundlich ans Praxisteam.)
 - /bewertung — Patient:innen können hier eine Bewertung hinterlassen
 - /kontakt — Anfahrt, Öffnungszeiten und Kontaktformular für Terminanfragen
 - /faq — häufige Fragen ausführlich`;

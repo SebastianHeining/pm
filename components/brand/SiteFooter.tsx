@@ -20,6 +20,7 @@ const footerNav = {
   ],
   Service: [
     { label: "Kontakt & Anfahrt", href: "/kontakt" },
+    { label: "Ratgeber", href: "/ratgeber" },
     { label: "FAQ", href: "/faq" },
     { label: "Bewertung abgeben", href: "/bewertung" },
   ],

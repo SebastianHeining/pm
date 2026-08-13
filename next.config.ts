@@ -23,10 +23,6 @@ const nextConfig: NextConfig = {
         destination: "/leistungen/massage-bgm",
         permanent: true,
       },
-      // FB4: Ratgeber vorerst ausgeblendet (Praxis pflegt den Blog nicht
-      // aktiv) — temporäre Redirects, Inhalte bleiben im Repo erhalten
-      { source: "/ratgeber", destination: "/", permanent: false },
-      { source: "/ratgeber/:slug*", destination: "/", permanent: false },
       // Heimserver-Hosting: Nebendomains und www bündeln per 301 auf die
       // Hauptdomain (Canonical/SEO). Greift erst, wenn die Domains auf den
       // Server zeigen — auf Vercel matchen diese Hosts nie.
