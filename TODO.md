@@ -6,7 +6,7 @@
 ## Aus Feedbackrunde 2 noch offen
 
 - [ ] **Karriere-Text an Astrid mailen** (Sebastian): Astrid möchte den Karriere-Seitentext zum Querlesen per Mail — Seite ist auf die Version ohne 12-Punkte-Plan zurückgebaut.
-- [ ] **info@-Postfach**: Die Webseite nutzt jetzt überall `praxis-astrid-mally@t-online.de`. Falls `info@physiotherapie-mally.de` beim Domain-Umzug eingerichtet wird, an zentraler Stelle (`lib/site-config.ts`) zurückstellen.
+- [x] **Domain-Postfach**: Erledigt (2026-08-28) — die Webseite zeigt überall `kontakt@physiotherapie-mally.de` (zentral in `lib/site-config.ts`).
 - [ ] **Benefits-Icons der Kundin**: Astrid hat sich Icons „mit ChatGPT gemacht" — falls sie die liefert, in die Karriere-Seite einbauen.
 - [ ] **Google-Maps-Routenziel** zeigt erst nach dem Domain-/GBP-Livegang zuverlässig auf die Praxis (Kundin informiert).
 
@@ -66,7 +66,7 @@
 - [x] **Hosting**: Heimserver „web1" (10.10.10.76) ist produktionsbereit eingerichtet (2026-08-05) — App unter /opt/mally-website, systemd `mally-website.service` auf Port 3001, Cloudflare-Tunnel-Ingress für alle 3 Domains + www vorbereitet. Details + Deploy-Skript: `DEPLOY-HOMESERVER.md` / `scripts/deploy-web1.sh`. Vercel läuft parallel weiter als Preview.
 - [x] **DNS-Umstellung** (2026-08-05): Alle 3 Cloudflare-Zonen zeigen mit CNAME @ + www auf den Tunnel; Mail-Records unangetastet. Live ist die **Übergangsseite** (Port 3002). Nach Kundenfreigabe nur noch Ingress auf 3001 umschalten (1 Befehl, siehe DEPLOY-HOMESERVER.md) — danach GBP, QR-Aushang, Decap-OAuth.
 - [x] **SMTP aktiviert (2026-08-28)**: Versand über das neue Postfach `kontakt@physiotherapie-mally.de` (mail.webclient2.de, Port 465). Formulare gehen an t-online-Postfach UND kontakt@-Postfach. End-to-End getestet (mode: sent). Zugangsdaten liegen nur in `/etc/mally-website.env` (chmod 600).
-- [ ] **Entscheidung Astrid/Sebastian**: Soll die öffentlich angezeigte Praxis-Mail (`praxis-astrid-mally@t-online.de` in `lib/site-config.ts` — Website, Impressum, Datenschutz) auf `kontakt@physiotherapie-mally.de` umgestellt werden? Eine Zeile in site-config ändern genügt.
+- [x] **Öffentliche Praxis-Mail umgestellt (2026-08-28)**: Website, Impressum, Datenschutz und Biene zeigen jetzt `kontakt@physiotherapie-mally.de` (Entscheidung Sebastian). Formulare gehen weiter zusätzlich ans t-online-Postfach.
 - [ ] **Decap CMS Production-Backend**: GitHub-OAuth einrichten, sobald über die echte Domain erreichbar.
 - [x] **Datenschutz/Impressum: technisches Selbst-Review (2026-08-28)**: Cloudflare-Abschnitt neu (Auslieferung läuft seit Live-Gang über Cloudflare), OpenStreetMap-Abschnitt ergänzt (fehlte komplett), „Gesundheitsamt des Kreises Hamm" → „der Stadt Hamm" (Hamm ist kreisfrei), toter EU-ODR-Verweis entfernt (Plattform seit Mitte 2025 eingestellt, § 36 VSBG-Satz bleibt), öffentliche „Dies ist ein Vorschlag"-Hinweise von beiden Seiten entfernt, Art.-9-Absatz (Gesundheitsdaten) beim Kontaktformular ergänzt, Bewertungs-Text („per E-Mail") neutralisiert.
 - [ ] **Externe Datenschutz-Beratung** — Fragenliste zum Mitgeben:

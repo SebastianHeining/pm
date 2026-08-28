@@ -66,8 +66,8 @@ SMTP_HOST=...
 SMTP_PORT=587            # oder 465 für SSL
 SMTP_USER=...
 SMTP_PASS=...
-MAIL_FROM=praxis-astrid-mally@t-online.de
-MAIL_TO=praxis-astrid-mally@t-online.de
+MAIL_FROM=kontakt@physiotherapie-mally.de
+MAIL_TO=praxis-astrid-mally@t-online.de, kontakt@physiotherapie-mally.de
 ```
 
 ## Designsystem

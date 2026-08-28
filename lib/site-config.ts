@@ -17,9 +17,10 @@ export const siteConfig = {
     phone: "+49 2381 5444533",
     phoneDisplay: "02381 / 5444 - 533",
     fax: "+49 2381 5444534",
-    // FB2: info@physiotherapie-mally.de existiert (noch) nicht —
-    // aktives Postfach der Praxis ist die t-online-Adresse.
-    email: "praxis-astrid-mally@t-online.de",
+    // Seit Live-Gang 2026-08: eigenes Domain-Postfach (mail.webclient2.de).
+    // Das t-online-Postfach bekommt Formular-Eingänge weiterhin in Kopie
+    // (MAIL_TO auf dem Server).
+    email: "kontakt@physiotherapie-mally.de",
   },
   // Behandlungszeiten (so lange wird therapiert)
   //   (geschütztes Leerzeichen) verhindert den Umbruch „19:00 / Uhr“ auf Mobile
