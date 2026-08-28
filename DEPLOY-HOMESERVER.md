@@ -74,12 +74,12 @@ Außerdem:
 - QR-Aushang für /bewertung freigeben (zeigt auf physiotherapie-mally.de)
 - Decap-CMS-OAuth auf die echte Domain einrichten
 
-## SMTP scharf schalten (sobald Zugangsdaten da sind)
+## SMTP — AKTIV (seit 2026-08-28)
 
-In `/etc/mally-website.env` die SMTP_*/MAIL_*-Zeilen einkommentieren und
-füllen, dann `sudo systemctl restart mally-website`. Bis dahin werden
-Formular-Eingänge nur ins Journal geloggt
-(`journalctl -u mally-website | grep '\[mail\]'`).
+Versand läuft über `kontakt@physiotherapie-mally.de` via
+`mail.webclient2.de:465` (Zugangsdaten in `/etc/mally-website.env`,
+chmod 600). Formulareingänge gehen per Mail an das t-online-Postfach und
+an kontakt@. Bei Versandfehlern: `journalctl -u mally-website | grep '\[mail\]'`.
 
 ## Nützliche Kommandos (auf dem Server)
 

@@ -65,9 +65,17 @@
 
 - [x] **Hosting**: Heimserver „web1" (10.10.10.76) ist produktionsbereit eingerichtet (2026-08-05) — App unter /opt/mally-website, systemd `mally-website.service` auf Port 3001, Cloudflare-Tunnel-Ingress für alle 3 Domains + www vorbereitet. Details + Deploy-Skript: `DEPLOY-HOMESERVER.md` / `scripts/deploy-web1.sh`. Vercel läuft parallel weiter als Preview.
 - [x] **DNS-Umstellung** (2026-08-05): Alle 3 Cloudflare-Zonen zeigen mit CNAME @ + www auf den Tunnel; Mail-Records unangetastet. Live ist die **Übergangsseite** (Port 3002). Nach Kundenfreigabe nur noch Ingress auf 3001 umschalten (1 Befehl, siehe DEPLOY-HOMESERVER.md) — danach GBP, QR-Aushang, Decap-OAuth.
-- [ ] **E-Mail-Postfach `praxis-astrid-mally@t-online.de`** + SMTP-Zugangsdaten als Env-Vars setzen (`SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `MAIL_FROM`, `MAIL_TO`) — betrifft Kontaktformular UND Bewertungs-Formular.
+- [x] **SMTP aktiviert (2026-08-28)**: Versand über das neue Postfach `kontakt@physiotherapie-mally.de` (mail.webclient2.de, Port 465). Formulare gehen an t-online-Postfach UND kontakt@-Postfach. End-to-End getestet (mode: sent). Zugangsdaten liegen nur in `/etc/mally-website.env` (chmod 600).
+- [ ] **Entscheidung Astrid/Sebastian**: Soll die öffentlich angezeigte Praxis-Mail (`praxis-astrid-mally@t-online.de` in `lib/site-config.ts` — Website, Impressum, Datenschutz) auf `kontakt@physiotherapie-mally.de` umgestellt werden? Eine Zeile in site-config ändern genügt.
 - [ ] **Decap CMS Production-Backend**: GitHub-OAuth einrichten, sobald über die echte Domain erreichbar.
-- [ ] **Datenschutz-/Impressums-Review** vor Live-Gang (Matterport, OSM, Formulare, Bewertungen).
+- [x] **Datenschutz/Impressum: technisches Selbst-Review (2026-08-28)**: Cloudflare-Abschnitt neu (Auslieferung läuft seit Live-Gang über Cloudflare), OpenStreetMap-Abschnitt ergänzt (fehlte komplett), „Gesundheitsamt des Kreises Hamm" → „der Stadt Hamm" (Hamm ist kreisfrei), toter EU-ODR-Verweis entfernt (Plattform seit Mitte 2025 eingestellt, § 36 VSBG-Satz bleibt), öffentliche „Dies ist ein Vorschlag"-Hinweise von beiden Seiten entfernt, Art.-9-Absatz (Gesundheitsdaten) beim Kontaktformular ergänzt, Bewertungs-Text („per E-Mail") neutralisiert.
+- [ ] **Externe Datenschutz-Beratung** — Fragenliste zum Mitgeben:
+  - AV-Verträge dokumentieren: Cloudflare (Self-Serve-DPA) und Anthropic (Data Processing Addendum) — liegen sie der Praxis vor?
+  - Kontaktformular-Dropdown „Anliegen" (z. B. „CMD / Kiefergelenk") ist ein Gesundheitsbezug (Art. 9 DSGVO) — reicht der Einwilligungstext im Formular?
+  - KI-Chat Biene: Einwilligung „durch aktive Nutzung" tragfähig, oder Hinweis/Opt-in direkt im Chat-Fenster ergänzen?
+  - OpenStreetMap lädt ohne Zwei-Klick-Lösung (Matterport hat eine) — auf lit. f stützen oder vereinheitlichen?
+  - Solange SMTP fehlt, landen Formulareingaben im Server-Journal (journald, unbegrenzt) — Löschkonzept/Retention festlegen.
+  - Streichung des EU-ODR-Hinweises bestätigen (Plattform per VO (EU) 2024/3228 eingestellt).
 
 ## Erledigt mit Feedback-Runde (2026-06-10)
 

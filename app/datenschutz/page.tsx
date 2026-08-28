@@ -46,15 +46,30 @@ export default function Datenschutz() {
 
             <section>
               <h2 className="text-2xl font-semibold text-brand-navy">
-                2. Welche Daten verarbeiten wir beim Besuch der Seite?
+                2. Hosting & technische Bereitstellung
               </h2>
               <p className="mt-3">
-                Beim bloßen Aufruf dieser Website werden durch unseren Provider
-                technisch erforderliche Server-Log-Daten verarbeitet
-                (IP-Adresse, Zeitpunkt der Anfrage, abgerufene Ressource,
-                User-Agent). Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO
-                (berechtigtes Interesse an einem sicheren Betrieb).
-                Speicherdauer: maximal 7 Tage.
+                Beim Aufruf dieser Website verarbeitet unser Webserver die
+                technisch erforderlichen Verbindungsdaten (insbesondere
+                IP-Adresse, Zeitpunkt der Anfrage, abgerufene Ressource,
+                User-Agent), soweit dies für die Auslieferung der Seite sowie
+                für Stabilität und Sicherheit erforderlich ist. Die Website
+                wird auf einem Server in Deutschland betrieben. Rechtsgrundlage
+                ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an
+                einem sicheren Betrieb).
+              </p>
+              <p className="mt-3">
+                Zur Auslieferung und Absicherung der Website nutzen wir den
+                Dienst Cloudflare (Cloudflare, Inc., USA). Cloudflare arbeitet
+                als technischer Vermittler (Content-Delivery-Netzwerk und
+                Schutz vor Angriffen) und verarbeitet dabei Verbindungsdaten
+                einschließlich Ihrer IP-Adresse. Die Verarbeitung erfolgt auf
+                Grundlage eines Auftragsverarbeitungsvertrags; eine
+                Übermittlung in die USA ist durch EU-Standardvertragsklauseln
+                und die Zertifizierung von Cloudflare nach dem EU-U.S. Data
+                Privacy Framework abgesichert. Rechtsgrundlage: Art. 6 Abs. 1
+                lit. f DSGVO (berechtigtes Interesse an einer sicheren und
+                performanten Bereitstellung).
               </p>
             </section>
 
@@ -71,6 +86,15 @@ export default function Datenschutz() {
                 (Einwilligung). Die Daten löschen wir, sobald die Bearbeitung
                 abgeschlossen ist und keine gesetzlichen Aufbewahrungspflichten
                 entgegenstehen.
+              </p>
+              <p className="mt-3">
+                Sofern Ihre Nachricht Angaben zu Ihrer Gesundheit enthält
+                (etwa zu Ihrem Anliegen oder einer ärztlichen Verordnung),
+                verarbeiten wir diese auf Grundlage Ihrer ausdrücklichen
+                Einwilligung (Art. 9 Abs. 2 lit. a DSGVO), die Sie mit dem
+                Absenden des Formulars erteilen. Bitte übermitteln Sie über
+                das Formular nur die Angaben, die für die Terminanfrage
+                erforderlich sind — Details besprechen wir gern persönlich.
               </p>
             </section>
 
@@ -92,7 +116,26 @@ export default function Datenschutz() {
 
             <section>
               <h2 className="text-2xl font-semibold text-brand-navy">
-                5. Schriftarten (DM Sans)
+                5. Anfahrtskarte (OpenStreetMap)
+              </h2>
+              <p className="mt-3">
+                Auf der Kontaktseite binden wir eine Karte des Dienstes
+                OpenStreetMap ein (OpenStreetMap Foundation, Cambridge,
+                Vereinigtes Königreich). Beim Aufruf der Kontaktseite wird
+                eine Verbindung zu Servern der OpenStreetMap Foundation
+                aufgebaut; dabei werden technische Daten (insbesondere Ihre
+                IP-Adresse) übertragen. Wir nutzen die Karte, um Ihnen die
+                Anfahrt zur Praxis anschaulich darzustellen. Rechtsgrundlage:
+                Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer
+                verständlichen Anfahrtsbeschreibung). Für das Vereinigte
+                Königreich besteht ein Angemessenheitsbeschluss der
+                EU-Kommission.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-brand-navy">
+                6. Schriftarten (DM Sans)
               </h2>
               <p className="mt-3">
                 Diese Seite verwendet die Schriftart „DM Sans“. Sie wird beim
@@ -105,7 +148,7 @@ export default function Datenschutz() {
 
             <section>
               <h2 className="text-2xl font-semibold text-brand-navy">
-                6. Cookies & Tracking
+                7. Cookies & Tracking
               </h2>
               <p className="mt-3">
                 Diese Webseite setzt keine Marketing-Cookies und nutzt kein
@@ -117,12 +160,12 @@ export default function Datenschutz() {
 
             <section>
               <h2 className="text-2xl font-semibold text-brand-navy">
-                7. Patient:innen-Bewertungen
+                8. Patient:innen-Bewertungen
               </h2>
               <p className="mt-3">
                 Über das Formular auf der Seite „Bewertung“ können Sie uns
                 freiwillig eine Bewertung übermitteln (Sterne, Text, optional
-                Name und Ort). Die Angaben werden uns per E-Mail zugestellt und
+                Name und Ort). Die Angaben werden an die Praxis übermittelt und
                 nur mit Ihrer ausdrücklichen Einwilligung — ggf. gekürzt — auf
                 dieser Webseite veröffentlicht. Rechtsgrundlage ist Art. 6
                 Abs. 1 lit. a DSGVO. Sie können Ihre Einwilligung jederzeit mit
@@ -134,7 +177,7 @@ export default function Datenschutz() {
 
             <section>
               <h2 className="text-2xl font-semibold text-brand-navy">
-                8. KI-Chat-Assistentin „Biene“
+                9. KI-Chat-Assistentin „Biene“
               </h2>
               <p className="mt-3">
                 Auf dieser Webseite können Sie freiwillig einen Chat-Assistenten
@@ -159,7 +202,7 @@ export default function Datenschutz() {
 
             <section>
               <h2 className="text-2xl font-semibold text-brand-navy">
-                9. Ihre Rechte
+                10. Ihre Rechte
               </h2>
               <p className="mt-3">
                 Sie haben das Recht auf Auskunft (Art. 15 DSGVO),
@@ -174,11 +217,8 @@ export default function Datenschutz() {
             </section>
 
             <p className="text-sm text-graphite-soft">
-              <strong>Hinweis:</strong> Diese Datenschutzerklärung ist ein
-              Vorschlag und ersetzt keine individuelle Prüfung. Bitte vor dem
-              Live-Gang durch einen Datenschutzbeauftragten bzw. eine Anwältin
-              prüfen lassen — insbesondere wegen Matterport-Einbindung und
-              eventueller Patient:innendaten.
+              Stand: August 2026. Wir passen diese Datenschutzerklärung an,
+              wenn sich die Website oder die eingesetzten Dienste ändern.
             </p>
           </article>
         </Container>

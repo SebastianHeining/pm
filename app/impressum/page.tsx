@@ -78,7 +78,7 @@ export default function Impressum() {
                 Zuständige Aufsichtsbehörde
               </h2>
               <p className="mt-3">
-                Gesundheitsamt des Kreises Hamm
+                Gesundheitsamt der Stadt Hamm
                 <br />
                 Gustav-Heinemann-Straße 10
                 <br />
@@ -101,22 +101,12 @@ export default function Impressum() {
 
             <section>
               <h2 className="text-2xl font-semibold text-brand-navy">
-                EU-Streitschlichtung
+                Verbraucherstreitbeilegung
               </h2>
               <p className="mt-3">
-                Die Europäische Kommission stellt eine Plattform zur
-                Online-Streitbeilegung (OS) bereit:{" "}
-                <a
-                  className="underline underline-offset-2 hover:text-brand-red"
-                  href="https://ec.europa.eu/consumers/odr/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  ec.europa.eu/consumers/odr
-                </a>
-                . Wir sind nicht bereit oder verpflichtet, an
+                Wir sind nicht bereit oder verpflichtet, an
                 Streitbeilegungsverfahren vor einer
-                Verbraucherschlichtungsstelle teilzunehmen.
+                Verbraucherschlichtungsstelle teilzunehmen (§ 36 VSBG).
               </p>
             </section>
 
@@ -147,12 +137,6 @@ export default function Impressum() {
                 schriftlichen Zustimmung der Verfasserin.
               </p>
             </section>
-
-            <p className="text-sm text-graphite-soft">
-              <strong>Hinweis:</strong> Dieses Impressum ist ein Vorschlag und
-              ersetzt keine rechtliche Beratung. Bitte vor dem Live-Gang durch
-              die Praxis prüfen lassen.
-            </p>
           </article>
         </Container>
       </Section>
