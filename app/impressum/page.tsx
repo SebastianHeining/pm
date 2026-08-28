@@ -101,6 +101,25 @@ export default function Impressum() {
 
             <section>
               <h2 className="text-2xl font-semibold text-brand-navy">
+                Konzeption & technische Umsetzung
+              </h2>
+              <p className="mt-3">
+                Verantwortlich für Konzeption, Gestaltung und technische
+                Umsetzung dieses Internetauftritts:{" "}
+                <a
+                  className="underline underline-offset-2 hover:text-brand-red"
+                  href="https://flipdigital.de"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Flipdigital
+                </a>
+                .
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-brand-navy">
                 Verbraucherstreitbeilegung
               </h2>
               <p className="mt-3">

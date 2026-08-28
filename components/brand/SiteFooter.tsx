@@ -122,7 +122,17 @@ export function SiteFooter() {
           <p>
             © {new Date().getFullYear()} {siteConfig.name}. {siteConfig.legal.licensed}
           </p>
-          <p>Hamm-Bockum-Hövel</p>
+          <p>
+            Hamm-Bockum-Hövel ·{" "}
+            <a
+              href="https://flipdigital.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-white"
+            >
+              Webseite von Flipdigital
+            </a>
+          </p>
         </div>
       </Container>
     </footer>
