@@ -2,23 +2,23 @@
 
 Stand: 2026-08-05. Die Seite läuft dort produktionsbereit parallel zu Vercel.
 
-## AKTUELLE PHASE: Übergangsseite (Holding)
+## AKTUELLE PHASE: LIVE (seit 2026-08-28)
 
-Bis zur Kundenfreigabe zeigen die Domains auf die **Übergangsseite**
-(`mally-holding.service`, Port 3002 — Logo, Öffnungszeiten, Kontakt,
-Anfahrt, Impressum, „neue Webseite in Arbeit"). Alte Deep-Links landen
-ebenfalls dort. Test-/Preview-URL: https://mally-test.flipdigital.de
+Die Kundin hat die Webseite freigegeben — alle 6 Hostnames zeigen auf
+die echte Next-App (Port 3001). Nebendomains und www leiten per 308 auf
+https://physiotherapie-mally.de; auch mally-test.flipdigital.de zeigt
+jetzt auf 3001. Die Übergangsseite (`mally-holding.service`, Port 3002)
+läuft weiter, ist aber nicht mehr öffentlich angebunden.
 
-**Umschalten auf die echte Webseite bei Freigabe** (1 Befehl auf web1):
+**Rollback zur Übergangsseite** (falls nötig, 1 Befehl auf web1):
 
 ```bash
-sudo sed -i 's|service: http://localhost:3002|service: http://localhost:3001|g' /etc/cloudflared/config.yml \
+sudo sed -i 's|service: http://localhost:3001|service: http://localhost:3002|g' /etc/cloudflared/config.yml \
   && sudo cloudflared tunnel --config /etc/cloudflared/config.yml ingress validate \
   && sudo systemctl restart cloudflared
 ```
 
-(Der Test-Hostname mally-test.flipdigital.de darf dabei auf 3002 bleiben
-oder mit umgestellt werden.)
+(Backup der Vor-Live-Config: `/etc/cloudflared/config.yml.bak-golive-20260828`)
 
 ## DNS der 3 Mally-Zonen — ERLEDIGT (2026-08-05)
 

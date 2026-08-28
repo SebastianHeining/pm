@@ -31,7 +31,7 @@
 - [x] `/bewertung/aushang` — A4-Druckseite mit QR-Code für die Praxis
 - [x] Decap-CMS-Collection „Bewertungen" — eingehende Bewertungen kommen per E-Mail, Mitarbeiterin legt sie im CMS an und schaltet sie frei
 - [x] Startseiten-Sektion „Das sagen unsere Patient:innen" (erscheint erst, wenn mind. 1 Bewertung veröffentlicht ist)
-- [ ] **Wichtig**: QR-Code zeigt auf `physiotherapie-mally.de/bewertung` — funktioniert erst nach dem Domain-Umzug. Aushang erst danach aufhängen.
+- [ ] **QR-Aushang aufhängen**: Seit dem Live-Gang (2026-08-28) funktioniert der QR-Code (`physiotherapie-mally.de/bewertung`) — Aushang unter /bewertung/aushang drucken und in der Praxis aufhängen.
 - [ ] Hinweis-Text „Bewertungen" in Datenschutzerklärung ergänzen lassen (Einwilligung/Widerruf ist im Formular abgedeckt, zur Sicherheit juristisch prüfen).
 
 ## KI-Chat „Sabine" (NEU — eingebaut)
@@ -49,7 +49,7 @@
 - [x] **Massage & Fango/Heißluft** erscheinen in beiden Bereichen der Leistungsübersicht (Kassenleistungen und Selbstzahler, Feld `auchIn`) — Astrids Nachfassen: Patienten sollen sofort sehen, dass beides möglich ist.
 - [x] **Therapie Plus**: „für ergänzende Techniken im Anschluss an die Behandlung" → „vor Ihrem Behandlungstermin" korrigiert.
 - [ ] **Rückfrage an Astrid**: Sie erwähnt „Informationen zu Rückenbeschwerden" — einen Rücken-Artikel gab es nie (vorhanden: CMD, Lymphdrainage, Schulterschmerzen; der frühere Skoliose-Artikel wurde auf Kundenwunsch ersetzt). Falls gewünscht: neuen Artikel „Rückenschmerzen" schreiben und fachlich freigeben lassen.
-- [ ] **web1-Deploy nachholen (VOR dem Live-Gang!)**: Der FB5-Stand (36a58e5) ist auf Vercel, aber noch NICHT auf dem Heimserver — 10.10.10.76 war am 13.08. aus dem LAN nicht erreichbar (Live-Holding via Tunnel lief unbeeinträchtigt weiter). Sobald der Server wieder antwortet: `bash scripts/deploy-web1.sh`.
+- [x] **web1-Deploy nachgeholt + LIVE-GANG (2026-08-28)**: Kundin hat freigegeben. Aktueller Stand deployed, Tunnel-Ingress von 3002 (Holding) auf 3001 (echte Seite) umgestellt, alle 6 Hostnames extern verifiziert (Hauptdomain 200, Rest 308-Redirect). Rollback-Anleitung in DEPLOY-HOMESERVER.md.
 
 ## Aus Feedbackrunde 4 offen
 
