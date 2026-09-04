@@ -167,7 +167,7 @@ export default function Kontakt() {
                 </p>
                 <p>
                   <strong className="text-brand-navy">Mit dem Bus:</strong>{" "}
-                  Bushaltestelle „Lücke / JuSt“, wenige Gehminuten von der Praxis
+                  Bushaltestelle „Löcke / JuSt“, wenige Gehminuten von der Praxis
                   entfernt.
                 </p>
                 <p>
