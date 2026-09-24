@@ -159,6 +159,21 @@ export default function Kontakt() {
                   Direkte Zufahrt über die Hammer Straße. Parkplätze finden Sie
                   direkt vor dem Gebäude.
                 </p>
+                {/* Temporär, solange die Hammer Straße erneuert wird —
+                    zusammen mit siteConfig.aktuellerHinweis entfernen */}
+                {siteConfig.aktuellerHinweis && (
+                  <p className="rounded-2xl border border-brand-red/20 bg-brand-red-soft/60 p-5">
+                    <strong className="text-brand-navy">
+                      🚧 Aktuell wird gebaut:
+                    </strong>{" "}
+                    Die Hammer Straße wird abschnittsweise erneuert — die
+                    Praxis ist weiterhin gut erreichbar, die Zufahrt kann sich
+                    aber kurzfristig ändern. Planen Sie bitte ein paar Minuten
+                    mehr ein und kommen Sie lieber etwas früher: Im
+                    Wartebereich liegt eine Zeitschrift für Sie bereit — so
+                    geht Ihnen keine Minute Therapiezeit verloren.
+                  </p>
+                )}
                 <p>
                   <strong className="text-brand-navy">Parkscheibe nicht vergessen:</strong>{" "}
                   Auf dem großen Kundenparkplatz am Ärztehaus parken Sie 2

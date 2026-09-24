@@ -120,6 +120,13 @@ ${hoursText}
 Büro- & Anmeldezeiten (Empfang persönlich und telefonisch besetzt, z. B. für Terminvereinbarung):
 ${officeHoursText}
 Außerhalb der Büro- und Anmeldezeiten nimmt der Anrufbeantworter Nachrichten entgegen — das Team ruft schnellstmöglich zurück.
+${
+  siteConfig.aktuellerHinweis
+    ? `
+AKTUELLER HINWEIS: ${siteConfig.aktuellerHinweis.kurz} Die Praxis ist weiterhin gut erreichbar, die Zufahrt kann sich aber kurzfristig ändern. Empfiehl bei Fragen zur Anfahrt, lieber ein paar Minuten früher zu kommen — verspätet begonnene Termine können nicht verlängert werden, im Wartebereich liegen Zeitschriften bereit.
+`
+    : ""
+}
 
 Ein virtueller 3D-Rundgang durch die Praxis ist auf der Seite /praxis eingebettet.
 

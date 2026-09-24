@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/brand/SiteHeader";
+import { NoticeBar } from "@/components/brand/NoticeBar";
 import { SiteFooter } from "@/components/brand/SiteFooter";
 import { BieneChat } from "@/components/chat/BieneChat";
 import "./globals.css";
@@ -71,6 +72,7 @@ export default function RootLayout({
           Zum Inhalt springen
         </a>
         <SiteHeader />
+        <NoticeBar />
         <main id="main" className="flex-1">
           {children}
         </main>
