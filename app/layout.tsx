@@ -71,8 +71,10 @@ export default function RootLayout({
         >
           Zum Inhalt springen
         </a>
-        <SiteHeader />
+        {/* Hinweis-Band bewusst ÜBER dem Header — unterhalb würde das
+            überstehende Logo den Text verdecken */}
         <NoticeBar />
+        <SiteHeader />
         <main id="main" className="flex-1">
           {children}
         </main>
