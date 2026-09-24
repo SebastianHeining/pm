@@ -121,9 +121,10 @@ export default function Datenschutz() {
               <p className="mt-3">
                 Auf der Kontaktseite binden wir eine Karte des Dienstes
                 OpenStreetMap ein (OpenStreetMap Foundation, Cambridge,
-                Vereinigtes Königreich). Beim Aufruf der Kontaktseite wird
-                eine Verbindung zu Servern der OpenStreetMap Foundation
-                aufgebaut; dabei werden technische Daten (insbesondere Ihre
+                Vereinigtes Königreich). Die Karte wird erst geladen, wenn
+                Sie dort die Ansicht „Karte“ auswählen; dabei wird eine
+                Verbindung zu Servern der OpenStreetMap Foundation aufgebaut
+                und es werden technische Daten (insbesondere Ihre
                 IP-Adresse) übertragen. Wir nutzen die Karte, um Ihnen die
                 Anfahrt zur Praxis anschaulich darzustellen. Rechtsgrundlage:
                 Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer

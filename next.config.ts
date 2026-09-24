@@ -23,6 +23,8 @@ const nextConfig: NextConfig = {
         destination: "/leistungen/massage-bgm",
         permanent: true,
       },
+      // Kurz-URL für Aushänge/WhatsApp: führt direkt zum Anfahrts-Bereich
+      { source: "/anfahrt", destination: "/kontakt#anfahrt", permanent: false },
       // Heimserver-Hosting: Nebendomains und www bündeln per 301 auf die
       // Hauptdomain (Canonical/SEO). Greift erst, wenn die Domains auf den
       // Server zeigen — auf Vercel matchen diese Hosts nie.

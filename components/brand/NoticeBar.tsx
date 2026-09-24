@@ -15,7 +15,7 @@ export function NoticeBar() {
         <span aria-hidden>{hinweis.emoji}</span>
         <span>{hinweis.kurz}</span>
         <Link
-          href="/kontakt"
+          href="/kontakt#anfahrt"
           className="whitespace-nowrap font-semibold underline underline-offset-4 hover:text-brand-red"
         >
           Anfahrt-Tipps →

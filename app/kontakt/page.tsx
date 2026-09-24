@@ -9,7 +9,7 @@ import {
 import { Card, CardBody, CardTitle } from "@/components/ui/Card";
 import { LinkButton } from "@/components/ui/Button";
 import { ContactForm } from "@/components/sections/ContactForm";
-import { AnfahrtsSkizze } from "@/components/sections/AnfahrtsSkizze";
+import { AnfahrtKarte } from "@/components/sections/AnfahrtKarte";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, medicalBusinessJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
@@ -148,7 +148,8 @@ export default function Kontakt() {
         </Container>
       </Section>
 
-      <Section spacing="default">
+      {/* Anker-Ziel für das Baustellen-Band im Seitenkopf */}
+      <Section spacing="default" id="anfahrt" className="scroll-mt-28">
         <Container>
           <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-start">
             <div>
@@ -204,24 +205,7 @@ export default function Kontakt() {
                 </a>
               </div>
             </div>
-            <div className="space-y-6">
-              <div className="overflow-hidden rounded-3xl border border-border-soft">
-                {/* Koordinaten Hammer Str. 90a (Ärztehaus), Bockum-Hövel —
-                    via OSM/Nominatim verifiziert: 51.6940, 7.7468 */}
-                <iframe
-                  title="Standort der Praxis auf einer Karte (OpenStreetMap)"
-                  src={`https://www.openstreetmap.org/export/embed.html?bbox=7.7408%2C51.6900%2C7.7528%2C51.6980&layer=mapnik&marker=51.6940%2C7.7468`}
-                  className="h-[420px] w-full"
-                  loading="lazy"
-                />
-              </div>
-              <div className="overflow-hidden rounded-3xl border border-border-soft bg-surface-warm">
-                <p className="px-6 pt-5 text-xs font-semibold uppercase tracking-[0.18em] text-brand-red">
-                  Parken auf einen Blick
-                </p>
-                <AnfahrtsSkizze className="w-full" />
-              </div>
-            </div>
+            <AnfahrtKarte />
           </div>
         </Container>
       </Section>
