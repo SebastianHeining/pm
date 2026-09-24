@@ -9,6 +9,7 @@ import {
 import { Card, CardBody, CardTitle } from "@/components/ui/Card";
 import { LinkButton } from "@/components/ui/Button";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { AnfahrtsSkizze } from "@/components/sections/AnfahrtsSkizze";
 import { JsonLd } from "@/components/JsonLd";
 import { breadcrumbJsonLd, medicalBusinessJsonLd } from "@/lib/seo";
 import { siteConfig } from "@/lib/site-config";
@@ -164,14 +165,15 @@ export default function Kontakt() {
                 {siteConfig.aktuellerHinweis && (
                   <p className="rounded-2xl border border-brand-red/20 bg-brand-red-soft/60 p-5">
                     <strong className="text-brand-navy">
-                      🚧 Aktuell wird gebaut:
+                      🚧 Hinweis zur Baustelle:
                     </strong>{" "}
-                    Die Hammer Straße wird abschnittsweise erneuert — die
-                    Praxis ist weiterhin gut erreichbar, die Zufahrt kann sich
-                    aber kurzfristig ändern. Planen Sie bitte ein paar Minuten
-                    mehr ein und kommen Sie lieber etwas früher: Im
-                    Wartebereich liegt eine Zeitschrift für Sie bereit — so
-                    geht Ihnen keine Minute Therapiezeit verloren.
+                    Die Hammer Straße wird zurzeit erneuert. Ein Teil der
+                    Straße ist bereits abgesperrt, Sie kommen aber weiterhin
+                    zu uns durch. Planen Sie für Anfahrt und Parken bitte
+                    etwas mehr Zeit ein und kommen Sie lieber ein paar
+                    Minuten früher, sonst geht wertvolle Behandlungszeit
+                    verloren. Im Wartezimmer liegen Zeitschriften für Sie
+                    bereit.
                   </p>
                 )}
                 <p>
@@ -202,15 +204,23 @@ export default function Kontakt() {
                 </a>
               </div>
             </div>
-            <div className="overflow-hidden rounded-3xl border border-border-soft">
-              {/* Koordinaten Hammer Str. 90a (Ärztehaus), Bockum-Hövel —
-                  via OSM/Nominatim verifiziert: 51.6940, 7.7468 */}
-              <iframe
-                title="Standort der Praxis auf einer Karte (OpenStreetMap)"
-                src={`https://www.openstreetmap.org/export/embed.html?bbox=7.7408%2C51.6900%2C7.7528%2C51.6980&layer=mapnik&marker=51.6940%2C7.7468`}
-                className="h-[420px] w-full"
-                loading="lazy"
-              />
+            <div className="space-y-6">
+              <div className="overflow-hidden rounded-3xl border border-border-soft">
+                {/* Koordinaten Hammer Str. 90a (Ärztehaus), Bockum-Hövel —
+                    via OSM/Nominatim verifiziert: 51.6940, 7.7468 */}
+                <iframe
+                  title="Standort der Praxis auf einer Karte (OpenStreetMap)"
+                  src={`https://www.openstreetmap.org/export/embed.html?bbox=7.7408%2C51.6900%2C7.7528%2C51.6980&layer=mapnik&marker=51.6940%2C7.7468`}
+                  className="h-[420px] w-full"
+                  loading="lazy"
+                />
+              </div>
+              <div className="overflow-hidden rounded-3xl border border-border-soft bg-surface-warm">
+                <p className="px-6 pt-5 text-xs font-semibold uppercase tracking-[0.18em] text-brand-red">
+                  Parken auf einen Blick
+                </p>
+                <AnfahrtsSkizze className="w-full" />
+              </div>
             </div>
           </div>
         </Container>

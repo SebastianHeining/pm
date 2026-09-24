@@ -39,7 +39,7 @@ export const siteConfig = {
   // Seiten und in Bienes Wissen. Zum Abschalten auf null setzen.
   aktuellerHinweis: {
     emoji: "🚧",
-    kurz: "Die Hammer Straße wird zurzeit erneuert — bitte planen Sie für Anfahrt und Parken ein paar Minuten mehr ein.",
+    kurz: "Die Hammer Straße wird zurzeit erneuert. Bitte planen Sie für Anfahrt und Parken etwas mehr Zeit ein.",
   } as { emoji: string; kurz: string } | null,
   matterportEmbed: "https://my.matterport.com/show/?m=QbLa5s7ChXh",
   social: {} as Record<string, string>,
