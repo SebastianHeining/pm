@@ -168,12 +168,11 @@ export default function Kontakt() {
                       🚧 Hinweis zur Baustelle:
                     </strong>{" "}
                     Die Hammer Straße wird zurzeit erneuert. Ein Teil der
-                    Straße ist bereits abgesperrt, Sie kommen aber weiterhin
-                    zu uns durch. Planen Sie für Anfahrt und Parken bitte
-                    etwas mehr Zeit ein und kommen Sie lieber ein paar
-                    Minuten früher, sonst geht wertvolle Behandlungszeit
-                    verloren. Im Wartezimmer liegen Zeitschriften für Sie
-                    bereit.
+                    Straße ist schon gesperrt, man kommt aber weiterhin zu
+                    uns durch. Planen Sie für Anfahrt und Parken bitte etwas
+                    mehr Zeit ein. Kommen Sie im Zweifel lieber ein paar
+                    Minuten früher und schnappen Sie sich im Wartezimmer
+                    eine Zeitschrift, damit keine Therapiezeit verloren geht.
                   </p>
                 )}
                 <p>

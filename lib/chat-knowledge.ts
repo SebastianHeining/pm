@@ -123,7 +123,7 @@ Außerhalb der Büro- und Anmeldezeiten nimmt der Anrufbeantworter Nachrichten e
 ${
   siteConfig.aktuellerHinweis
     ? `
-AKTUELLER HINWEIS: ${siteConfig.aktuellerHinweis.kurz} Ein Teil der Straße ist bereits abgesperrt, die Praxis ist aber weiterhin erreichbar. Empfiehl bei Fragen zur Anfahrt, lieber ein paar Minuten früher zu kommen, denn verspätet begonnene Termine können nicht verlängert werden. Im Wartezimmer liegen Zeitschriften bereit. Formuliere solche Hinweise in schlichtem, natürlichem Deutsch ohne Gedankenstriche.
+AKTUELLER HINWEIS: ${siteConfig.aktuellerHinweis.kurz} Ein Teil der Straße ist schon gesperrt, man kommt aber weiterhin zur Praxis durch. Empfiehl bei Fragen zur Anfahrt, lieber ein paar Minuten früher zu kommen und sich im Wartezimmer eine Zeitschrift zu schnappen, denn verspätet begonnene Termine können nicht verlängert werden. Formuliere solche Hinweise in schlichtem, natürlichem Deutsch ohne Gedankenstriche.
 `
     : ""
 }
