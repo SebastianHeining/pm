@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import QRCode from "qrcode";
+import { BieneAvatar } from "@/components/chat/BieneAvatar";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
@@ -40,37 +41,40 @@ export default async function BewertungAushang() {
         <p className="mt-4 text-xs font-semibold uppercase tracking-[0.25em] text-graphite-soft">
           Praxis für Physiotherapie
         </p>
-        <p className="text-2xl font-semibold tracking-tight text-brand-navy">
+        <p className="text-3xl font-semibold tracking-tight text-brand-navy">
           Astrid Mally
         </p>
       </div>
 
       <div className="my-10">
-        <h1 className="text-balance text-4xl font-semibold leading-tight tracking-tight text-brand-navy">
+        <h1 className="text-balance text-5xl font-semibold leading-tight tracking-tight text-brand-navy">
           Wie war Ihr Besuch
           <span className="block text-brand-red">bei uns?</span>
         </h1>
-        <p className="mx-auto mt-5 max-w-md text-lg leading-relaxed text-graphite">
-          Wir freuen uns über Ihre Bewertung — ganz ohne Google-Konto, in
-          unter zwei Minuten. Einfach den QR-Code mit der Handy-Kamera
+        <p className="mx-auto mt-6 max-w-lg text-xl leading-relaxed text-graphite">
+          Wir freuen uns über Ihre Bewertung. Ganz ohne Google-Konto und in
+          unter zwei Minuten: Einfach den QR-Code mit der Handy-Kamera
           scannen.
         </p>
       </div>
 
       <div className="flex flex-col items-center">
-        <div
-          aria-label={`QR-Code für ${BEWERTUNG_URL}`}
-          className="rounded-3xl border-4 border-brand-navy bg-white p-6"
-          dangerouslySetInnerHTML={{ __html: qr }}
-        />
-        <p className="mt-5 text-base font-semibold text-brand-navy">
+        <div className="flex items-end gap-5">
+          <div
+            aria-label={`QR-Code für ${BEWERTUNG_URL}`}
+            className="rounded-3xl border-4 border-brand-navy bg-white p-6"
+            dangerouslySetInnerHTML={{ __html: qr }}
+          />
+          <BieneAvatar size={120} />
+        </div>
+        <p className="mt-5 text-xl font-semibold text-brand-navy">
           {BEWERTUNG_URL.replace("https://", "")}
         </p>
       </div>
 
-      <p className="mt-10 flex items-center gap-2 text-base font-medium text-brand-red">
-        <span aria-hidden className="text-xl">♥</span>
-        Vielen Dank — Ihre Meinung hilft uns und anderen Patient:innen!
+      <p className="mt-10 flex items-center gap-3 text-2xl font-semibold text-brand-red">
+        <span aria-hidden>♥</span>
+        Vielen Dank! Ihre Meinung hilft uns und anderen Patient:innen.
       </p>
     </div>
   );
