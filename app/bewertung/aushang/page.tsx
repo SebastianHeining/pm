@@ -20,6 +20,8 @@ export default async function BewertungAushang() {
 
   return (
     <div className="mx-auto flex min-h-[270mm] max-w-[190mm] flex-col items-center justify-between py-10 text-center print:py-0">
+      {/* Erzwingt A4-Hochformat im Druckdialog und bei PDF-Export */}
+      <style>{"@page { size: A4 portrait; margin: 10mm; }"}</style>
       {/* Druck-Hinweis — verschwindet beim Drucken */}
       <p className="mb-8 w-full rounded-xl bg-surface-warm px-4 py-3 text-sm text-graphite print:hidden">
         Diese Seite ist als Aushang gedacht: Mit <strong>Strg + P</strong>{" "}
