@@ -12,7 +12,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border-soft bg-surface/95 backdrop-blur supports-[backdrop-filter]:bg-surface/80">
+    <header className="sticky top-0 z-40 border-b border-border-soft bg-surface/95 backdrop-blur supports-[backdrop-filter]:bg-surface/80 print:hidden">
       <Container>
         <div className="flex h-20 items-center justify-between gap-6 lg:h-24">
           {/* Großes Logo mit Überhang; sehr weicher Schein als dezente

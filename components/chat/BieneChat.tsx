@@ -177,7 +177,7 @@ export function BieneChat() {
   const showChips = messages.length === 1 && !loading;
 
   return (
-    <>
+    <div className="print:hidden">
       {/* Kleine Biene, die gelegentlich eine Runde um den Chat-Button fliegt */}
       {!open && (
         <span
@@ -359,6 +359,6 @@ export function BieneChat() {
           </p>
         </form>
       </div>
-    </>
+    </div>
   );
 }

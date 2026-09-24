@@ -33,7 +33,7 @@ const footerNav = {
 
 export function SiteFooter() {
   return (
-    <footer className="bg-brand-navy text-white">
+    <footer className="bg-brand-navy text-white print:hidden">
       <Container>
         <div className="grid gap-12 py-16 lg:grid-cols-[1.2fr_2fr] lg:gap-16">
           <div>
