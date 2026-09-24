@@ -172,7 +172,8 @@ export default function Kontakt() {
                     uns durch. Planen Sie für Anfahrt und Parken bitte etwas
                     mehr Zeit ein. Kommen Sie im Zweifel lieber ein paar
                     Minuten früher und schnappen Sie sich im Wartezimmer
-                    eine Zeitschrift, damit keine Therapiezeit verloren geht.
+                    eine Zeitschrift, damit Ihnen keine Therapiezeit verloren
+                    geht.
                   </p>
                 )}
                 <p>
