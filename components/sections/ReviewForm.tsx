@@ -34,49 +34,93 @@ const stimmung = [
   { emoji: "🤩", text: "Wunderbar, da summt die ganze Praxis vor Freude!" },
 ];
 
-// Vorgefertigte Bausteine, passend zur gewählten Sternzahl
-function bausteineFuer(sterne: number): string[] {
-  if (sterne >= 4)
-    return [
-      "Sehr nettes und freundliches Team",
-      "Es ging immer pünktlich los",
-      "Die Behandlung hat mir richtig gut geholfen",
-      "Ich habe mich gut aufgehoben gefühlt",
-      "Ich habe kurzfristig einen Termin bekommen",
-    ];
-  if (sterne === 3)
-    return [
-      "Insgesamt zufrieden, mit kleinen Abstrichen",
-      "Die Behandlung war gut, die Wartezeit etwas lang",
-      "Gute Therapie, die Terminvergabe könnte einfacher sein",
-      "Nettes Team, ich hätte mir etwas mehr Zeit gewünscht",
-    ];
-  if (sterne >= 1)
-    return [
-      "Die Wartezeit war mir zu lang",
-      "Ich habe mich nicht gut beraten gefühlt",
-      "Die Behandlung hat mir leider nicht geholfen",
-      "Die Terminvergabe war umständlich",
-    ];
-  return [];
+const NICHTS_ZU_VERBESSERN = "Nichts, bleibt wie ihr seid!";
+
+const gutBausteine = [
+  "Sehr nettes und freundliches Team",
+  "Es ging pünktlich los",
+  "Die Behandlung hat mir richtig gut geholfen",
+  "Ich habe mich gut aufgehoben gefühlt",
+  "Ich habe kurzfristig einen Termin bekommen",
+];
+
+const besserBausteine = [
+  "Die Wartezeit war mir zu lang",
+  "Ich habe mich nicht gut beraten gefühlt",
+  "Die Behandlung hat mir leider nicht geholfen",
+  "Die Terminvergabe war umständlich",
+  "Etwas mehr Zeit für die Behandlung wäre schön",
+];
+
+const wannOptionen = [
+  { key: "heute", label: "Heute" },
+  { key: "gestern", label: "Gestern" },
+  { key: "letzte-woche", label: "Letzte Woche" },
+  { key: "anders", label: "Wann anders" },
+] as const;
+
+type WannKey = (typeof wannOptionen)[number]["key"];
+
+/** Entfernt einen zuvor eingefügten Baustein-Satz wieder aus dem Text. */
+function ohneBaustein(text: string, baustein: string): string {
+  const i = text.indexOf(baustein);
+  if (i === -1) return text;
+  let ende = i + baustein.length;
+  if (text[ende] === ".") ende += 1;
+  while (text[ende] === " ") ende += 1;
+  return (text.slice(0, i) + text.slice(ende)).trimStart();
+}
+
+/** Hängt einen Baustein als Satz an den bestehenden Text an. */
+function mitBaustein(text: string, baustein: string): string {
+  const basis = text.trimEnd();
+  if (!basis) return `${baustein}. `;
+  return `${basis}${/[.!?]$/.test(basis) ? "" : "."} ${baustein}. `;
 }
 
 export function ReviewForm() {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const [sterne, setSterne] = useState(0);
   const [hover, setHover] = useState(0);
-  const [text, setText] = useState("");
-  const [benutzt, setBenutzt] = useState<string[]>([]);
   // Kontinuierliche Slider-Position — die Sterne rasten auf ganze Werte
   const [slider, setSlider] = useState(3);
+  const [gutText, setGutText] = useState("");
+  const [besserText, setBesserText] = useState("");
+  const [benutzt, setBenutzt] = useState<string[]>([]);
+  const [wannWahl, setWannWahl] = useState<WannKey>("heute");
+  const [wannDatum, setWannDatum] = useState("");
 
-  function bausteinEinfuegen(baustein: string) {
-    setText((bisher) => {
-      const basis = bisher.trimEnd();
-      if (!basis) return `${baustein}. `;
-      return `${basis}${/[.!?]$/.test(basis) ? "" : "."} ${baustein}. `;
+  function waehleSterne(n: number) {
+    setSterne(n);
+    // Bei guter Bewertung das Verbessern-Feld charmant vorbelegen —
+    // aber nie eigene Eingaben überschreiben
+    setBesserText((bisher) => {
+      if (n >= 4 && bisher.trim() === "") return NICHTS_ZU_VERBESSERN;
+      if (n <= 3 && bisher.trim() === NICHTS_ZU_VERBESSERN) return "";
+      return bisher;
     });
-    setBenutzt((b) => [...b, baustein]);
+  }
+
+  function toggleBaustein(baustein: string, feld: "gut" | "besser") {
+    const setzen = feld === "gut" ? setGutText : setBesserText;
+    if (benutzt.includes(baustein)) {
+      setzen((t) => ohneBaustein(t, baustein));
+      setBenutzt((b) => b.filter((x) => x !== baustein));
+    } else {
+      setzen((t) =>
+        mitBaustein(t.trim() === NICHTS_ZU_VERBESSERN ? "" : t, baustein),
+      );
+      setBenutzt((b) => [...b, baustein]);
+    }
+  }
+
+  function wannBesuchWert(): string {
+    if (wannWahl === "anders") {
+      if (!wannDatum) return "";
+      const [jahr, monat, tag] = wannDatum.split("-");
+      return `${tag}.${monat}.${jahr}`;
+    }
+    return wannOptionen.find((o) => o.key === wannWahl)?.label ?? "";
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -87,15 +131,29 @@ export function ReviewForm() {
       setStatus({ kind: "error", message: "Bitte wählen Sie eine Sterne-Bewertung." });
       return;
     }
+    if (gutText.trim().length < 5) {
+      setStatus({
+        kind: "error",
+        message: "Bitte schreiben Sie ein paar Worte dazu, was Ihnen gefallen hat.",
+      });
+      return;
+    }
+    if (besserText.trim().length < 5) {
+      setStatus({
+        kind: "error",
+        message: `Bitte sagen Sie uns kurz, was wir besser machen können. Wenn alles gepasst hat, klicken Sie einfach auf „${NICHTS_ZU_VERBESSERN}“.`,
+      });
+      return;
+    }
     setStatus({ kind: "submitting" });
 
     const formData = new FormData(event.currentTarget);
     const payload = {
       name: String(formData.get("name") ?? ""),
       ort: String(formData.get("ort") ?? ""),
-      wannBesuch: String(formData.get("wannBesuch") ?? ""),
+      wannBesuch: wannBesuchWert(),
       sterne,
-      text: String(formData.get("text") ?? ""),
+      text: `Was gefallen hat:\n${gutText.trim()}\n\nWas wir verbessern können:\n${besserText.trim()}`,
       consent: formData.get("consent") === "on",
       website: String(formData.get("website") ?? ""),
     };
@@ -143,6 +201,14 @@ export function ReviewForm() {
 
   const activeSterne = hover || sterne;
 
+  const chipClass = (verwendet: boolean) =>
+    cn(
+      "rounded-full border px-3.5 py-1.5 text-sm transition-colors",
+      verwendet
+        ? "border-brand-red/40 bg-brand-red-soft text-brand-navy"
+        : "border-border-strong bg-white text-brand-navy hover:border-brand-red hover:text-brand-red",
+    );
+
   return (
     <form onSubmit={handleSubmit} className="space-y-5" noValidate>
       <fieldset className="rounded-2xl bg-surface-warm p-5 ring-1 ring-border-soft">
@@ -159,7 +225,7 @@ export function ReviewForm() {
                 aria-checked={sterne === n}
                 aria-label={`${n} von 5 Sternen: ${sterneLabels[n]}`}
                 onClick={() => {
-                  setSterne(n);
+                  waehleSterne(n);
                   setSlider(n);
                 }}
                 onMouseEnter={() => setHover(n)}
@@ -182,7 +248,7 @@ export function ReviewForm() {
             onChange={(e) => {
               const wert = Number(e.target.value);
               setSlider(wert);
-              setSterne(Math.round(wert));
+              waehleSterne(Math.round(wert));
             }}
             aria-label="Zufriedenheit von 1 bis 5 Sternen"
             aria-valuetext={`${sterne || Math.round(slider)} von 5 Sternen`}
@@ -206,50 +272,95 @@ export function ReviewForm() {
         </div>
       </fieldset>
 
+      {sterne > 0 && (
+        <p className="text-xs text-graphite-soft">
+          Klicken Sie an, was passt — ein zweiter Klick nimmt es wieder raus.
+          Eigene Worte machen die Bewertung noch persönlicher.
+        </p>
+      )}
+
       <div>
-        <label htmlFor="text" className={labelBase}>
-          Ihre Erfahrung <span className="text-brand-red">*</span>
+        <label htmlFor="gutText" className={labelBase}>
+          Was hat Ihnen gefallen? <span className="text-brand-red">*</span>
         </label>
         {sterne > 0 && (
-          <div className="mt-2">
-            <p className="text-xs text-graphite-soft">
-              Klicken Sie an, was passt. Eigene Worte machen die Bewertung
-              noch persönlicher.
-            </p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {bausteineFuer(sterne).map((b) => {
+          <div className="mt-2 flex flex-wrap gap-2">
+            {gutBausteine.map((b) => {
+              const verwendet = benutzt.includes(b);
+              return (
+                <button
+                  key={b}
+                  type="button"
+                  onClick={() => toggleBaustein(b, "gut")}
+                  aria-pressed={verwendet}
+                  className={chipClass(verwendet)}
+                >
+                  {verwendet ? "✓ " : "+ "}
+                  {b}
+                </button>
+              );
+            })}
+          </div>
+        )}
+        <textarea
+          id="gutText"
+          name="gutText"
+          required
+          rows={3}
+          maxLength={1000}
+          value={gutText}
+          onChange={(e) => setGutText(e.target.value)}
+          placeholder="Zum Beispiel das Team, die Behandlung oder die Atmosphäre …"
+          className={cn(inputBase, "mt-2 resize-y")}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="besserText" className={labelBase}>
+          Was können wir verbessern? <span className="text-brand-red">*</span>
+        </label>
+        {sterne > 0 && (
+          <div className="mt-2 flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() =>
+                setBesserText((t) =>
+                  t.trim() === NICHTS_ZU_VERBESSERN ? "" : NICHTS_ZU_VERBESSERN,
+                )
+              }
+              aria-pressed={besserText.trim() === NICHTS_ZU_VERBESSERN}
+              className={chipClass(besserText.trim() === NICHTS_ZU_VERBESSERN)}
+            >
+              {besserText.trim() === NICHTS_ZU_VERBESSERN ? "✓ " : "🐝 "}
+              {NICHTS_ZU_VERBESSERN}
+            </button>
+            {sterne <= 3 &&
+              besserBausteine.map((b) => {
                 const verwendet = benutzt.includes(b);
                 return (
                   <button
                     key={b}
                     type="button"
-                    disabled={verwendet}
-                    onClick={() => bausteinEinfuegen(b)}
-                    className={cn(
-                      "rounded-full border px-3.5 py-1.5 text-sm transition-colors",
-                      verwendet
-                        ? "border-border-soft bg-surface-warm text-graphite-soft"
-                        : "border-border-strong bg-white text-brand-navy hover:border-brand-red hover:text-brand-red",
-                    )}
+                    onClick={() => toggleBaustein(b, "besser")}
+                    aria-pressed={verwendet}
+                    className={chipClass(verwendet)}
                   >
                     {verwendet ? "✓ " : "+ "}
                     {b}
                   </button>
                 );
               })}
-            </div>
           </div>
         )}
         <textarea
-          id="text"
-          name="text"
+          id="besserText"
+          name="besserText"
           required
-          rows={5}
-          minLength={10}
-          maxLength={2000}
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Was hat Ihnen gefallen? Wie haben Sie die Behandlung erlebt?"
+          rows={3}
+          maxLength={1000}
+          value={besserText}
+          onChange={(e) => setBesserText(e.target.value)}
+          placeholder="Sagen Sie es uns ehrlich, wir möchten besser werden."
           className={cn(inputBase, "mt-2 resize-y")}
         />
       </div>
@@ -287,23 +398,43 @@ export function ReviewForm() {
         </div>
       </div>
 
-      <div>
-        <label htmlFor="wannBesuch" className={labelBase}>
+      <fieldset>
+        <legend className={labelBase}>
           Wann waren Sie bei uns?{" "}
           <span className="text-graphite-soft">(optional)</span>
-        </label>
-        <input
-          id="wannBesuch"
-          name="wannBesuch"
-          type="text"
-          maxLength={60}
-          placeholder="z. B. Juni 2026 oder „vor zwei Wochen“"
-          className={cn(inputBase, "mt-2")}
-        />
+        </legend>
+        <div className="mt-2 flex flex-wrap items-center gap-2">
+          {wannOptionen.map((o) => (
+            <button
+              key={o.key}
+              type="button"
+              onClick={() => setWannWahl(o.key)}
+              aria-pressed={wannWahl === o.key}
+              className={cn(
+                "rounded-full border px-4 py-2 text-sm font-medium transition-colors",
+                wannWahl === o.key
+                  ? "border-brand-navy bg-brand-navy text-white"
+                  : "border-border-strong bg-white text-brand-navy hover:border-brand-red hover:text-brand-red",
+              )}
+            >
+              {o.label}
+            </button>
+          ))}
+          {wannWahl === "anders" && (
+            <input
+              type="date"
+              aria-label="Datum Ihres Besuchs"
+              value={wannDatum}
+              max={new Date().toISOString().slice(0, 10)}
+              onChange={(e) => setWannDatum(e.target.value)}
+              className={cn(inputBase, "w-auto")}
+            />
+          )}
+        </div>
         <p className="mt-1.5 text-xs text-graphite-soft">
-          Hilft uns, Ihr Feedback einzuordnen — wird nicht veröffentlicht.
+          Hilft uns, Ihr Feedback einzuordnen. Wird nicht veröffentlicht.
         </p>
-      </div>
+      </fieldset>
 
       {/* Honeypot */}
       <div aria-hidden className="hidden">
