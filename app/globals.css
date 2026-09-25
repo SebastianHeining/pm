@@ -255,3 +255,44 @@
     color: var(--color-graphite);
   }
 }
+
+/* Bewertungs-Slider — groß, rund, touch-freundlich */
+.biene-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 14px;
+  border-radius: 9999px;
+  outline: none;
+  cursor: pointer;
+  /* Wischen auf dem Slider zieht den Regler, statt die Seite zu scrollen */
+  touch-action: none;
+}
+.biene-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  background: var(--color-brand-red);
+  border: 4px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease;
+}
+.biene-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+.biene-slider::-webkit-slider-thumb:active {
+  transform: scale(1.15);
+}
+.biene-slider::-moz-range-thumb {
+  width: 34px;
+  height: 34px;
+  border-radius: 9999px;
+  background: var(--color-brand-red);
+  border: 4px solid #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+.biene-slider:focus-visible {
+  outline: 2px solid var(--color-brand-red);
+  outline-offset: 4px;
+}

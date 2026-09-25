@@ -39,7 +39,7 @@ function bausteineFuer(sterne: number): string[] {
   if (sterne >= 4)
     return [
       "Sehr nettes und freundliches Team",
-      "Termine waren immer pünktlich",
+      "Es ging immer pünktlich los",
       "Die Behandlung hat mir richtig gut geholfen",
       "Ich habe mich gut aufgehoben gefühlt",
       "Ich habe kurzfristig einen Termin bekommen",
@@ -67,6 +67,8 @@ export function ReviewForm() {
   const [hover, setHover] = useState(0);
   const [text, setText] = useState("");
   const [benutzt, setBenutzt] = useState<string[]>([]);
+  // Kontinuierliche Slider-Position — die Sterne rasten auf ganze Werte
+  const [slider, setSlider] = useState(3);
 
   function bausteinEinfuegen(baustein: string) {
     setText((bisher) => {
@@ -156,7 +158,10 @@ export function ReviewForm() {
                 role="radio"
                 aria-checked={sterne === n}
                 aria-label={`${n} von 5 Sternen: ${sterneLabels[n]}`}
-                onClick={() => setSterne(n)}
+                onClick={() => {
+                  setSterne(n);
+                  setSlider(n);
+                }}
                 onMouseEnter={() => setHover(n)}
                 onMouseLeave={() => setHover(0)}
                 className={cn(
@@ -172,15 +177,22 @@ export function ReviewForm() {
             type="range"
             min={1}
             max={5}
-            step={1}
-            value={sterne || 3}
-            onChange={(e) => setSterne(Number(e.target.value))}
+            step={0.01}
+            value={slider}
+            onChange={(e) => {
+              const wert = Number(e.target.value);
+              setSlider(wert);
+              setSterne(Math.round(wert));
+            }}
             aria-label="Zufriedenheit von 1 bis 5 Sternen"
+            aria-valuetext={`${sterne || Math.round(slider)} von 5 Sternen`}
             className={cn(
-              "w-64 max-w-full cursor-pointer",
+              "biene-slider w-full max-w-sm",
               sterne === 0 && "opacity-50",
             )}
-            style={{ accentColor: "#C8202A" }}
+            style={{
+              background: `linear-gradient(to right, #C8202A ${((slider - 1) / 4) * 100}%, #E5E2DD ${((slider - 1) / 4) * 100}%)`,
+            }}
           />
           <p
             aria-live="polite"
