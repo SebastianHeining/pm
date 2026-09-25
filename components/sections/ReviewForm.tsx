@@ -24,10 +24,58 @@ const sterneLabels = [
   "Sehr zufrieden",
 ];
 
+// Heitere Reaktion auf die gewählte Sternzahl
+const stimmung = [
+  { emoji: "👋", text: "Tippen Sie auf die Sterne oder ziehen Sie den Regler." },
+  { emoji: "😟", text: "Oje, das tut uns leid! Erzählen Sie uns bitte, was schiefgelaufen ist." },
+  { emoji: "🫤", text: "Da war Luft nach oben. Ihr Feedback hilft uns, besser zu werden." },
+  { emoji: "🙂", text: "Solide Mitte! Was hätte Ihren Besuch noch besser gemacht?" },
+  { emoji: "😊", text: "Schön, dass Sie zufrieden waren! Was hat Ihnen besonders gefallen?" },
+  { emoji: "🤩", text: "Wunderbar, da summt die ganze Praxis vor Freude!" },
+];
+
+// Vorgefertigte Bausteine, passend zur gewählten Sternzahl
+function bausteineFuer(sterne: number): string[] {
+  if (sterne >= 4)
+    return [
+      "Sehr nettes und freundliches Team",
+      "Termine waren immer pünktlich",
+      "Die Behandlung hat mir richtig gut geholfen",
+      "Ich habe mich gut aufgehoben gefühlt",
+      "Ich habe kurzfristig einen Termin bekommen",
+    ];
+  if (sterne === 3)
+    return [
+      "Insgesamt zufrieden, mit kleinen Abstrichen",
+      "Die Behandlung war gut, die Wartezeit etwas lang",
+      "Gute Therapie, die Terminvergabe könnte einfacher sein",
+      "Nettes Team, ich hätte mir etwas mehr Zeit gewünscht",
+    ];
+  if (sterne >= 1)
+    return [
+      "Die Wartezeit war mir zu lang",
+      "Ich habe mich nicht gut beraten gefühlt",
+      "Die Behandlung hat mir leider nicht geholfen",
+      "Die Terminvergabe war umständlich",
+    ];
+  return [];
+}
+
 export function ReviewForm() {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const [sterne, setSterne] = useState(0);
   const [hover, setHover] = useState(0);
+  const [text, setText] = useState("");
+  const [benutzt, setBenutzt] = useState<string[]>([]);
+
+  function bausteinEinfuegen(baustein: string) {
+    setText((bisher) => {
+      const basis = bisher.trimEnd();
+      if (!basis) return `${baustein}. `;
+      return `${basis}${/[.!?]$/.test(basis) ? "" : "."} ${baustein}. `;
+    });
+    setBenutzt((b) => [...b, baustein]);
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -95,24 +143,24 @@ export function ReviewForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-      <fieldset>
-        <legend className={labelBase}>
+      <fieldset className="rounded-2xl bg-surface-warm p-5 ring-1 ring-border-soft">
+        <legend className={cn(labelBase, "px-1")}>
           Wie zufrieden waren Sie? <span className="text-brand-red">*</span>
         </legend>
-        <div className="mt-3 flex items-center gap-2">
-          <div className="flex gap-1" role="radiogroup" aria-label="Sterne-Bewertung">
+        <div className="mt-2 flex flex-col items-center gap-3">
+          <div className="flex gap-1.5" role="radiogroup" aria-label="Sterne-Bewertung">
             {[1, 2, 3, 4, 5].map((n) => (
               <button
                 key={n}
                 type="button"
                 role="radio"
                 aria-checked={sterne === n}
-                aria-label={`${n} von 5 Sternen — ${sterneLabels[n]}`}
+                aria-label={`${n} von 5 Sternen: ${sterneLabels[n]}`}
                 onClick={() => setSterne(n)}
                 onMouseEnter={() => setHover(n)}
                 onMouseLeave={() => setHover(0)}
                 className={cn(
-                  "text-4xl leading-none transition-transform hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red rounded",
+                  "text-5xl leading-none transition-transform hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-red rounded",
                   activeSterne >= n ? "text-brand-red" : "text-border-strong",
                 )}
               >
@@ -120,11 +168,29 @@ export function ReviewForm() {
               </button>
             ))}
           </div>
-          {activeSterne > 0 && (
-            <span className="ml-2 text-sm font-medium text-graphite">
-              {sterneLabels[activeSterne]}
+          <input
+            type="range"
+            min={1}
+            max={5}
+            step={1}
+            value={sterne || 3}
+            onChange={(e) => setSterne(Number(e.target.value))}
+            aria-label="Zufriedenheit von 1 bis 5 Sternen"
+            className={cn(
+              "w-64 max-w-full cursor-pointer",
+              sterne === 0 && "opacity-50",
+            )}
+            style={{ accentColor: "#C8202A" }}
+          />
+          <p
+            aria-live="polite"
+            className="min-h-[1.75rem] text-center text-base font-medium text-graphite"
+          >
+            <span aria-hidden className="mr-2 text-xl align-middle">
+              {stimmung[activeSterne].emoji}
             </span>
-          )}
+            {stimmung[activeSterne].text}
+          </p>
         </div>
       </fieldset>
 
@@ -132,6 +198,36 @@ export function ReviewForm() {
         <label htmlFor="text" className={labelBase}>
           Ihre Erfahrung <span className="text-brand-red">*</span>
         </label>
+        {sterne > 0 && (
+          <div className="mt-2">
+            <p className="text-xs text-graphite-soft">
+              Klicken Sie an, was passt. Eigene Worte machen die Bewertung
+              noch persönlicher.
+            </p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {bausteineFuer(sterne).map((b) => {
+                const verwendet = benutzt.includes(b);
+                return (
+                  <button
+                    key={b}
+                    type="button"
+                    disabled={verwendet}
+                    onClick={() => bausteinEinfuegen(b)}
+                    className={cn(
+                      "rounded-full border px-3.5 py-1.5 text-sm transition-colors",
+                      verwendet
+                        ? "border-border-soft bg-surface-warm text-graphite-soft"
+                        : "border-border-strong bg-white text-brand-navy hover:border-brand-red hover:text-brand-red",
+                    )}
+                  >
+                    {verwendet ? "✓ " : "+ "}
+                    {b}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
         <textarea
           id="text"
           name="text"
@@ -139,6 +235,8 @@ export function ReviewForm() {
           rows={5}
           minLength={10}
           maxLength={2000}
+          value={text}
+          onChange={(e) => setText(e.target.value)}
           placeholder="Was hat Ihnen gefallen? Wie haben Sie die Behandlung erlebt?"
           className={cn(inputBase, "mt-2 resize-y")}
         />
@@ -164,12 +262,13 @@ export function ReviewForm() {
         </div>
         <div>
           <label htmlFor="ort" className={labelBase}>
-            Ort <span className="text-graphite-soft">(optional)</span>
+            Wohnort <span className="text-graphite-soft">(optional)</span>
           </label>
           <input
             id="ort"
             name="ort"
             type="text"
+            defaultValue="Hamm"
             placeholder="z. B. Hamm"
             className={cn(inputBase, "mt-2")}
           />
